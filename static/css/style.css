@@ -1,0 +1,19 @@
+/* General */
+*{
+    padding: 0px;
+    margin: 0px;
+    border: 0px;
+}
+body {
+	background: #fdf2d4;
+}
+
+/* Header */
+#header {
+    background: #678677;
+    position: relative;
+}
+
+#header img {
+    width: 100px;
+}
