@@ -11,9 +11,21 @@ body {
 /* Header */
 #header {
     background: #678677;
-    position: relative;
+    display: flex;
+    padding: 0px 20px;
 }
 
 #header img {
     width: 100px;
+}
+#enlaces{
+    align-self: center;
+    text-align: end;
+    width: 90%;
+}
+
+#enlaces a{
+    text-decoration: none;
+    color: #fdf2d4;
+    padding: 0px 20px;
 }
