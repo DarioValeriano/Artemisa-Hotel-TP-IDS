@@ -4,28 +4,56 @@
     margin: 0px;
     border: 0px;
 }
+
 body {
 	background: #fdf2d4;
 }
 
-/* Header */
-#header {
+header, footer{
     background: #678677;
-    display: flex;
-    padding: 0px 20px;
+    width: 100%;
+    color: #fdf2d4;
 }
 
-#header img {
-    width: 100px;
+/* Header */
+header {
+    display: flex;
+    justify-content: space-around;
 }
-#enlaces{
+
+#logo h2, #enlaces{
     align-self: center;
-    text-align: end;
-    width: 90%;
+}
+
+#logo{
+    font-family: "Cinzel", serif;
+    display: flex;
+}
+
+header img {
+    width: 100px;
 }
 
 #enlaces a{
     text-decoration: none;
     color: #fdf2d4;
     padding: 0px 20px;
+}
+
+#enlaces a:hover{
+    color:#ae8b4f;
+}
+
+/*Cuerpo*/
+#preguntas_frecuentes h1{
+    font-family: "Cinzel", serif;
+    color:#ae8b4f;
+}
+
+/*Footer*/
+footer{
+    text-align: center;
+    padding: 15px 0px;
+    position: absolute;
+    bottom: 0px;
 }

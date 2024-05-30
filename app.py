@@ -20,5 +20,9 @@ def servicios():
 def contacto():
     return render_template('contacto.html')
 
+@app.route('/preguntas_frecuentes')
+def preguntas_frecuentes():
+    return render_template('preguntas_frecuentes.html')
+
 if __name__ == '__main__':
     app.run(debug=True, port=PORT)
