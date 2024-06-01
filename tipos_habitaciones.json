@@ -1,0 +1,122 @@
+{
+    "tipos_habitaciones": [
+        {
+            "nombre": "Twin",
+            "especificaciones": [
+                "TV LCD", 
+                "Minibar", 
+                "Caja fuerte", 
+                "WIFI", 
+                "Cerradura Magnética", 
+                "Aire Acondicionado", 
+                "Habitación Climatizada", 
+                "Microondas", 
+                "Artículos de Aseo", 
+                "Amenities", 
+                "Secador de Cabello", 
+                "Bañera", 
+                "Teléfono"
+            ],
+            "precio": 48000,
+            "ruta_imagen1": [
+                "/static/images/Twin1.jpg"
+            ],
+            "ruta_imagen2": [
+                "/static/images/Twin2.jpg"
+            ],
+            "ruta_imagen3": [
+                ""
+            ]
+        },
+        {
+            "nombre": "Suite Junior",
+            "especificaciones": [
+                "TV LCD",
+                "Microondas", 
+                "Caja fuerte", 
+                "Cerradura Magnética", 
+                "WIFI", 
+                "Aire Acondicionado", 
+                "Minibar", 
+                "Habitación Climatizada", 
+                "Escritorio", 
+                "Artículos de Aseo",
+                "Amenities", 
+                "Secador de Cabello", 
+                "Bañera", 
+                "Teléfono"
+
+            ],
+            "precio": 52000,
+            "ruta_imagen1": [
+                "/static/images/SuiteJunior1.jpg"
+            ],
+            "ruta_imagen2": [
+                "/static/images/SuiteJunior2.jpg"
+            ],
+            "ruta_imagen3": [
+                ""
+            ]
+        },
+        {
+            "nombre": "Suite Lujo",
+            "especificaciones": [
+                "TV LCD", 
+                "Minibar", 
+                "Aire Acondicionado", 
+                "WIFI", 
+                "Cerradura Magnética", 
+                "Habitación Climatizada", 
+                "Bañera", 
+                "Caja fuerte", 
+                "Escritorio", 
+                "Artículos de Aseo", 
+                "Amenities", 
+                "Secador de Cabello", 
+                "Jacuzzi", 
+                "Teléfono"
+            ],
+            "precio": 64000,
+            "ruta_imagen1": [
+                "/static/images/SuiteLujo1.jpg"
+            ],
+            "ruta_imagen2": [
+                "/static/images/SuiteLujo2.jpg"
+            ],
+            "ruta_imagen3": [
+                ""
+            ]
+        },
+        {
+            "nombre": "Ejecutiva",
+            "especificaciones": [
+                "TV LCD", 
+                "Minibar", 
+                "Caja Fuerte", 
+                "WIFI", 
+                "Cerradura Magnética", 
+                "Aire Acondicionado", 
+                "Habitación Climatizada", 
+                "Escritorio", 
+                "Microondas", 
+                "Artículos de Aseo", 
+                "Amenities", 
+                "Secador de Cabello", 
+                "Bañera", 
+                "Hidromasaje", 
+                "Teléfono", 
+                "Cafetera Nespresso"
+            ],
+            "precio": 75000,
+            "ruta_imagen1": [
+                "/static/images/Ejecutiva1.jpg"
+            ],
+            "ruta_imagen2": [
+                "/static/images/Ejecutiva2.jpg"
+            ],
+            "ruta_imagen3": [
+                "/static/images/Ejecutiva3.jpg"
+            ]
+        }
+    ]
+}
