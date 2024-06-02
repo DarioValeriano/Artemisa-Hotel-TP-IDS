@@ -104,3 +104,88 @@ footer{
     margin-top: 20px;
     clear: both;
 }
+
+
+#form_titulo,#contacto_titulo  {
+    font-family: "Cinzel", serif;
+    color:#ae8b4f;
+    text-align: center;
+    margin-top: 50px;
+}
+
+
+.formulario {
+  position: relative;
+  width: 500px;
+  margin: 50px auto 50px auto;    
+  margin-bottom:60px ;
+}
+
+.subtitulo {
+    font-size:large;
+    margin-top: 20px;
+    font-family: "Cinzel", serif;
+    color:#ae8b4f;
+}
+
+.dato input {
+    font-size: medium;
+    font-family:"Cinzel", serif;
+    color: #ae8b4f;
+    position: relative;
+    width: 80%;
+    padding: 12px 20px;
+    background-color:white;
+    opacity:60%;
+    border: 2px solid #678677;
+    border-radius: 40px;
+}
+
+.boton_enviar button[type="submit"] {
+    width: 25%;
+    background-color:#ae8b4f; 
+    color:#fdf2d4;
+    text-align: center; 
+    font-family:"Cinzel", serif ;
+    font-size:medium; 
+    cursor: pointer;
+    border-radius: 10px; 
+    padding:15px 15px; 
+}
+    
+.mapa {
+    display: flex;
+    justify-content: center; 
+    width: 500px; 
+    height: 300px; 
+    margin: auto;
+    border: 10px solid white; 
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5); 
+    overflow: hidden;
+  
+}
+
+.informacion-contacto {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    padding: 20px; 
+}
+
+#info:hover{
+    color:#fdf2d4;
+    background-color: #678677;
+}
+
+#info{
+    width: fit-content; 
+    font-size:medium;
+    font-family:"Cinzel", serif;
+    color: #fdf2d4;
+    background-color:#ae8b4f; 
+    padding:10px 15px; 
+    text-align: center; 
+    position: relative;
+    border-radius: 10px; 
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5); 
+}
