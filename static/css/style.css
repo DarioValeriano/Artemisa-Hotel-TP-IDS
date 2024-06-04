@@ -191,15 +191,47 @@ footer{
 
 
 /*Home*/
-#carrusel {
+
+#carrusel_principal{
     max-height: 300px;
     overflow: hidden;
+
+    
 }
 
-#imagenes_carrusel {
+#imagenes_carrusel_principal{
     object-fit: cover;
     height: 300px;
     width: 100%;
+}
+
+#carrusel_habitaciones {
+    max-height: auto;
+    max-width: 600px;
+    margin-right: 100px;
+   margin-top: 20px; 
+}
+
+#imagenes_carrusel_habitaciones {
+    object-fit: cover;
+    height: 400px;
+    width: 600px;
+    margin-right: 50px;
+    
+}
+#carrusel_galeria {
+    max-height: auto;
+    max-width: 600px;
+    margin-left: 350px;
+    overflow: hidden;
+   margin-top: 20px; 
+}
+
+#imagenes_carrusel_galeria {
+    object-fit: cover;
+    height: 400px;
+    width: 600px;
+    
 }
 
 #bienvenida_presentacion {
@@ -215,6 +247,7 @@ footer{
     margin-top: 30px;
     font-weight: 900;
     text-align: center;
+    margin-bottom: 30px;
 }
 #presentacion_hotel { 
     padding: 0px;
@@ -222,17 +255,29 @@ footer{
     border: 0px;
     text-align: justify;
 }
-.divider {
-    width: 25%;
+.divider, #divider_bienvenida{
+    width: auto;
     margin: 0px auto;
     border: 0; 
     border-top: 2px solid #8d7140;
 }
+ #divider_bienvenida{
+    width: 25%;
+   
+}
 
-.contenido_servicios { 
+#servicios_home, #habitaciones_home{ 
+    text-align: center;
+   
+}
+.contenido_servicios{ 
     padding-top: 80;
     display: flex; 
     align-items: center;
+}
+#contenido_habitaciones_home{ 
+    display: flex;
+   
 }
 #imagen_servicio_home_izquierda { 
     border-radius: 100%;
@@ -255,8 +300,36 @@ footer{
     text-align: justify;
 }
 #texto_complementario_izquierda { 
+    
     padding-top: 20px;
     padding-left: 80px; 
     padding-right: 50px;
     text-align: justify;
 }
+#texto_habitaciones_home{
+    padding-top: 100px;
+    padding-left: 100px; 
+    padding-right: 100px; 
+    width: 600px;
+    text-align: justify;
+}
+.boton { 
+    padding: 10px;
+    text-align: center;
+    background-color: #0a4b2b;
+    color: #ffffff;
+    font-family: "Cinzel", serif;
+    font-size: medium;
+    border-radius: 10px;
+    font-weight: 600;
+    margin-top: 50px;
+    margin-bottom: 50px;
+}
+button:hover {
+    background-color: #05a542; 
+    color: #ffffff;
+}
+
+
+
+
