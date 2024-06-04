@@ -45,73 +45,63 @@ header img {
 }
 
 #enlaces a:hover{
-    color:#ae8b4f;
+    color:#8d7140;
 }
 
-/*Cuerpo*/
+/*Preguntas Frecuentes*/
 
-#contenedor_titulo{
+#contenedor_imagen{
     width: 100%;
-    text-align: center;
-}
-
-#contenedor_titulo div{
-    width: 100%;
+    height: 200px;
     background-image: url("/static/images/PlazaComún.jpg");
     background-repeat: no-repeat;
     background-size: 100%;
     background-position: center;
 }
 
-#contenedor_titulo h1{
-    
-    font-family: "Cinzel", serif;
-    font-weight: 900;
-    color:#fdf2d4;
-    padding: 80px 0px;
-}
-
-
 #contenedor_secundario, .contenedor_preguntas{
     width: 70%;
     margin: auto;
-    padding: 20px 0px;
 }
 
 #contenedor_secundario{
     text-align: center;
-    border-bottom: 1px groove #ae8b4f;
+    padding: 20px 0px;
 }
 
 #contenedor_secundario h2{
     font-weight: 900;
-    color: #ae8b4f;
+    color:#8d7140;
     font-family: "Cinzel", serif;
     padding: 15px;
+}
+.contenedor_preguntas{
+    padding: 10px;
 }
 
 .preguntas p{
     font-weight: bold;
-    color: #ae8b4f;
+    color:#8d7140;
+    margin-bottom: 1px;
 }
 
-
-/*Footer*/
-footer{
-    text-align: center;
-    padding: 15px 0px;
-    margin-top: 20px;
-    clear: both;
+.respuestas p{
+    margin-bottom: 0px;
 }
 
+#preguntas_frecuentes button{
+    margin: 20px auto;
+}
+
+/*Contacto*/
 
 #form_titulo,#contacto_titulo  {
     font-family: "Cinzel", serif;
-    color:#ae8b4f;
+    color:#8d7140;
     text-align: center;
     margin-top: 50px;
+    font-weight: 900;
 }
-
 
 .formulario {
   position: relative;
@@ -124,13 +114,13 @@ footer{
     font-size:large;
     margin-top: 20px;
     font-family: "Cinzel", serif;
-    color:#ae8b4f;
+    color:#8d7140;
 }
 
 .dato input {
     font-size: medium;
     font-family:"Cinzel", serif;
-    color: #ae8b4f;
+    color:#8d7140;
     position: relative;
     width: 80%;
     padding: 12px 20px;
@@ -142,7 +132,7 @@ footer{
 
 .boton_enviar button[type="submit"] {
     width: 25%;
-    background-color:#ae8b4f; 
+    background-color:#8d7140; 
     color:#fdf2d4;
     text-align: center; 
     font-family:"Cinzel", serif ;
@@ -181,7 +171,7 @@ footer{
     font-size:medium;
     font-family:"Cinzel", serif;
     color: #fdf2d4;
-    background-color:#ae8b4f; 
+    background-color:#8d7140; 
     padding:10px 15px; 
     text-align: center; 
     position: relative;
@@ -189,14 +179,11 @@ footer{
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.5); 
 }
 
-
 /*Home*/
 
 #carrusel_principal{
     max-height: 300px;
     overflow: hidden;
-
-    
 }
 
 #imagenes_carrusel_principal{
@@ -205,33 +192,25 @@ footer{
     width: 100%;
 }
 
-#carrusel_habitaciones {
+#carrusel_habitaciones,#carrusel_galeria {
     max-height: auto;
     max-width: 600px;
-    margin-right: 100px;
-   margin-top: 20px; 
+    margin:auto;
+    margin-top: 20px; 
 }
 
 #imagenes_carrusel_habitaciones {
-    object-fit: cover;
-    height: 400px;
-    width: 600px;
     margin-right: 50px;
-    
-}
-#carrusel_galeria {
-    max-height: auto;
-    max-width: 600px;
-    margin-left: 350px;
-    overflow: hidden;
-   margin-top: 20px; 
 }
 
-#imagenes_carrusel_galeria {
+#carrusel_galeria {
+    overflow: hidden;
+}
+
+#imagenes_carrusel_galeria,#imagenes_carrusel_habitaciones {
     object-fit: cover;
     height: 400px;
     width: 600px;
-    
 }
 
 #bienvenida_presentacion {
@@ -241,7 +220,8 @@ footer{
     margin-top: 50px;
     font-weight: 900;
 }
-#titulo_presentacion {
+
+.titulo_presentacion {
     font-family: "Cinzel", serif;
     color:#8d7140;
     margin-top: 30px;
@@ -249,12 +229,14 @@ footer{
     text-align: center;
     margin-bottom: 30px;
 }
+
 #presentacion_hotel { 
     padding: 0px;
     margin: 80px;
     border: 0px;
     text-align: justify;
 }
+
 .divider, #divider_bienvenida{
     width: auto;
     margin: 0px auto;
@@ -262,54 +244,54 @@ footer{
     border-top: 2px solid #8d7140;
 }
  #divider_bienvenida{
-    width: 25%;
-   
+    width: 25%;  
 }
 
 #servicios_home, #habitaciones_home{ 
     text-align: center;
-   
 }
+
 .contenido_servicios{ 
     padding-top: 80;
     display: flex; 
     align-items: center;
 }
+
 #contenido_habitaciones_home{ 
     display: flex;
-   
 }
-#imagen_servicio_home_izquierda { 
+
+.imagen_servicio_home_derecha, .imagen_servicio_home_izquierda{
     border-radius: 100%;
     width: 600px; 
     height: auto; 
+}
+
+.imagen_servicio_home_izquierda { 
     padding-left: 80px; 
     padding-right: 50px;
 }
-#imagen_servicio_home_derecha { 
-    border-radius: 100%;
-    width: 600px; 
-    height: auto; 
+
+.imagen_servicio_home_derecha { 
     padding-left: 50px; 
     padding-right: 80px;
 }
-#texto_complementario_derecha{ 
+
+.texto_complementario_derecha{ 
     padding-left: 50px; 
     padding-right: 80px;
     padding-top: 20px;
     text-align: justify;
 }
-#texto_complementario_izquierda { 
-    
+
+.texto_complementario_izquierda { 
     padding-top: 20px;
     padding-left: 80px; 
     padding-right: 50px;
     text-align: justify;
 }
 #texto_habitaciones_home{
-    padding-top: 100px;
-    padding-left: 100px; 
-    padding-right: 100px; 
+    margin: auto;
     width: 600px;
     text-align: justify;
 }
@@ -325,11 +307,19 @@ footer{
     margin-top: 50px;
     margin-bottom: 50px;
 }
+
 button:hover {
     background-color: #05a542; 
     color: #ffffff;
 }
 
-
-
-
+/*Footer*/
+footer{
+    text-align: center;
+    padding: 15px 0px;
+    margin-top: 30px;
+    clear: both;
+}
+footer p{
+    margin-bottom: 0px;
+}

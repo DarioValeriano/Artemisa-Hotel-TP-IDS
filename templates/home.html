@@ -13,8 +13,10 @@
 
 <div id="presentacion_hotel">
     <h6 id="bienvenida_presentacion">Bienvenido al Hotel Artemisa</h6>
+    
     <hr class="divider" id="divider_bienvenida">
-    <h1 id="titulo_presentacion">Encuentra pura dicha en nuestro resort en Copacabana, Brazil</h1>
+
+    <h1 class="titulo_presentacion">Encuentra pura dicha en nuestro resort en Copacabana, Brazil</h1>
     <p>Haga que esta temporada brille con una estancia tropical en nuestro hotel.
         Con vistas cinematográficas, disfrute de Caipirinhas junto a la piscina con
         vistas al atardecer y déjese bañar por el sol en la arena dorada de la playa
@@ -30,13 +32,15 @@
         gastronómica perfecta nunca está lejos.
     </p>
 </div>
+
 <hr class="divider">
+
 <div id="servicios_home">
-    <h3 id="titulo_presentacion"> ¿Por qué te encantará Artemisa?</h3>
+    <h3 class="titulo_presentacion"> ¿Por qué te encantará Artemisa?</h3>
     <div class="contenido_servicios">
-        <img id="imagen_servicio_home_izquierda"
+        <img class="imagen_servicio_home_izquierda"
             src="{{ url_for('static', filename='images/pileta1.jpg', _external=True) }}">
-        <p id="texto_complementario_derecha">Nuestra piscina cuenta con bar integrado donde podrás disfrutar
+        <p class="texto_complementario_derecha">Nuestra piscina cuenta con bar integrado donde podrás disfrutar
             de las bebidas de tu preferencia, así como también una zona donde podrás asistir a también nuestras
             clases de aeróbics acuáticos, ejercicios que combinan movimiento y flexibilidad con la tranquilidad
             de flotar en el agua rodeados de un hermoso follaje tropical. En estas sesiones gratuitas, un instructor
@@ -47,19 +51,19 @@
     </div>
     <div class="contenido_servicios">
 
-        <p id="texto_complementario_izquierda">A la par de los mejores restaurantes de Copacabana, Hotel Artemisa
+        <p class="texto_complementario_izquierda">A la par de los mejores restaurantes de Copacabana, Hotel Artemisa
             ofrece experiencias gastronómicas para todos los gustos. Nuestro personal experimentado trae vivos todos
             los colores y sabores de Copacabana. Los huéspedes del hotel pueden disfrutar de una excelente cena en el
             restaurante donde podrán saborear la cocina tropical.
             <br><br>
         </p>
-        <img id="imagen_servicio_home_derecha"
+        <img class="imagen_servicio_home_derecha"
             src="{{ url_for('static', filename='images/restaurante2.jpg', _external=True) }}">
     </div>
     <div class="contenido_servicios">
-        <img id="imagen_servicio_home_izquierda"
+        <img class="imagen_servicio_home_izquierda"
             src="{{ url_for('static', filename='images/restaurante1.jpg', _external=True) }}">
-        <p id="texto_complementario_derecha"> También contamos con una cafetería/pastelería en el lugar para que pueda
+        <p class="texto_complementario_derecha"> También contamos con una cafetería/pastelería en el lugar para que pueda
             comenzar su día en Copacabana con su café recién hecho favorito y unos deliciosos dulces. Las opciones
             gastronómicas
             son infinitas en nuestro hotel, así que asegúrese de visitar todos nuestros restaurantes y disfrutar de una
@@ -69,7 +73,7 @@
     </div>
     <div class="contenido_servicios">
 
-        <p id="texto_complementario_izquierda">Con el servicio de guardería para mascotas puedes salir a explorar la
+        <p class="texto_complementario_izquierda">Con el servicio de guardería para mascotas puedes salir a explorar la
             ciudad
             teniendo la seguridad de que tu amigo peludo estará recibiendo los mejores cuidados en nuestro hotel.
             También puedes disfrutar con tu mascota en las áreas de juego designadas para su entretenimiento, las mismas
@@ -77,7 +81,7 @@
             en zona de gatitos y zona de perritos.
             <br><br>
         </p>
-        <img id="imagen_servicio_home_derecha"
+        <img class="imagen_servicio_home_derecha"
             src="{{ url_for('static', filename='images/petCares.jpeg', _external=True) }}">
     </div>
     <a href="servicios">
@@ -88,7 +92,7 @@
 <hr class="divider">
 
 <div id="habitaciones_home">
-    <h3 id="titulo_presentacion">Habitaciones y suites</h3>
+    <h3 class="titulo_presentacion">Habitaciones y suites</h3>
     <div id="contenido_habitaciones_home">
         <p id="texto_habitaciones_home">Hotel Artemisa está listo para darle la bienvenida a la
             comodidad frente al mar. Todas las habitaciones y suites del hotel cuentan con increíbles
@@ -112,12 +116,12 @@
 <hr class="divider">
 
 <div id="reseñas">
-    <h3 id="titulo_presentacion">¿Qué opinan nuestros huéspedes?</h3>
+    <h3 class="titulo_presentacion">¿Qué opinan nuestros huéspedes?</h3>
     
 </div>
 <hr class="divider">
 <div id="galeria">
-    <h3 id="titulo_presentacion">explora el hotel con nuestra galería</h3>
+    <h3 class="titulo_presentacion">explora el hotel con nuestra galería</h3>
 
     {% with nombre_carrusel='carrusel_galeria', 
                 imagenes=['images/edificioHotel.jpg', 'images/exteriorHotel2.jpg','images/PlazaComún.jpg',
