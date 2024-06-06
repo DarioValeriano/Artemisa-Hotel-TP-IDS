@@ -1,4 +1,222 @@
 {% extends "base.html" %}
 {% block body %}
-   
+    <section class="portada-habitaciones">
+        <div>
+            <h1>HABITACIONES</h1>
+        </div>
+        <div class="linea-portada"></div>
+    </section>
+    <section class="presentacion-habitaciones">
+        <div class="contenido-presentacion-h">
+            <h2>Suites & Habitaciones</h2>
+            <h3>Una estadía perfecta</h3>
+            <p>El arte de vivir. Descubra diseño, estilo y comodidad en nuestras exclusivas habitaciones y suites con balcón privado e impresionantes vistas de la ciudad y del mar. Encuentra tu suite perfecta.</p>
+        </div>
+    </section>
+    <div class="linea-separacion"></div>
+    <section class="habitaciones">
+
+        <article class="habitacion">
+                <div class="carrusel">
+                    <div class="carrusel-habitacion">
+                        <div class="imagenes-carrusel">
+                            <img src="/static/images/SuiteJunior1.jpg" alt="" class="imagen">
+                            <img src="/static/images/SuiteJunior2.jpg" alt="" class="imagen">
+                        </div>
+                    </div>
+                    <button class="b-izq"> <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="#ffffff" stroke-width="2" stroke-linecap="round" stroke-linejoin="arcs"><path d="M15 18l-6-6 6-6"></path></svg> </button>
+                    <button class="b-der"> <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="#ffffff" stroke-width="2" stroke-linecap="round" stroke-linejoin="arcs"><path d="M9 18l6-6-6-6"></path></svg> </button>
+                </div>
+
+                <div class="descripcion-habitacion">
+                    <h2>Junior Suite</h2>
+                    <p class="mini-descripcion">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quia ipsa dignissimos maxime error id molestias at alias sequi facere impedit.</p>
+                    <button class="leer-mas">LEER MÁS</button>
+                </div>
+
+                <div class="bloque-informacion-h">
+                    <div class="informacion-h">
+                        <div class="carrusel carrusel-info">
+                            <div class="carrusel-habitacion carrusel-habitacion-info">
+                                <div class="imagenes-carrusel img-carrusel-info">
+                                    <img src="/static/images/SuiteJunior1.jpg" alt="" class="img-info">
+                                    <img src="/static/images/SuiteJunior2.jpg" alt="" class="img-info">
+                                </div>
+                            </div>
+                            <button class="b-izq"> <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="#ffffff" stroke-width="2" stroke-linecap="round" stroke-linejoin="arcs"><path d="M15 18l-6-6 6-6"></path></svg> </button>
+                            <button class="b-der"> <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="#ffffff" stroke-width="2" stroke-linecap="round" stroke-linejoin="arcs"><path d="M9 18l6-6-6-6"></path></svg> </button>
+                        </div>
+
+                        <div class="detalles-info">
+                            <button class="cerrar-info-boton">X</button>
+                            <div class="descripcion-habitacion desc-h-info">
+                                <h2>Junior Suite</h2>
+                                <p class="texto-descripcion">Sumérgete en la comodidad de nuestra Junior Suite, donde el espacio generoso se combina con un ambiente acogedor. Disfruta de una amplia área de estar perfecta para relajarte, una cama King Size para un descanso reparador y un baño privado equipado con ducha y bañera. Además, encontrarás un mini bar para satisfacer tus antojos y acceso a internet de alta velocidad para mantenerte conectado durante tu estancia.</p>
+                            </div>
+                            <h3>Hotel amenities</h3>
+                            <div class="amenities-h">
+                                <div><p>Lorem, ipsum dolor.</p></div>
+                                <div><p>Lorem, ipsum dolor.</p></div>
+                                <div><p>Lorem, ipsum dolor.</p></div>
+                                <div><p>Lorem, ipsum dolor.</p></div>
+                                <div><p>Lorem, ipsum dolor.</p></div>
+                            </div>
+                            <a class="reservar-info" href="{{url_for('contacto')}}">RESERVAR</a>
+                        </div>
+                    </div>
+                </div>
+        </article>
+        <article class="habitacion">
+            <div class="carrusel">
+                <div class="carrusel-habitacion">
+                    <div class="imagenes-carrusel">
+                        <img src="/static/images/Twin1.jpg" alt="" class="imagen">
+                        <img src="/static/images/Twin2.jpg" alt="" class="imagen">
+                    </div>
+                </div>
+                <button class="b-izq"> <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="#ffffff" stroke-width="2" stroke-linecap="round" stroke-linejoin="arcs"><path d="M15 18l-6-6 6-6"></path></svg> </button>
+                <button class="b-der"> <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="#ffffff" stroke-width="2" stroke-linecap="round" stroke-linejoin="arcs"><path d="M9 18l6-6-6-6"></path></svg> </button>
+            </div>
+            <div class="descripcion-habitacion">
+                <h2>Twin Room</h2>
+                <p class="mini-descripcion">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quia ipsa dignissimos maxime error id molestias at alias sequi facere impedit.</p>
+                <button class="leer-mas">LEER MÁS</button>
+            </div>
+            <div class="bloque-informacion-h">
+                <div class="informacion-h">
+                    <div class="carrusel carrusel-info">
+                        <div class="carrusel-habitacion carrusel-habitacion-info">
+                            <div class="imagenes-carrusel img-carrusel-info">
+                                <img src="/static/images/Twin1.jpg" alt="" class="img-info">
+                                <img src="/static/images/Twin2.jpg" alt="" class="img-info">
+                            </div>
+                        </div>
+                        <button class="b-izq"> <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="#ffffff" stroke-width="2" stroke-linecap="round" stroke-linejoin="arcs"><path d="M15 18l-6-6 6-6"></path></svg> </button>
+                        <button class="b-der"> <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="#ffffff" stroke-width="2" stroke-linecap="round" stroke-linejoin="arcs"><path d="M9 18l6-6-6-6"></path></svg> </button>
+                    </div>
+ 
+                    <div class="detalles-info">
+                        <button class="cerrar-info-boton">X</button>
+                        <div class="descripcion-habitacion desc-h-info">
+                            <h2>Twin Room</h2>
+                            <p class="texto-descripcion">Nuestra Twin Room ofrece una combinación perfecta de practicidad y confort. Con dos camas individuales, es ideal para amigos o familiares que prefieren tener su propio espacio para dormir. El baño privado cuenta con una maravillosa bañera apta para un relajante baño de inmersión, donde podrás liberar estrés y reponer energías, mientras que el escritorio de trabajo proporciona un espacio conveniente para trabajar o planificar tus actividades. También puedes disfrutar de entretenimiento con la televisión por cable y solicitar servicio de habitaciones las 24 horas para una experiencia aún más cómoda.</p>
+                        </div>
+                        <h3>Hotel amenities</h3>
+                        <div class="amenities-h">
+                            <div><p>Lorem, ipsum dolor.</p></div>
+                            <div><p>Lorem, ipsum dolor.</p></div>
+                            <div><p>Lorem, ipsum dolor.</p></div>
+                            <div><p>Lorem, ipsum dolor.</p></div>
+                            <div><p>Lorem, ipsum dolor.</p></div>
+                        </div>
+                        <a class="reservar-info" href="{{url_for('contacto')}}">RESERVAR</a>
+                    </div>
+                </div>
+            </div>
+        </article>
+        <article class="habitacion">
+            <div class="carrusel">
+                <div class="carrusel-habitacion">
+                    <div class="imagenes-carrusel">
+                        <img src="/static/images/SuiteLujo1.jpg" alt="" class="imagen">
+                        <img src="/static/images/SuiteLujo2.jpg" alt="" class="imagen">
+                    </div>
+                </div>
+                <button class="b-izq"> <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="#ffffff" stroke-width="2" stroke-linecap="round" stroke-linejoin="arcs"><path d="M15 18l-6-6 6-6"></path></svg> </button>
+                <button class="b-der"> <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="#ffffff" stroke-width="2" stroke-linecap="round" stroke-linejoin="arcs"><path d="M9 18l6-6-6-6"></path></svg> </button>
+            </div>
+
+            <div class="descripcion-habitacion">
+                <h2>Deluxe Suite</h2>
+                <p class="mini-descripcion">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quia ipsa dignissimos maxime error id molestias at alias sequi facere impedit.</p>
+                <button class="leer-mas">LEER MÁS</button>
+            </div>
+
+            <div class="bloque-informacion-h">
+                <div class="informacion-h">
+                    <div class="carrusel carrusel-info">
+                        <div class="carrusel-habitacion carrusel-habitacion-info">
+                            <div class="imagenes-carrusel img-carrusel-info">
+                                <img src="/static/images/SuiteLujo1.jpg" alt="" class="img-info">
+                                <img src="/static/images/SuiteLujo2.jpg" alt="" class="img-info">
+                            </div>
+                        </div>
+                        <button class="b-izq"> <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="#ffffff" stroke-width="2" stroke-linecap="round" stroke-linejoin="arcs"><path d="M15 18l-6-6 6-6"></path></svg> </button>
+                        <button class="b-der"> <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="#ffffff" stroke-width="2" stroke-linecap="round" stroke-linejoin="arcs"><path d="M9 18l6-6-6-6"></path></svg> </button>
+                    </div>
+
+                    <div class="detalles-info">
+                        <button class="cerrar-info-boton">X</button>
+                        <div class="descripcion-habitacion desc-h-info">
+                            <h2>Deluxe Suite</h2>
+                            <p class="texto-descripcion">Sumérgete en el lujo con nuestra Deluxe Suite, donde cada detalle ha sido cuidadosamente seleccionado para ofrecerte una experiencia inolvidable. Disfruta de vistas impresionantes de la ciudad desde la comodidad de tu habitación, mientras te relajas en una cama extragrande. El baño de lujo está equipado con una bañera de hidromasaje para momentos de relajación total. Además, encontrarás una amplia zona de estar separada y un servicio de conserjería personalizado para satisfacer todas tus necesidades durante tu estancia.</p>
+                        </div>
+                        <h3>Hotel amenities</h3>
+                        <div class="amenities-h">
+                            <div><p>Lorem, ipsum dolor.</p></div>
+                            <div><p>Lorem, ipsum dolor.</p></div>
+                            <div><p>Lorem, ipsum dolor.</p></div>
+                            <div><p>Lorem, ipsum dolor.</p></div>
+                            <div><p>Lorem, ipsum dolor.</p></div>
+                        </div>
+                        <a class="reservar-info" href="{{url_for('contacto')}}">RESERVAR</a>
+                    </div>
+                </div>
+            </div>
+        </article>
+        <article class="habitacion">
+            <div class="carrusel">
+                <div class="carrusel-habitacion">
+                    <div class="imagenes-carrusel">
+                        <img src="/static/images/Ejecutiva1.jpg" alt="" class="imagen">
+                        <img src="/static/images/Ejecutiva2.jpg" alt="" class="imagen">
+                        <img src="/static/images/Ejecutiva3.jpg" alt="" class="imagen">
+                    </div>
+                </div>
+                <button class="b-izq"> <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="#ffffff" stroke-width="2" stroke-linecap="round" stroke-linejoin="arcs"><path d="M15 18l-6-6 6-6"></path></svg> </button>
+                <button class="b-der"> <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="#ffffff" stroke-width="2" stroke-linecap="round" stroke-linejoin="arcs"><path d="M9 18l6-6-6-6"></path></svg> </button>
+            </div>
+
+            <div class="descripcion-habitacion">
+                <h2>Executive Suite</h2>
+                <p class="mini-descripcion">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quia ipsa dignissimos maxime error id molestias at alias sequi facere impedit.</p>
+                <button class="leer-mas">LEER MÁS</button>
+            </div>
+
+            <div class="bloque-informacion-h">
+                <div class="informacion-h">
+                    <div class="carrusel carrusel-info">
+                        <div class="carrusel-habitacion carrusel-habitacion-info">
+                            <div class="imagenes-carrusel img-carrusel-info">
+                                <img src="/static/images/Ejecutiva1.jpg" alt="" class="img-info">
+                                <img src="/static/images/Ejecutiva2.jpg" alt="" class="img-info">
+                                <img src="/static/images/Ejecutiva3.jpg" alt="" class="img-info">
+                            </div>
+                        </div>
+                        <button class="b-izq"> <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="#ffffff" stroke-width="2" stroke-linecap="round" stroke-linejoin="arcs"><path d="M15 18l-6-6 6-6"></path></svg> </button>
+                        <button class="b-der"> <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="#ffffff" stroke-width="2" stroke-linecap="round" stroke-linejoin="arcs"><path d="M9 18l6-6-6-6"></path></svg> </button>
+                    </div>
+
+                    <div class="detalles-info">
+                        <button class="cerrar-info-boton">X</button>
+                        <div class="descripcion-habitacion desc-h-info">
+                            <h2>Executive Suite</h2>
+                            <p class="texto-descripcion">Experimenta el máximo confort y exclusividad en nuestra Executive Suite, diseñada para satisfacer las necesidades de los viajeros más exigentes. Disfruta de impresionantes vistas al mar desde tu habitación y descansa en una lujosa cama premium. La suite también cuenta con una amplia sala de estar independiente, perfecta para relajarte o para recibir a tus invitados. Además, tendrás acceso exclusivo al lounge ejecutivo, donde podrás disfrutar de servicios adicionales y atención personalizada. Y para empezar el día con energía, disfruta de un delicioso servicio de desayuno en la habitación.</p>
+                        </div>
+                        <h3>Hotel amenities</h3>
+                        <div class="amenities-h">
+                            <div><p>Lorem, ipsum dolor.</p></div>
+                            <div><p>Lorem, ipsum dolor.</p></div>
+                            <div><p>Lorem, ipsum dolor.</p></div>
+                            <div><p>Lorem, ipsum dolor.</p></div>
+                            <div><p>Lorem, ipsum dolor.</p></div>
+                        </div>
+                        <a class="reservar-info" href="{{url_for('contacto')}}">RESERVAR</a>
+                    </div>
+                </div>
+            </div>
+    </article>
+    </section>
+    <script src="{{ url_for('static', filename='js/funciones.js')}}"></script>
+    
 {% endblock %}

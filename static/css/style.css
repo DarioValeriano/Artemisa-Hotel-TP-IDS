@@ -323,3 +323,321 @@ footer{
 footer p{
     margin-bottom: 0px;
 }
+
+/* Habitaciones */
+
+.portada-habitaciones{
+    height: calc(100vh - 100px);
+    background-image: url('/static/images/portadaHabitaciones.jpg');
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    justify-content: center;
+}
+
+.portada-habitaciones h1{
+    color: #ffffff;
+    font-size: 40px;
+    text-shadow: 1px 2px 9px black;
+}
+
+.linea-portada{
+    width: 20%;
+    margin-top: 10px;
+    height: 0.5px;
+    background-color: #ffffff;
+}
+
+.presentacion-habitaciones{
+    text-align: center;
+    margin: auto;
+    background-color: #fffcf5;
+    box-shadow: 1px 10px 13px 0px #ae8b4f3f;
+}
+
+.contenido-presentacion-h{
+    width: 40%;
+    padding: 80px;
+    margin: auto;
+}
+
+.contenido-presentacion-h h2, .contenido-presentacion-h h3, .contenido-presentacion-h p{
+    margin-bottom: 17px;
+}
+
+.contenido-presentacion-h h2{
+    font-size: 40px;
+    color: #ae8b4f;
+}
+
+.contenido-presentacion-h h3{
+    font-size: 22px;
+    color: #ae8b4f;
+}
+
+.contenido-presentacion-h p{
+    font-size: 16px;
+}
+
+.linea-separacion{
+    margin: 0px auto 40px;
+    width: 80%;
+    height: 2px;
+    background-color: #ae8b4f;
+}
+
+.habitaciones{
+    margin: 0 8%;
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+}
+
+.habitacion{
+    width: 40%;
+    border-radius: 10px;
+    box-shadow: 1px 4px 12px 0px #0000008f;
+    /*background-color: #ae8b4f; */
+    /* background-color: #fdf2d4; */
+    /* background-color: #678677; */
+    background-color: #ffffff;
+    margin: 0 30px 30px;
+}
+
+
+
+.habitacion:hover{
+    box-shadow: 1px 4px 14px 0px #000000b6;
+    transition: 0.3s;
+}
+
+.carrusel{
+    display: flex;
+    align-items: center;
+    position: relative;
+}
+
+.carrusel-habitacion{
+    overflow: hidden;
+    height: 320px;
+}
+
+.imagenes-carrusel{
+    display:flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    height: 100%;
+    width: 100%;
+    transition: all 0.1s ease-in;
+}
+
+.imagenes-carrusel:hover{
+    opacity: 93%;
+}
+
+button:focus {
+    outline: none;
+}
+
+.b-izq{
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    position: absolute;
+    left: 5px;
+    color: #ffffff;
+    background-color: rgba(0, 0, 0, 0.418);
+}
+
+.b-izq:hover{
+    background-color: black;
+}
+
+.b-izq svg{
+    stroke: #ffffffbb;
+    padding: 5px;
+    width: 30px;
+    height: 30px;
+}
+
+.b-izq svg:hover{
+    stroke: #ffffff;
+}
+
+.b-der{
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    position: absolute;
+    right: 5px;
+    color: #ffffff;
+    background-color: rgba(0, 0, 0, 0.418);
+}
+
+.b-der:hover{
+    background-color: black;
+}
+
+.b-der svg{
+    stroke: #ffffffbb;
+    padding: 5px;
+    width: 30px;
+    height: 30px;
+}
+
+.b-der svg:hover{
+    stroke: #ffffff;
+}
+
+.imagen{
+    width: 100%;
+    /*border-top-left-radius: 10px;
+    border-top-right-radius: 10px;*/
+}
+
+.descripcion-habitacion{
+    padding: 10px;
+    text-align: center;
+}
+
+.descripcion-habitacion h2{
+    margin: 10px;
+}
+
+.descripcion-habitacion p{
+    text-align: center;
+}
+
+.leer-mas{
+    margin: 10px;
+    padding: 10px;
+    /*background-color: #678677;*/
+    border: 1px solid;
+    border-color: #678677;
+    background-color: #ffffff;
+    color: #678677;
+    width: 50%;
+    font-size: 15px;
+    border-radius: 20px;
+}
+
+.leer-mas:hover{
+    background-color: #678677;
+    color: #ffffff;
+    transition: 0.3s;
+}
+
+.bloque-informacion-h{
+    width: 100vw;
+    height: 100vh;
+    backdrop-filter: blur(6px);
+    display: none;
+    justify-content: center;
+    position: fixed;
+    align-items: center;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 60;
+    overflow: hidden;
+    opacity: 0;
+    height: 0;
+    transition: opacity 0.2s ease, height 0.2s ease;
+}
+
+.mostrar{
+    opacity: 1;
+    height: auto;
+}
+
+
+.informacion-h{
+    background-color: #ffffff;
+    width: 93vw;
+    padding: 0px;
+    display: flex;
+    box-shadow: 1px 4px 12px 0px #00000040;
+    height: 85vh;
+}
+
+.carrusel-info{
+    flex: 1.5;
+}
+
+.img-carrusel-info:hover{
+    opacity: 100%;
+}
+
+.carrusel-habitacion-info {
+    height: 100%;
+}
+
+.img-info{
+    width: 100%;
+}
+
+.detalles-info{
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
+    padding-left: 5px;
+    position: relative;
+    padding: 20px;
+}
+
+.cerrar-info-boton{
+    width: 50px;
+    height: 50px;
+    position: absolute;
+    top: 0;
+    right: 0;
+    background-color: transparent;
+}
+
+.desc-h-info{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-direction: column;
+}
+
+.desc-h-info p{
+    text-align: justify;
+}
+
+.desc-h-info h2{
+    font-size: 30px;
+    margin-bottom: 10px;
+}
+
+.amenities-h{
+    display: flex;
+    text-align: center;
+}
+
+.reservar-info{
+    margin: 10px;
+    padding: 10px;
+    border: 1px solid;
+    border-color: #678677;
+    background-color: #ffffff;
+    color: #678677;
+    width: 50%;
+    font-size: 15px;
+    border-radius: 20px;
+    text-align: center;
+    text-decoration: none;
+}
+
+.reservar-info:hover{
+    background-color: #678677;
+    color: #ffffff;
+    transition: 0.3s;
+    text-decoration: none;
+}
