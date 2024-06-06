@@ -54,14 +54,6 @@ ALTER TABLE `tipos_habitaciones`
   ADD PRIMARY KEY (`nombre`);
 COMMIT;
 
-INSERT INTO `servicios1` (`Nombre de servicio`, `Especificaciones del servicio`) VALUES
-('Piscina ', 'Una piscina techada en la planta baja del edificio con una longitud de 25mts. y una profundidad de 2mts con horarios de uso entre las 8am y las 9pm todos los dias.'),
-('Sala recreativa', 'Sala con consolas de videojuegos, mesas para distintos juegos de cartas, una mesa de pool y una mesa de ping pong. '),
-('Juegos de mesa y de cartas', 'En la recepción están disponibles mazos de cartas, tanto barajas españolas como barajas de póker, además de juegos de mesa varios para usar en la sala recreativa.'),
-('Pet Care', 'Un espacio para que puedan dejar sus mascotas donde estas van a ser cuidadas y mimadas mientras ustedes pueden disfrutar del resto de su estadia.'),
-('Spa', 'Spa disponible para poder relajarse y recuperarse durante su estadía, en el que se ofrecen tanto masajes como tratamientos de la piel.');
-COMMIT;
-
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
