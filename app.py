@@ -1,70 +1,70 @@
 from flask import Flask, render_template, jsonify, request
 
-from flask_sqlalchemy import SQLAlchemy
+#from flask_sqlalchemy import SQLAlchemy
 
-from sqlalchemy import create_engine
+#from sqlalchemy import create_engine
 
-from sqlalchemy import text
+#from sqlalchemy import text
 
-from sqlalchemy.exc import SQLAlchemyError
+#from sqlalchemy.exc import SQLAlchemyError
 
 PORT = 8080
 
 app = Flask(__name__)
 
 
-engine = create_engine("mysql+mysqlconnector://root@localhost/proyecto_messi")
+#engine = create_engine("mysql+mysqlconnector://root@localhost/proyecto_messi")
 
 
-@app.route('/users', methods = ['GET'])
-def users():
-    conn = engine.connect()
-    query = "SELECT * FROM users;"
+#@app.route('/users', methods = ['GET'])
+#def users():
+#    conn = engine.connect()
+#    query = "SELECT * FROM users;"
+#
+#    try:
+#
+#        result = conn.execute(text(query))
+#        conn.close() 
+#    except SQLAlchemyError as err:
+#        return jsonify(str(err.__cause__))
+#
+#   data = []
+#
+#   for row in result:
 
-    try:
-
-        result = conn.execute(text(query))
-        conn.close() 
-    except SQLAlchemyError as err:
-        return jsonify(str(err.__cause__))
-
-    data = []
-
-    for row in result:
-
-        entity = {}
-        entity['id'] = row.id
-        entity['name'] = row.name
-        entity['email'] = row.email
-        entity['message'] = row.message
-        entity['contact'] = row.contact
-        entity['created_at'] = row.created_at
-        data.append(entity)
-
-
-
-    return jsonify(data), 200
-
-
-
-@app.route('/create_user', methods = ['POST'])
-def create_user():
-    conn = engine.connect()
-    new_user = request.get_json()
-    query = f"""INSERT INTO users (name, email, contact, message) VALUES ('{new_user["name"]}', '{new_user["email"]}', '{new_user["contact"]}', '{new_user["message"]}');"""
-
-    try:
-
-        result = conn.execute(text(query))
-        conn.commit()
-        conn.close()
-
-    except SQLAlchemyError as err:
-
-        return jsonify({'message': 'Se ha producido un error' + str(err.__cause__)})
-
-    
-    return jsonify({'message': 'Nos contactaremos proximamente!'}), 201
+#       entity = {}
+#       entity['id'] = row.id
+#       entity['name'] = row.name
+#       entity['email'] = row.email
+#       entity['message'] = row.message
+#       entity['contact'] = row.contact
+#       entity['created_at'] = row.created_at
+#       data.append(entity)
+#
+#
+#
+#   return jsonify(data), 200
+#
+#
+#
+#@app.route('/create_user', methods = ['POST'])
+#def create_user():
+#    conn = engine.connect()
+#    new_user = request.get_json()
+#    query = f"""INSERT INTO users (name, email, contact, message) VALUES ('{new_user["name"]}', '{new_user["email"]}', '{new_user["contact"]}', '{new_user["message"]}');"""
+#
+#   try:
+#
+#        result = conn.execute(text(query))
+#        conn.commit()
+#        conn.close()
+#
+#    except SQLAlchemyError as err:
+#
+#       return jsonify({'message': 'Se ha producido un error' + str(err.__cause__)})
+#
+#   
+#   return jsonify({'message': 'Nos contactaremos proximamente!'}), 201
 
 
 
