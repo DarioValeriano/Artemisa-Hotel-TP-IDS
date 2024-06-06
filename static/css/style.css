@@ -641,3 +641,92 @@ button:focus {
     transition: 0.3s;
     text-decoration: none;
 }
+
+/*Servicios*/
+
+#contenedor_imagen_servicios {
+    width: 100%;
+    height: 400px;
+    background-image: url("/static/images/flamingo2.jpg");
+    background-repeat: no-repeat;
+    background-size: 100%;
+    background-position: 50% 60%;
+}
+
+#titulo_servicios {
+    position: absolute;
+    color:#fdf2d4;
+    font-family: "Cinzel", serif;
+    left: 10%;
+    top: 55%;
+    font-weight: 900;
+}
+
+#servicios_descripcion {
+    padding: 0px;
+    margin: 80px;
+    border: 0px;
+    text-align: justify;
+}
+
+.nombre_servicio_izquierda {
+    font-family: "Cinzel", serif;
+    color:#8d7140;
+    font-weight: 900;
+}
+
+.nombre_servicio_derecha {
+    font-family: "Cinzel", serif;
+    color:#8d7140;
+    font-weight: 900;
+    padding-left: 50px; 
+    padding-right: 80px;
+    padding-top: 20px;
+    text-align: justify;
+}
+
+#carrusel_piscina, #carrusel_cafeteria, #carrusel_flamingo, #carrusel_restaurant_noche, #carrusel_spa, #carrusel_petcare {
+    max-height: auto;
+    max-width: 550px;
+}
+
+#imagenes_carruseles_servicio {
+    object-fit: cover;
+    height: 400px;
+    width: 550px;
+}
+
+.contenedor_servicios {
+    padding-top: 80;
+    display: flex;
+    align-items: center;
+}
+
+.caja_servicio_izquierda {
+    margin-left: 80px;
+    text-align: justify;
+    margin-top: 40px;
+    margin-bottom: 40px;
+}
+
+.caja_servicio_derecha {
+    margin-right: 80px;
+    text-align: justify;
+    margin-top: 40px;
+    margin-bottom: 40px;
+}
+
+.texto_servicio_izquierda {
+    padding-top: 20px;
+    padding-right: 50px;
+    text-align: justify;
+    width: 700px;
+}
+
+.texto_servicio_derecha { 
+    padding-left: 50px; 
+    padding-right: 80px;
+    padding-top: 20px;
+    text-align: justify;
+    width: 700px;
+}
