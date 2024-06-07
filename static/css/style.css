@@ -26,6 +26,7 @@ header {
 
 #logo h2, #enlaces{
     align-self: center;
+    font-family: "Cinzel", serif;
 }
 
 #logo{
@@ -41,7 +42,7 @@ header img {
     font-weight: bold;
     text-decoration: none;
     color: #fdf2d4;
-    padding: 0px 20px;
+    padding: 0px 10px;
 }
 
 #enlaces a:hover{
@@ -52,7 +53,7 @@ header img {
 
 #contenedor_imagen{
     width: 100%;
-    height: 200px;
+    height: 300px;
     background-image: url("/static/images/PlazaComún.jpg");
     background-repeat: no-repeat;
     background-size: 100%;
@@ -307,33 +308,78 @@ header img {
     margin-top: 50px;
     margin-bottom: 50px;
 }
+#boton_resenas { 
+    padding: 10px;
+    background-color: #ffffff;
+    color: #8d7140;
+    font-family: "Cinzel", serif;
+    border-radius: 10px;
+    font-weight: bold;
+    width: 40%;
+    margin: 0px 30%;
+}
 
 button:hover {
     background-color: #05a542; 
     color: #ffffff;
 }
 
-/*Footer*/
-footer{
+.star-rating {
+    direction: rtl;
+    padding: 5px;
     text-align: center;
-    padding: 15px 0px;
-    margin-top: 30px;
-    clear: both;
 }
-footer p{
+
+.star-rating input[type=radio] {
+    display: none;
+}
+
+.star-rating label {
+    color: #bbb;
+    font-size: 30px;
+    padding: 0 5px;
+    cursor: pointer;
+    transition: color 0.3s;
+}
+
+.star-rating input[type=radio]:checked ~ label,
+.star-rating label:hover,
+.star-rating label:hover ~ label {
+    color: #f2b600;
+}
+
+#formulario_resena{
+    width: 450px;
+    height: auto;
+    background-color: #8d7140;
+    padding: 15px 25px;
+    color: #ffffff;
+    margin: auto;
+}
+
+#formulario_resena label{
     margin-bottom: 0px;
+    font-family: "Cinzel", serif;
+    font-weight: bold;
+}
+
+#formulario_resena form label{
+    margin-top: 15px;
+}
+
+#formulario_resena input, textarea{
+    width: 400px;
 }
 
 /* Habitaciones */
 
 .portada-habitaciones{
-    height: calc(100vh - 100px);
+    height: 300px;
     background-image: url('/static/images/portadaHabitaciones.jpg');
-    background-size: cover;
+    background-size: 100%;
     background-position: center;
     display: flex;
     flex-direction: column;
-    align-items: center;
     text-align: center;
     justify-content: center;
 }
@@ -399,19 +445,9 @@ footer p{
 .habitacion{
     width: 40%;
     border-radius: 10px;
-    box-shadow: 1px 4px 12px 0px #0000008f;
-    /*background-color: #ae8b4f; */
-    /* background-color: #fdf2d4; */
-    /* background-color: #678677; */
     background-color: #ffffff;
     margin: 0 30px 30px;
-}
-
-
-
-.habitacion:hover{
-    box-shadow: 1px 4px 14px 0px #000000b6;
-    transition: 0.3s;
+    box-shadow: 1px 4px 12px 0px #0000008f;
 }
 
 .carrusel{
@@ -434,13 +470,6 @@ footer p{
     transition: all 0.1s ease-in;
 }
 
-.imagenes-carrusel:hover{
-    opacity: 93%;
-}
-
-button:focus {
-    outline: none;
-}
 
 .b-izq{
     width: 40px;
@@ -494,8 +523,6 @@ button:focus {
 
 .imagen{
     width: 100%;
-    /*border-top-left-radius: 10px;
-    border-top-right-radius: 10px;*/
 }
 
 .descripcion-habitacion{
@@ -514,7 +541,6 @@ button:focus {
 .leer-mas{
     margin: 10px;
     padding: 10px;
-    /*background-color: #678677;*/
     border: 1px solid;
     border-color: #678677;
     background-color: #ffffff;
@@ -646,11 +672,11 @@ button:focus {
 
 #contenedor_imagen_servicios {
     width: 100%;
-    height: 400px;
-    background-image: url("/static/images/flamingo2.jpg");
+    height: 300px;
+    background-image: url("/static/images/flamingo3.jpg");
     background-repeat: no-repeat;
     background-size: 100%;
-    background-position: 50% 60%;
+    background-position: top;
 }
 
 #titulo_servicios {
@@ -669,18 +695,16 @@ button:focus {
     text-align: justify;
 }
 
-.nombre_servicio_izquierda {
+.nombre_servicio_izquierda,.nombre_servicio_derecha {
     font-family: "Cinzel", serif;
     color:#8d7140;
     font-weight: 900;
 }
+.nombre_servicio_derecha {
+   padding-left: 35px;
+}
 
 .nombre_servicio_derecha {
-    font-family: "Cinzel", serif;
-    color:#8d7140;
-    font-weight: 900;
-    padding-left: 50px; 
-    padding-right: 80px;
     padding-top: 20px;
     text-align: justify;
 }
@@ -700,33 +724,37 @@ button:focus {
     padding-top: 80;
     display: flex;
     align-items: center;
+    justify-content: space-around;
+    text-align: justify;
 }
 
 .caja_servicio_izquierda {
-    margin-left: 80px;
-    text-align: justify;
-    margin-top: 40px;
-    margin-bottom: 40px;
+    margin: 40px 0px 40px 80px;
 }
 
 .caja_servicio_derecha {
-    margin-right: 80px;
-    text-align: justify;
-    margin-top: 40px;
-    margin-bottom: 40px;
+    margin: 40px 80px 40px 0px;
 }
 
 .texto_servicio_izquierda {
-    padding-top: 20px;
-    padding-right: 50px;
-    text-align: justify;
-    width: 700px;
+    padding-top: 20px; 
+    width: 600px;
+    padding-right: 35px;
 }
 
 .texto_servicio_derecha { 
-    padding-left: 50px; 
-    padding-right: 80px;
     padding-top: 20px;
-    text-align: justify;
-    width: 700px;
+    width: 600px;
+    padding-left: 35px;
+}
+
+/*Footer*/
+footer{
+    text-align: center;
+    padding: 15px 0px;
+    margin-top: 30px;
+    clear: both;
+}
+footer p{
+    margin-bottom: 0px;
 }

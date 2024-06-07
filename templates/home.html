@@ -2,21 +2,21 @@
 
 {% block body %}
 
- <div>
-        {% with nombre_carrusel='carrusel_principal', 
-                imagenes=['images/playa.jpeg', 'images/pileta3.webp', 'images/playa2.jpg', 
-                'images/exteriorHotel.jpg'], cantidad_diapositivas=4 , tipo_imagen='imagenes_carrusel_principal',
-                pasadores=false%}
-            {% include 'carrusel.html' %}
-        {% endwith %}
+<div>
+    {% with nombre_carrusel='carrusel_principal',
+    imagenes=['images/playa.jpeg', 'images/pileta3.webp', 'images/playa2.jpg',
+    'images/exteriorHotel.jpg'], cantidad_diapositivas=4 , tipo_imagen='imagenes_carrusel_principal',
+    pasadores=false%}
+    {% include 'carrusel.html' %}
+    {% endwith %}
 </div>
 
 <div id="presentacion_hotel">
     <h6 id="bienvenida_presentacion">Bienvenido al Hotel Artemisa</h6>
-    
+
     <hr class="divider" id="divider_bienvenida">
 
-    <h1 class="titulo_presentacion">Encuentra pura dicha en nuestro resort en Copacabana, Brazil</h1>
+    <h1 class="titulo_presentacion">Encuentra pura dicha en nuestro hotel en Copacabana, Brasil</h1>
     <p>Haga que esta temporada brille con una estancia tropical en nuestro hotel.
         Con vistas cinematográficas, disfrute de Caipirinhas junto a la piscina con
         vistas al atardecer y déjese bañar por el sol en la arena dorada de la playa
@@ -25,7 +25,7 @@
         <br><br>
         Su bienestar es nuestra principal prioridad y esperamos brindarle actividades
         para que explore de manera segura Copacabana y las playas cercanas Flamingo Beach
-        y Wind Creek, solo para adultos. En minutos, el taxi acuático de nuestro hotel lo
+        y Wind Creek. En minutos, el taxi acuático de nuestro hotel lo
         llevará a nuestra isla privada de 40 acres, donde los flamencos deambulan libremente
         y le esperan tratamientos relajantes en nuestro Spa. Y, con la gran variedad de restaurantes
         y bares que sirven de todo, desde cócteles artesanales hasta filetes auténticos, la experiencia
@@ -40,21 +40,18 @@
     <div class="contenido_servicios">
         <img class="imagen_servicio_home_izquierda"
             src="{{ url_for('static', filename='images/pileta1.jpg', _external=True) }}">
-        <p class="texto_complementario_derecha">Nuestra piscina cuenta con bar integrado donde podrás disfrutar
-            de las bebidas de tu preferencia, así como también una zona donde podrás asistir a también nuestras
-            clases de aeróbics acuáticos, ejercicios que combinan movimiento y flexibilidad con la tranquilidad
-            de flotar en el agua rodeados de un hermoso follaje tropical. En estas sesiones gratuitas, un instructor
-            le guiará a través de los ejercicios con música animada para disfrutar de una experiencia divertida y
-            vigorizante.
+        <p class="texto_complementario_derecha"> Nade, tome el sol, beba algo o descanse en nuestra piscina Garden of the Gods Oasis.
+            Con su bar único, Garden of the Gods te permite elegir tu propia experiencia. Organice su día con alquiler sofás cama por 
+            día completo o medio día.
             <br><br>
         </p>
     </div>
     <div class="contenido_servicios">
 
-        <p class="texto_complementario_izquierda">A la par de los mejores restaurantes de Copacabana, Hotel Artemisa
-            ofrece experiencias gastronómicas para todos los gustos. Nuestro personal experimentado trae vivos todos
-            los colores y sabores de Copacabana. Los huéspedes del hotel pueden disfrutar de una excelente cena en el
-            restaurante donde podrán saborear la cocina tropical.
+        <p class="texto_complementario_izquierda"> Pruebe nuestro delicioso buffet de mariscos o pruebe otras deliciosas 
+            opciones para el almuerzo. Únase a nosotros en este restaurante informal para disfrutar del refrigerio perfecto
+            durante su visita. Disfrute de un descanso del sol, la arena y el surf de Copacabana mientras prueba deliciosos 
+            refrigerios y comidas ligeras.
             <br><br>
         </p>
         <img class="imagen_servicio_home_derecha"
@@ -63,12 +60,9 @@
     <div class="contenido_servicios">
         <img class="imagen_servicio_home_izquierda"
             src="{{ url_for('static', filename='images/restaurante1.jpg', _external=True) }}">
-        <p class="texto_complementario_derecha"> También contamos con una cafetería/pastelería en el lugar para que pueda
-            comenzar su día en Copacabana con su café recién hecho favorito y unos deliciosos dulces. Las opciones
-            gastronómicas
-            son infinitas en nuestro hotel, así que asegúrese de visitar todos nuestros restaurantes y disfrutar de una
-            aventura
-            culinaria como ninguna otra que se pueda encontrar en Copacabana <br><br>
+        <p class="texto_complementario_derecha"> Comience cada día en Copacabana con su bebida de café 
+            favorita en nuestra cafetería/pastelería. Servimos una selección completa de cafés y tés, 
+            así como una variedad de pasteles recién hechos y otras delicias para llevar. <br><br>
         </p>
     </div>
     <div class="contenido_servicios">
@@ -101,35 +95,64 @@
             diseños de habitaciones para encontrar una configuración ideal para usted.
             <br><br>
         </p>
-        {% with nombre_carrusel='carrusel_habitaciones', 
-                imagenes=['images/Ejecutiva1.jpg', 'images/Ejecutiva3.jpg', 'images/SuiteJunior1.jpg', 
-                'images/Twin2.jpg'], cantidad_diapositivas=4 , tipo_imagen='imagenes_carrusel_habitaciones', pasadores=True %}
-            {% include 'carrusel.html' %}
+        {% with nombre_carrusel='carrusel_habitaciones',
+        imagenes=['images/Ejecutiva1.jpg', 'images/Ejecutiva3.jpg', 'images/SuiteJunior1.jpg',
+        'images/Twin2.jpg'], cantidad_diapositivas=4 , tipo_imagen='imagenes_carrusel_habitaciones', pasadores=True %}
+        {% include 'carrusel.html' %}
         {% endwith %}
-        
+
     </div>
     <a href="habitaciones">
-    <button class="boton boton_habitaciones">Ver Más</button>
+        <button class="boton">Ver Más</button>
     </a>
 </div>
 
 <hr class="divider">
 
-<div id="reseñas">
+<div id="resenas">
+
     <h3 class="titulo_presentacion">¿Qué opinan nuestros huéspedes?</h3>
-    
+    <div id="formulario_resena">
+        <form action="  " method="post">
+            <label  for="nombre">Nombre:</label>
+            </br>
+            <input type="text" id="nombre" name="fnombre" placeholder=" Ingrese su nombre">
+            </br>
+            <label  for="mail">Ingrese su dirección de correo electrónico:</label>
+            </br>
+            <input type="text" id="mail" name="fmail" placeholder=" Ingrese su mail">
+            </br>
+            <label  for="contenido">Reseña:</label>
+            </br>
+            <textarea id="resena" name="resena" rows="4" cols="50" required placeholder=" Su reseña sobre Artemisa"></textarea><br><br>
+        </form>
+
+        <label> Indique su valoración general de Artemisa:</label>
+        <div class="star-rating">
+            <input type="radio" id="estrella5" name="satisfaccion" value="5"><label for="estrella5">★</label>
+            <input type="radio" id="estrella4" name="satisfaccion" value="4"><label for="estrella4">★</label>
+            <input type="radio" id="estrella3" name="satisfaccion" value="3"><label for="estrella3">★</label>
+            <input type="radio" id="estrella2" name="satisfaccion" value="2"><label for="estrella2">★</label>
+            <input type="radio" id="estrella1" name="satisfaccion" value="1"><label for="estrella1">★</label>
+        </div>
+        <button id="boton_resenas"> Enviar reseña</button>
+    </div>
+
 </div>
+
+</br>
+</br>
 <hr class="divider">
 <div id="galeria">
     <h3 class="titulo_presentacion">explora el hotel con nuestra galería</h3>
 
-    {% with nombre_carrusel='carrusel_galeria', 
-                imagenes=['images/edificioHotel.jpg', 'images/exteriorHotel2.jpg','images/PlazaComún.jpg',
-                'images/Ejecutiva1.jpg', 'images/Ejecutiva2.jpg','images/Ejecutiva3.jpg','images/SuiteJunior1.jpg', 
-                'images/lobby.jpg', 'images/petCare1.jpg','images/petCare2.jpg','images/petCare3.jpg', 
-                'images/pileta1.jpg', 'images/pileta2.jpg','images/restaurante2.jpg','images/spa1.jpg', 
-                'images/Twin2.jpg'], cantidad_diapositivas=16, tipo_imagen='imagenes_carrusel_galeria', pasadores=True %}
-            {% include 'carrusel.html' %}
+    {% with nombre_carrusel='carrusel_galeria',
+    imagenes=['images/edificioHotel.jpg', 'images/exteriorHotel2.jpg','images/PlazaComún.jpg',
+    'images/Ejecutiva1.jpg', 'images/Ejecutiva2.jpg','images/Ejecutiva3.jpg','images/SuiteJunior1.jpg',
+    'images/lobby.jpg', 'images/petCare1.jpg','images/petCare2.jpg','images/petCare3.jpg',
+    'images/pileta1.jpg', 'images/pileta2.jpg','images/restaurante2.jpg','images/spa1.jpg',
+    'images/Twin2.jpg'], cantidad_diapositivas=16, tipo_imagen='imagenes_carrusel_galeria', pasadores=True %}
+    {% include 'carrusel.html' %}
     {% endwith %}
 
 
