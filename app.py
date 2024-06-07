@@ -8,7 +8,7 @@ from flask import Flask, render_template, jsonify, request
 
 #from sqlalchemy.exc import SQLAlchemyError
 
-#hola 
+
 
 PORT = 8080
 
@@ -67,6 +67,24 @@ app = Flask(__name__)
 #
 #   
 #   return jsonify({'message': 'Nos contactaremos proximamente!'}), 201
+
+
+# Forma de acceder a los datos dentro de la tabla de "servicios"
+#    conn = engine.connect()
+#        query = "SELECT * FROM servicios;"
+#        try:
+#            result = conn.execute(text(query))
+#            conn.close() 
+#        except SQLAlchemyError as err:
+#            return jsonify(str(err.__cause__))
+#        
+#        data = []
+#        for row in result:
+#            entity = {}
+#            entity['nombre_servicio'] = row.nombre_servicio
+#            entity['descripcion_servicio'] = row.descripcion_servicio
+#            data.append(entity)
+
 
 
 
