@@ -152,7 +152,7 @@ width: 50%;
     border-radius: 40px;
 }
 
-.boton_enviar button[type="submit"] {
+#boton_enviar button[type="submit"] {
     width: 25%;
     background-color:#0a4b2b; 
     color:#fdf2d4;
