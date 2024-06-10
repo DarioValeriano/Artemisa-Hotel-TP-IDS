@@ -720,11 +720,9 @@ button:hover {
     color:#8d7140;
     font-weight: 900;
 }
-.nombre_servicio_derecha {
-   padding-left: 35px;
-}
 
 .nombre_servicio_derecha {
+    padding-left: 35px;
     padding-top: 20px;
     text-align: justify;
 }
