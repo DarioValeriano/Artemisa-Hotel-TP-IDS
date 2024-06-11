@@ -18,14 +18,10 @@
 
         <article class="habitacion">
                 <div class="carrusel">
-                    <div class="carrusel-habitacion">
-                        <div class="imagenes-carrusel">
-                            <img src="/static/images/SuiteJunior1.jpg" alt="" class="imagen">
-                            <img src="/static/images/SuiteJunior2.jpg" alt="" class="imagen">
-                        </div>
-                    </div>
-                    <button class="b-izq"> <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="#ffffff" stroke-width="2" stroke-linecap="round" stroke-linejoin="arcs"><path d="M15 18l-6-6 6-6"></path></svg> </button>
-                    <button class="b-der"> <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="#ffffff" stroke-width="2" stroke-linecap="round" stroke-linejoin="arcs"><path d="M9 18l6-6-6-6"></path></svg> </button>
+                            {% with nombre_carrusel='carrusel_habitacion_1', 
+                                        imagenes=['images/SuiteJunior1.jpg', 'images/SuiteJunior2.jpg'], cantidad_diapositivas=2, tipo_imagen='imagenes_carrusel_galeria', pasadores=True %}
+                                    {% include 'carrusel.html' %}
+                            {% endwith %}
                 </div>
 
                 <div class="descripcion-habitacion">
@@ -36,15 +32,11 @@
 
                 <div class="bloque-informacion-h">
                     <div class="informacion-h">
-                        <div class="carrusel carrusel-info">
-                            <div class="carrusel-habitacion carrusel-habitacion-info">
-                                <div class="imagenes-carrusel img-carrusel-info">
-                                    <img src="/static/images/SuiteJunior1.jpg" alt="" class="img-info">
-                                    <img src="/static/images/SuiteJunior2.jpg" alt="" class="img-info">
-                                </div>
-                            </div>
-                            <button class="b-izq"> <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="#ffffff" stroke-width="2" stroke-linecap="round" stroke-linejoin="arcs"><path d="M15 18l-6-6 6-6"></path></svg> </button>
-                            <button class="b-der"> <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="#ffffff" stroke-width="2" stroke-linecap="round" stroke-linejoin="arcs"><path d="M9 18l6-6-6-6"></path></svg> </button>
+                        <div class="carrusel-info">
+                                {% with nombre_carrusel='carrusel_habitacion_informacion_1',
+                                        imagenes=['images/SuiteJunior1.jpg', 'images/SuiteJunior2.jpg'], cantidad_diapositivas=2, tipo_imagen='imagenes_carrusel_galeria', pasadores=True %}
+                                    {% include 'carrusel.html' %}
+                                {% endwith %}
                         </div>
 
                         <div class="detalles-info">
@@ -68,14 +60,10 @@
         </article>
         <article class="habitacion">
             <div class="carrusel">
-                <div class="carrusel-habitacion">
-                    <div class="imagenes-carrusel">
-                        <img src="/static/images/Twin1.jpg" alt="" class="imagen">
-                        <img src="/static/images/Twin2.jpg" alt="" class="imagen">
-                    </div>
-                </div>
-                <button class="b-izq"> <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="#ffffff" stroke-width="2" stroke-linecap="round" stroke-linejoin="arcs"><path d="M15 18l-6-6 6-6"></path></svg> </button>
-                <button class="b-der"> <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="#ffffff" stroke-width="2" stroke-linecap="round" stroke-linejoin="arcs"><path d="M9 18l6-6-6-6"></path></svg> </button>
+                {% with  nombre_carrusel='carrusel_habitacion_2',
+                                        imagenes=['images/Twin1.jpg', 'images/Twin2.jpg'], cantidad_diapositivas=2, tipo_imagen='imagenes_carrusel_galeria', pasadores=True %}
+                                    {% include 'carrusel.html' %}
+                {% endwith %}
             </div>
             <div class="descripcion-habitacion">
                 <h2>Twin Room</h2>
@@ -84,15 +72,11 @@
             </div>
             <div class="bloque-informacion-h">
                 <div class="informacion-h">
-                    <div class="carrusel carrusel-info">
-                        <div class="carrusel-habitacion carrusel-habitacion-info">
-                            <div class="imagenes-carrusel img-carrusel-info">
-                                <img src="/static/images/Twin1.jpg" alt="" class="img-info">
-                                <img src="/static/images/Twin2.jpg" alt="" class="img-info">
-                            </div>
-                        </div>
-                        <button class="b-izq"> <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="#ffffff" stroke-width="2" stroke-linecap="round" stroke-linejoin="arcs"><path d="M15 18l-6-6 6-6"></path></svg> </button>
-                        <button class="b-der"> <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="#ffffff" stroke-width="2" stroke-linecap="round" stroke-linejoin="arcs"><path d="M9 18l6-6-6-6"></path></svg> </button>
+                    <div class="carrusel-info">
+                        {% with  nombre_carrusel='carrusel_habitacion_informacion_2',
+                                imagenes=['images/Twin1.jpg', 'images/Twin2.jpg'], cantidad_diapositivas=2, tipo_imagen='imagenes_carrusel_galeria', pasadores=True %}
+                            {% include 'carrusel.html' %}
+                        {% endwith %}
                     </div>
  
                     <div class="detalles-info">
@@ -116,14 +100,10 @@
         </article>
         <article class="habitacion">
             <div class="carrusel">
-                <div class="carrusel-habitacion">
-                    <div class="imagenes-carrusel">
-                        <img src="/static/images/SuiteLujo1.jpg" alt="" class="imagen">
-                        <img src="/static/images/SuiteLujo2.jpg" alt="" class="imagen">
-                    </div>
-                </div>
-                <button class="b-izq"> <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="#ffffff" stroke-width="2" stroke-linecap="round" stroke-linejoin="arcs"><path d="M15 18l-6-6 6-6"></path></svg> </button>
-                <button class="b-der"> <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="#ffffff" stroke-width="2" stroke-linecap="round" stroke-linejoin="arcs"><path d="M9 18l6-6-6-6"></path></svg> </button>
+                {% with nombre_carrusel='carrusel_habitacion_3',
+                    imagenes=['images/SuiteLujo1.jpg', 'images/SuiteLujo2.jpg'], cantidad_diapositivas=2, tipo_imagen='imagenes_carrusel_galeria', pasadores=True %}
+                    {% include 'carrusel.html' %}
+                {% endwith %}
             </div>
 
             <div class="descripcion-habitacion">
@@ -134,15 +114,11 @@
 
             <div class="bloque-informacion-h">
                 <div class="informacion-h">
-                    <div class="carrusel carrusel-info">
-                        <div class="carrusel-habitacion carrusel-habitacion-info">
-                            <div class="imagenes-carrusel img-carrusel-info">
-                                <img src="/static/images/SuiteLujo1.jpg" alt="" class="img-info">
-                                <img src="/static/images/SuiteLujo2.jpg" alt="" class="img-info">
-                            </div>
-                        </div>
-                        <button class="b-izq"> <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="#ffffff" stroke-width="2" stroke-linecap="round" stroke-linejoin="arcs"><path d="M15 18l-6-6 6-6"></path></svg> </button>
-                        <button class="b-der"> <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="#ffffff" stroke-width="2" stroke-linecap="round" stroke-linejoin="arcs"><path d="M9 18l6-6-6-6"></path></svg> </button>
+                    <div class="carrusel-info">
+                        {% with nombre_carrusel='carrusel_habitacion_informacion_3',
+                                imagenes=['images/SuiteLujo1.jpg', 'images/SuiteLujo2.jpg'], cantidad_diapositivas=2, tipo_imagen='imagenes_carrusel_galeria', pasadores=True %}
+                            {% include 'carrusel.html' %}
+                        {% endwith %}
                     </div>
 
                     <div class="detalles-info">
@@ -166,15 +142,10 @@
         </article>
         <article class="habitacion">
             <div class="carrusel">
-                <div class="carrusel-habitacion">
-                    <div class="imagenes-carrusel">
-                        <img src="/static/images/Ejecutiva1.jpg" alt="" class="imagen">
-                        <img src="/static/images/Ejecutiva2.jpg" alt="" class="imagen">
-                        <img src="/static/images/Ejecutiva3.jpg" alt="" class="imagen">
-                    </div>
-                </div>
-                <button class="b-izq"> <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="#ffffff" stroke-width="2" stroke-linecap="round" stroke-linejoin="arcs"><path d="M15 18l-6-6 6-6"></path></svg> </button>
-                <button class="b-der"> <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="#ffffff" stroke-width="2" stroke-linecap="round" stroke-linejoin="arcs"><path d="M9 18l6-6-6-6"></path></svg> </button>
+                {% with nombre_carrusel='carrusel_habitacion_4',
+                            imagenes=['images/Ejecutiva1.jpg', 'images/Ejecutiva2.jpg', 'images/Ejecutiva3.jpg'], cantidad_diapositivas=3, tipo_imagen='imagenes_carrusel_galeria', pasadores=True %}
+                        {% include 'carrusel.html' %}
+                {% endwith %}
             </div>
 
             <div class="descripcion-habitacion">
@@ -185,16 +156,11 @@
 
             <div class="bloque-informacion-h">
                 <div class="informacion-h">
-                    <div class="carrusel carrusel-info">
-                        <div class="carrusel-habitacion carrusel-habitacion-info">
-                            <div class="imagenes-carrusel img-carrusel-info">
-                                <img src="/static/images/Ejecutiva1.jpg" alt="" class="img-info">
-                                <img src="/static/images/Ejecutiva2.jpg" alt="" class="img-info">
-                                <img src="/static/images/Ejecutiva3.jpg" alt="" class="img-info">
-                            </div>
-                        </div>
-                        <button class="b-izq"> <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="#ffffff" stroke-width="2" stroke-linecap="round" stroke-linejoin="arcs"><path d="M15 18l-6-6 6-6"></path></svg> </button>
-                        <button class="b-der"> <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="#ffffff" stroke-width="2" stroke-linecap="round" stroke-linejoin="arcs"><path d="M9 18l6-6-6-6"></path></svg> </button>
+                    <div class="carrusel-info">
+                        {% with nombre_carrusel='carrusel_habitacion_informacion_4',
+                                imagenes=['images/Ejecutiva1.jpg', 'images/Ejecutiva2.jpg', 'images/Ejecutiva3.jpg'], cantidad_diapositivas=3, tipo_imagen='imagenes_carrusel_galeria', pasadores=True %}
+                            {% include 'carrusel.html' %}
+                        {% endwith %}
                     </div>
 
                     <div class="detalles-info">
