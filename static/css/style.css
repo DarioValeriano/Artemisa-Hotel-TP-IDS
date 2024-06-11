@@ -456,24 +456,25 @@ button:hover {
 }
 
 .habitaciones{
-    margin: 0 8%;
+    margin: 0 6%;
     display: flex;
     justify-content: space-around;
     flex-wrap: wrap;
 }
 
 .habitacion{
-    width: 40%;
+    width: 43%;
     border-radius: 10px;
     background-color: #ffffff;
     margin: 0 30px 30px;
     box-shadow: 1px 4px 12px 0px #0000008f;
+    max-width: 740px;
+    height: max-content;
 }
 
-.carrusel{
-    display: flex;
-    align-items: center;
-    position: relative;
+.ajuste-height{
+    height: auto !important;
+    max-height: 440px !important;
 }
 
 .carrusel-habitacion{
@@ -603,15 +604,21 @@ button:hover {
 
 .informacion-h{
     background-color: #ffffff;
-    width: 93vw;
     padding: 0px;
     display: flex;
     box-shadow: 1px 4px 12px 0px #00000040;
-    height: 85vh;
+    width: 88vw;
+    height: 90vh;
+    max-height: 800px;
+    max-width: 1200px;
 }
 
 .carrusel-info{
     flex: 1.5;
+    max-width: 50%;
+    flex-direction: column;
+    display: flex;
+    justify-content: center;
 }
 
 .img-carrusel-info:hover{

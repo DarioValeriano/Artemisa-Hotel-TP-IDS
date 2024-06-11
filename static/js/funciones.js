@@ -1,39 +1,31 @@
 let habitaciones = document.getElementsByClassName('habitacion')
-const largoMaximo = 130
+const largoMaximo = 150
+
+
+function agregarClasePorElemento(lista, clase){
+    for (let i = 0; i < lista.length; i++) {
+        let elemento = lista[i];
+        elemento.classList.add(clase) 
+    }
+}
+
+function eliminarClasePorElemento(lista, clase){
+    for (let i = 0; i < lista.length; i++) {
+        let elemento = lista[i];
+        elemento.classList.remove(clase) 
+    }
+}
 
 for (let i = 0; i < habitaciones.length; i++) {
     let habitacion = habitaciones[i]
-    let cantImagenes = habitacion.getElementsByClassName('imagen').length
-    let botonesIzq = habitacion.getElementsByClassName('b-izq')
-    let botonesDer = habitacion.getElementsByClassName('b-der')
-    let carruseles = habitacion.getElementsByClassName('imagenes-carrusel')
     let botonLeerMas = habitacion.querySelector('.leer-mas')
     let botonCerrarInfo = habitacion.querySelector('.cerrar-info-boton')
     let bloqueInfoH = habitacion.querySelector('.bloque-informacion-h')
     let descripciones = habitacion.getElementsByClassName('texto-descripcion')
     let resumenes = habitacion.getElementsByClassName('mini-descripcion')
-    
-    for (let j = 0; j < carruseles.length; j++) {
-        let botonIzq = botonesIzq[j]
-        let botonDer = botonesDer[j]
-        let carrusel = carruseles[j]
-        let posicion = 0;
+    let imagenes = habitacion.querySelectorAll('#imagenes_carrusel_galeria')
 
-        botonIzq.addEventListener('click', function(){
-            if(posicion > 0){
-                posicion -= 1;
-                carrusel.style.transform = 'translateX('+ posicion * (-100)  +'%)';
-            }
-        })
-
-        botonDer.addEventListener('click', () => {
-            if(posicion != (cantImagenes - 1)){
-                posicion += 1;
-                carrusel.style.transform = 'translateX('+ posicion * (-100) +'%)';        
-            }
-        })
-        
-    }
+    agregarClasePorElemento(imagenes, 'ajuste-height')
 
     for (let k = 0; k < descripciones.length; k++) {
         let descripcion = descripciones[k];
@@ -47,6 +39,7 @@ for (let i = 0; i < habitaciones.length; i++) {
     }
 
     botonLeerMas.addEventListener('click', () => {
+        eliminarClasePorElemento(imagenes, 'ajuste-height')
         bloqueInfoH.style.display = 'flex'
 
         setTimeout(()=>{
@@ -56,18 +49,8 @@ for (let i = 0; i < habitaciones.length; i++) {
     
     botonCerrarInfo.addEventListener('click', () => {
         bloqueInfoH.style.display = 'none'
-
-        setTimeout(()=>{
-            bloqueInfoH.classList.remove('mostrar')
-        }, 5)
-        
+        agregarClasePorElemento(imagenes, 'ajuste-height')
     })
 
 }
-
-
-
-
-
-
 
