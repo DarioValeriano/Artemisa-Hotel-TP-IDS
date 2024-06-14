@@ -22,6 +22,12 @@ def insertar_cliente(conn, nombre, apellido, identificacion, telefono):
     result_insertar_cliente = conn.execute(text(query_insertar_cliente), {'nombre': nombre, 'apellido': apellido, 'identificacion': identificacion, 'telefono': telefono})
     return result_insertar_cliente.lastrowid
 
+def insertar_resena(conn, resena_nombre, resena_titulo, resena_contenido, resena_satisfaccion):
+    query_insertar_resena = """INSERT INTO resenas (usuario, titulo_resena, resena, valoracion)
+                                VALUES (:resena_nombre, :resena_titulo, resena_contenido, resena_satisfaccion)"""
+    result_insertar_resena = conn.execute(text(query_insertar_resena)), {'resena_nombre': resena_nombre, 'resena_titulo': resena_titulo, 'resena_contenido': resena_contenido, 'resena_satisfaccion': resena_satisfaccion}
+    return result_insertar_resena.lastrowid
+
 @app.route('/generar_reservas', methods=['GET', 'POST'])
 def generar_reservas():
 
@@ -49,7 +55,29 @@ def generar_reservas():
     finally:
         conn.close()
 
+app.route('/generar_resenas', methods=['GET', 'POST'])
+def generar_resenas():
 
+    conn = set_connection()
+    data = request.json
+
+    resena_nombre = data.get('fnombre')
+    resena_titulo = data.get('titulo')
+    resena_contenido = data.get('contenido')
+    resena_satisfaccion = data.get('satsisfaccion')
+
+    try:
+        
+        id_resena = insertar_resena(conn, resena_nombre, resena_titulo, resena_contenido, resena_satisfaccion)
+
+        conn.commit()
+        return jsonify({'message': 'Gracias por tu valoracion!'}), 201
+
+    except Exception as e:
+        return jsonify({'message': f'Error en el servidor: {str(e)}'}), 500
+    finally:
+        conn.close()
+        
 #@app.route('/users', methods = ['GET'])
 #def users():
 #    conn = engine.connect()

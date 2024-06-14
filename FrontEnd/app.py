@@ -64,5 +64,34 @@ def reservas():
 
     return render_template('reservas.html')
 
+@app.route('/', methods=['GET', 'POST'])
+def home():
+    backend_url = 'http://127.0.0.1:5001/generar_resena'
+
+    if request.method == 'POST':
+        resena_nombre = request.form['fnombre']
+        resena_titulo = request.form['ftitulo']
+        resena_contenido = request.form['resena']
+        resena_satisfaccion = request.form['satisfaccion']
+
+        resena_info = {
+            'fnombre': resena_nombre,
+            'ftitulo': resena_titulo,
+            'resena': resena_contenido,
+            'satisfaccion': resena_satisfaccion
+        }
+
+        headers = {'Content-Type': 'application/json', 'Accept': 'text/plain'}
+
+        try:
+            response = requests.post(backend_url, json=resena_info, headers=headers)
+            response.raise_for_status()
+            data = response.json()
+
+        except requests.exceptions.RequestException as e:
+            print(e)
+
+    return render_template('home.html')
+
 if __name__ == '__main__':
     app.run(debug=True, port=PORT)
