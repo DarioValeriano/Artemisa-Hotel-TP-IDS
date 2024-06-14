@@ -1,92 +1,9 @@
-from flask import Flask, render_template, jsonify, request
-
-#from flask_sqlalchemy import SQLAlchemy
-
-#from sqlalchemy import create_engine
-
-#from sqlalchemy import text
-
-#from sqlalchemy.exc import SQLAlchemyError
-
-
+from flask import Flask, render_template, jsonify, request, json
+import requests
 
 PORT = 8080
 
 app = Flask(__name__)
-
-
-#engine = create_engine("mysql+mysqlconnector://root@localhost/proyecto_messi")
-
-
-#@app.route('/users', methods = ['GET'])
-#def users():
-#    conn = engine.connect()
-#    query = "SELECT * FROM users;"
-#
-#    try:
-#
-#        result = conn.execute(text(query))
-#        conn.close() 
-#    except SQLAlchemyError as err:
-#        return jsonify(str(err.__cause__))
-#
-#   data = []
-#
-#   for row in result:
-
-#       entity = {}
-#       entity['id'] = row.id
-#       entity['name'] = row.name
-#       entity['email'] = row.email
-#       entity['message'] = row.message
-#       entity['contact'] = row.contact
-#       entity['created_at'] = row.created_at
-#       data.append(entity)
-#
-#
-#
-#   return jsonify(data), 200
-#
-#
-#
-#@app.route('/create_user', methods = ['POST'])
-#def create_user():
-#    conn = engine.connect()
-#    new_user = request.get_json()
-#    query = f"""INSERT INTO users (name, email, contact, message) VALUES ('{new_user["name"]}', '{new_user["email"]}', '{new_user["contact"]}', '{new_user["message"]}');"""
-#
-#   try:
-#
-#        result = conn.execute(text(query))
-#        conn.commit()
-#        conn.close()
-#
-#    except SQLAlchemyError as err:
-#
-#       return jsonify({'message': 'Se ha producido un error' + str(err.__cause__)})
-#
-#   
-#   return jsonify({'message': 'Nos contactaremos proximamente!'}), 201
-
-
-# Forma de acceder a los datos dentro de la tabla de "servicios"
-#    conn = engine.connect()
-#        query = "SELECT * FROM servicios;"
-#        try:
-#            result = conn.execute(text(query))
-#            conn.close() 
-#        except SQLAlchemyError as err:
-#            return jsonify(str(err.__cause__))
-#        
-#        data = []
-#        for row in result:
-#            entity = {}
-#            entity['nombre_servicio'] = row.nombre_servicio
-#            entity['descripcion_servicio'] = row.descripcion_servicio
-#            data.append(entity)
-
-
-
 
 @app.route('/')
 def home():
@@ -108,8 +25,46 @@ def contacto():
 def preguntas_frecuentes():
     return render_template('preguntas_frecuentes.html')
 
-@app.route('/reservas')
-def reservas():
+@app.route('/reservas', methods=['GET', 'POST'])
+def reservas():    
+    backend_url = 'http://127.0.0.1:5001/generar_reservas'  
+    
+    if request.method == 'POST':
+        nombre = request.form['nombre']
+        apellido = request.form['apellido']
+        identificacion = request.form['identificacion']
+        contact = request.form['contact']
+        roomtype = request.form['roomtype']
+        checkin = request.form['checkin']
+        checkout = request.form['checkout']
+        persons = request.form['persons']
+        bedtype = request.form['bedtype']
+
+        informacion = {
+            'nombre': nombre,
+            'apellido': apellido,
+            'identificacion': identificacion,
+            'contact': contact,
+            'roomtype': roomtype,
+            'checkin': checkin,
+            'checkout': checkout,
+            'persons': persons,
+            'bedtype': bedtype
+        }
+
+        headers = {'Content-Type': 'application/json', 'Accept': 'text/plain'}
+
+        try:
+            response = requests.post(backend_url, json=informacion, headers=headers)
+            response.raise_for_status()
+            data = response.json()
+            
+            return 'Reserva realizada con éxito!'
+
+        except requests.exceptions.RequestException as e:
+            print(e)
+            return 'Hubo un error al procesar su solicitud. Por favor, inténtelo más tarde'
+
     return render_template('reservas.html')
 
 if __name__ == '__main__':
