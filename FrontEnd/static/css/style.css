@@ -70,13 +70,15 @@ header img {
 
 /*Preguntas Frecuentes*/
 
-#contenedor_imagen{
+#contenedor_imagen,#reservas_imagen,#contacto_imagen{
     width: 100%;
     height: 300px;
-    background-image: url("/static/images/PlazaComún.jpg");
     background-repeat: no-repeat;
     background-size: 100%;
     background-position: center;
+}
+#contenedor_imagen{
+    background-image: url("/static/images/PlazaComún.jpg");
 }
 
 #contenedor_secundario, .contenedor_preguntas{
@@ -116,11 +118,6 @@ header img {
 /*Contacto*/
 
 #contacto_imagen{
-    width: 100%;
-    height: 300px;    
-    background-repeat: no-repeat;
-    background-size: 100%;
-    background-position: center;
     background-image: url("/static/images/recepcion.jpg");
 }
 
@@ -146,14 +143,14 @@ header img {
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.5); 
 }
 
-#userForm label{
+#userForm label, #reserveForm label{ 
     font-size:large;
     font-family: "Cinzel", serif;
     color:#ffffff;
     font-weight: bold;
 }
 
-#userForm input, #userForm textarea {
+#userForm input, #userForm textarea, #reserveForm input, #reserveForm select {
     color:black;
     position: relative;
     width: 100%;
@@ -210,7 +207,15 @@ header img {
     border-radius: 10px; 
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.5); 
 }
+ /*Reverva*/
 
+#reservas_imagen{
+    background-image: url("/static/images/edificioHotel.jpg");
+}
+
+#pagina_reservas #formulario{
+    margin-top: 0px;
+}
 
 /*Home*/
 
@@ -522,9 +527,7 @@ button:hover {
 
 .bloque-informacion-h{
     width: 100vw;
-    height: 100vh;
     backdrop-filter: blur(6px);
-    display: none;
     justify-content: center;
     position: fixed;
     align-items: center;
@@ -543,7 +546,6 @@ button:hover {
     opacity: 1;
     height: auto;
 }
-
 
 .informacion-h{
     background-color: #ffffff;
@@ -726,6 +728,7 @@ footer{
 footer p{
     margin-bottom: 0px;
 }
+
 
 /*
 prueba
