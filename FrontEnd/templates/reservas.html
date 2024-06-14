@@ -8,7 +8,7 @@
 
 <div id="formulario">
     <h2 id="form_titulo"> Coloque sus datos para realizar su reserva </h2>
-    <form id="reserveForm">
+    <form id="reserveForm" action="{{ url_for('reservas') }}" method="post">
       <label for="message">Nombre</label>
       <br>
       <input type="text" id="nombre" name="nombre" required>
@@ -64,7 +64,6 @@
   </div>
 
  <script src="{{ url_for('static', filename='/js/aviso_reservas.js') }}"></script>
- <script src="{{ url_for('static', filename='/js/reservas.js') }}"></script>
 
 
 {% endblock %}

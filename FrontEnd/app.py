@@ -58,12 +58,9 @@ def reservas():
             response = requests.post(backend_url, json=informacion, headers=headers)
             response.raise_for_status()
             data = response.json()
-            
-            return 'Reserva realizada con éxito!'
 
         except requests.exceptions.RequestException as e:
             print(e)
-            return 'Hubo un error al procesar su solicitud. Por favor, inténtelo más tarde'
 
     return render_template('reservas.html')
 
