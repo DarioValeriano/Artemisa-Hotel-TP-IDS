@@ -18,8 +18,8 @@ header, footer{
     color: #fdf2d4;
 }
 
-/* Header */
-header {
+/* Base */
+header{
     display: flex;
     justify-content: space-around;
 }
@@ -30,7 +30,6 @@ header {
 }
 
 #logo{
-    font-family: "Cinzel", serif;
     display: flex;
 }
 
@@ -47,6 +46,26 @@ header img {
 
 #enlaces a:hover{
     color:#8d7140;
+}
+#nav_secundario {
+    display:flex;
+    align-items: center;
+    padding: 10px 10%;
+    font-family: "Cinzel", serif;
+    font-weight: bold;
+    font-size: large;
+    color:#8d7140;
+    justify-content: space-between;
+}
+
+#nav_secundario button,#nav_secundario p{
+    margin: 0px;
+}
+#nav_secundario a{
+    font-family: "Noto Sans", sans-serif;
+    font-weight: 400;
+    padding: 0px 20px;
+    font-size: medium;
 }
 
 /*Preguntas Frecuentes*/
@@ -116,59 +135,52 @@ header img {
     font-family: "Cinzel", serif;
     color:#ffffff;
     text-align: center;
-    margin-top: 30px;
     font-weight: 900;
 }
 
 #formulario {
-width: 45%;
-  padding: 20px;
+    width: 40%;
+  padding: 30px 50px;
   background-color:#8d7140;
-  margin: auto;
-  text-align: center;
-  margin-top: 100px;
-  margin-bottom: 70px;
+  margin: 70px auto;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.5); 
-
 }
 
-.subtitulo {
+#userForm label{
     font-size:large;
-    margin-top: 20px;
-    font-family: Arial, Helvetica, sans-serif;
+    font-family: "Cinzel", serif;
     color:#ffffff;
+    font-weight: bold;
 }
 
-.dato input {
-    font-size: medium;
-    font-family:Arial, Helvetica, sans-serif;
+#userForm input, #userForm textarea {
     color:black;
     position: relative;
-    width: 80%;
-    padding: 12px 20px;
-    background-color:#ffffff;
+    width: 100%;
+    padding: 5px 10px;
+    background-color:#fdf2d4;
     opacity:60%;
     border: 2px solid #678677;
-    border-radius: 40px;
+    border-radius: 20px;
+    margin-bottom: 15px;
 }
 
 #boton_enviar button[type="submit"] {
-    width: 25%;
+    width: 30%;
     background-color:#0a4b2b; 
     color:#fdf2d4;
-    text-align: center; 
     font-family:"Cinzel", serif ;
-    font-size:medium; 
     cursor: pointer;
     border-radius: 10px; 
     padding:15px 15px; 
+    margin: 0px 35%;
 }
     
 .mapa {
     display: flex;
     width: 500px; 
     margin: auto;
-    border: 10px solid white; 
+    border: 5px solid white; 
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.5); 
 }
 
@@ -181,12 +193,12 @@ width: 45%;
     padding: 20px; 
 }
 
-#info:hover{
+.info:hover{
     color:#fdf2d4;
     background-color: #678677;
 }
 
-#info{
+.info{
     width: fit-content; 
     font-size:medium;
     font-family:"Cinzel", serif;
@@ -426,26 +438,28 @@ button:hover {
 
 .contenido-presentacion-h{
     width: 40%;
-    padding: 80px;
+    padding: 60px;
     margin: auto;
 }
 
-.contenido-presentacion-h h2, .contenido-presentacion-h h3, .contenido-presentacion-h p{
+.contenido-presentacion-h h2, .contenido-presentacion-h h3{
     margin-bottom: 17px;
+    color: #8d7140;
+    font-family: "Cinzel", serif;
+    font-weight: bold;
 }
 
 .contenido-presentacion-h h2{
     font-size: 40px;
-    color: #ae8b4f;
 }
 
 .contenido-presentacion-h h3{
     font-size: 22px;
-    color: #ae8b4f;
 }
 
 .contenido-presentacion-h p{
     font-size: 16px;
+    margin-bottom: 17px;
 }
 
 .linea-separacion{
@@ -472,80 +486,6 @@ button:hover {
     height: max-content;
 }
 
-.ajuste-height{
-    height: auto !important;
-    max-height: 440px !important;
-}
-
-.carrusel-habitacion{
-    overflow: hidden;
-    height: 320px;
-}
-
-.imagenes-carrusel{
-    display:flex;
-    flex-direction: row;
-    flex-wrap: nowrap;
-    height: 100%;
-    width: 100%;
-    transition: all 0.1s ease-in;
-}
-
-
-.b-izq{
-    width: 40px;
-    height: 40px;
-    border-radius: 50%;
-    position: absolute;
-    left: 5px;
-    color: #ffffff;
-    background-color: rgba(0, 0, 0, 0.418);
-}
-
-.b-izq:hover{
-    background-color: black;
-}
-
-.b-izq svg{
-    stroke: #ffffffbb;
-    padding: 5px;
-    width: 30px;
-    height: 30px;
-}
-
-.b-izq svg:hover{
-    stroke: #ffffff;
-}
-
-.b-der{
-    width: 40px;
-    height: 40px;
-    border-radius: 50%;
-    position: absolute;
-    right: 5px;
-    color: #ffffff;
-    background-color: rgba(0, 0, 0, 0.418);
-}
-
-.b-der:hover{
-    background-color: black;
-}
-
-.b-der svg{
-    stroke: #ffffffbb;
-    padding: 5px;
-    width: 30px;
-    height: 30px;
-}
-
-.b-der svg:hover{
-    stroke: #ffffff;
-}
-
-.imagen{
-    width: 100%;
-}
-
 .descripcion-habitacion{
     padding: 10px;
     text-align: center;
@@ -553,6 +493,9 @@ button:hover {
 
 .descripcion-habitacion h2{
     margin: 10px;
+    color: #8d7140;
+    font-family: "Cinzel", serif;
+    font-weight: bold;
 }
 
 .descripcion-habitacion p{
@@ -736,7 +679,7 @@ button:hover {
 
 #carrusel_piscina, #carrusel_cafeteria, #carrusel_flamingo, #carrusel_restaurant_noche, #carrusel_spa, #carrusel_petcare {
     max-height: auto;
-    max-width: 550px;
+    width: 550px;
 }
 
 #imagenes_carruseles_servicio {
@@ -782,4 +725,82 @@ footer{
 }
 footer p{
     margin-bottom: 0px;
+}
+
+/*
+prueba
+*/body {
+    font-family: Arial, sans-serif;
+}
+
+.hidden {
+    display: none;
+}
+
+.content {
+    margin: 20px;
+}
+
+#open-modal {
+    margin-top: 10px;
+    padding: 10px;
+    font-size: 16px;
+}
+
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgb(0,0,0);
+    background-color: rgba(0,0,0,0.4);
+    padding-top: 60px;
+}
+
+.modal-content {
+    background-color: #fefefe;
+    margin: 5% auto;
+    padding: 0;
+    border: 1px solid #888;
+    width: 80%;
+}
+
+.modal-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+    background-color: #f1f1f1;
+    border-bottom: 1px solid #e5e5e5;
+}
+
+.modal-header h2 {
+    margin: 0;
+}
+
+.close {
+    color: #aaa;
+    font-size: 28px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.close:hover,
+.close:focus {
+    color: black;
+    text-decoration: none;
+}
+
+.modal-body {
+    padding: 20px;
+}
+
+
+#titulo_ventana_modal{
+    padding-top: 5px;
+    color: #000000;
 }

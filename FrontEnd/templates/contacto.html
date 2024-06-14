@@ -6,17 +6,17 @@
     <h2 id="contacto_titulo">Información de contacto</h2>
 
     <div id="contenedor_secundario">
-       <p>
-        En nuestra página de contactos, encontrarás toda la información necesaria. No dudes en contactarnos a través de nuestro número de teléfono o enviarnos un correo electrónico. También puedes completar nuestro formulario de contacto en línea para que podamos atender tus necesidades de manera rápida y eficiente.
+       <p>En nuestra página de contactos, encontrarás toda la información necesaria. No dudes en contactarnos a través de nuestro número de teléfono o enviarnos un correo electrónico. También puedes completar nuestro formulario de contacto en línea para que podamos atender tus necesidades de manera rápida y eficiente.
         Estamos comprometidos a brindarte el mejor servicio posible.<br>
-        ¡Esperamos poder darte la bienvenida pronto!  </p>
+        ¡Esperamos poder darte la bienvenida pronto!  
+        </p>
     </div>
     <hr class="divider">
 
     <div class="informacion-contacto"> 
-    <p id="info">Email: ArtemisaHotel@hotmail.com</p>
-    <p id="info"> Teléfono: +1123469356 </p>
-    <p id="info"> Ubicación: Av. Atlântica, 1702 - Copacabana </p>
+        <p class="info">Email: ArtemisaHotel@hotmail.com</p>
+        <p class="info"> Teléfono: +1123469356 </p>
+        <p class="info"> Ubicación: Av. Atlântica, 1702 - Copacabana </p>
     </div>
     
     <div class="mapa">
@@ -24,38 +24,22 @@
     </div>
 
 
-
 <div id="formulario">
-    <h2 id="form_titulo"> Deje sus datos para más información! </h2>
+    <h2 id="form_titulo">Deje su consulta</h2>
     <form id="userForm">
-      <div class="subtitulo">
-      <label for="message">Nombre y Apellido</label><br>
-      </div>
-      <div class="dato">
+      <label for="message">Nombre y Apellido:</label><br>
       <input type="text" id="name" name="name" required><br>
-      </div>
-      <div class="subtitulo">
-      <label for="message">Email</label><br>
-      </div>
-      <div class="dato">
-      <input type="email" id="email" name="email"><br><br>
-      </div>
-      <div class="subtitulo">
-      <label for="message">Número de teléfono</label><br>
-      </div>
-      <div class="dato">
-      <input type="tel" id="contact" name="contact" pattern="[0-9]{10}"><br><br>
-      </div>
-      <div class="subtitulo">
-      <label for="message">Escribe aqui tu consulta</label><br>
-      </div>
-      <div class="dato">
-      <input type="text" id="message" name="message"><br><br>
-      </div>
+      <label for="message">Email:</label><br>
+      <input type="email" id="email" name="email" required><br>
+      <label for="message">Número de teléfono:</label><br>
+      <input type="tel" id="contact" name="contact" required pattern="[0-9]{10}"><br>
+      <label for="message">Consulta:</label><br>
+      <textarea type="text" id="message" name="message" rows="4" required></textarea><br>
       <div id="boton_enviar" ><button type="submit">Enviar</button></div>
     </form>
  </div>
 
+ <script src="{{ url_for('static', filename='/js/aviso.js') }}"></script>
  <script src="{{ url_for('static', filename='/js/contacto.js') }}"></script>
 
 

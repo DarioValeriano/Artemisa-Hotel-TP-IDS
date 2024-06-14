@@ -78,7 +78,7 @@
         <img class="imagen_servicio_home_derecha"
             src="{{ url_for('static', filename='images/petCares.jpeg', _external=True) }}">
     </div>
-    <a href="servicios">
+    <a href="{{ url_for('servicios')}}">
         <button type="button" class="boton">Ver Más</button>
     </a>
 
@@ -102,7 +102,7 @@
         {% endwith %}
 
     </div>
-    <a href="habitaciones">
+    <a href="{{ url_for('habitaciones')}}">
         <button class="boton">Ver Más</button>
     </a>
 </div>
@@ -118,9 +118,9 @@
             </br>
             <input type="text" id="nombre" name="fnombre" placeholder=" Ingrese su nombre">
             </br>
-            <label  for="mail">Ingrese su dirección de correo electrónico:</label>
+            <label  for="titulo_reseña">Ingrese un título para su reseña:</label>
             </br>
-            <input type="text" id="mail" name="fmail" placeholder=" Ingrese su mail">
+            <input type="text" id="titulo_reseña" name="ftitulo" placeholder=" Ingrese un titulo">
             </br>
             <label  for="contenido">Reseña:</label>
             </br>
@@ -157,4 +157,24 @@
 
 
 </div>
+
+   
+<button id="open-modal">Ver más</button>
+
+
+<div id="modal" class="modal hidden">
+    <div class="modal-content">
+        <header class="modal-header">
+            <h6 id="titulo_ventana_modal">Calificaciones y reseñas</h6>
+            <span id="close-modal" class="close">&times;</span>
+        </header>
+        <div>
+            <ul id="listaResenas">
+                    
+            </ul>
+        </div>
+    </div>
+</div>
+
+<script src="{{ url_for('static', filename='/js/home.js') }}"></script>
 {% endblock %}
