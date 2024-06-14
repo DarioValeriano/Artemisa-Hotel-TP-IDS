@@ -108,5 +108,9 @@ def contacto():
 def preguntas_frecuentes():
     return render_template('preguntas_frecuentes.html')
 
+@app.route('/reservas')
+def reservas():
+    return render_template('reservas.html')
+
 if __name__ == '__main__':
     app.run(debug=True, port=PORT)
