@@ -104,8 +104,8 @@ def generar_resenas():
     nombre = data.get('nombre')
     titulo_resena = data.get('titulo_resena')
     resena = data.get('resena')
-    satisfaccion = data.get('satsisfaccion')
-
+    satisfaccion = data.get('satisfaccion')
+    
     try:
         
         insertar_resena(conn, nombre, titulo_resena, resena, satisfaccion)

@@ -5,9 +5,6 @@ PORT = 8080
 
 app = Flask(__name__)
 
-#@app.route('/')
-#def home():
-#    return render_template('home.html')
 
 @app.route('/habitaciones')
 def habitaciones():
@@ -63,6 +60,7 @@ def reservas():
             print(e)
 
     return render_template('reservas.html')
+
 
 @app.route('/', methods=['GET', 'POST'])
 def home():
