@@ -33,7 +33,7 @@
     </p>
 </div>
 
-<hr class="divider">
+<hr class="divider"><a href="{{ url_for('contacto')}}">Contacto</a>
 
 <div id="servicios_home">
     <h3 class="titulo_presentacion"> ¿Por qué te encantará Artemisa?</h3>
@@ -113,29 +113,33 @@
 
     <h3 class="titulo_presentacion">¿Qué opinan nuestros huéspedes?</h3>
     <div id="formulario_resena">
-        <form action="  " method="post">
+        <form action="{{ url_for('home')}}" method="post">
             <label  for="nombre">Nombre:</label>
             </br>
-            <input type="text" id="nombre" name="fnombre" placeholder=" Ingrese su nombre">
+            <input type="text" id="nombre" name="nombre" placeholder=" Ingrese su nombre">
             </br>
-            <label  for="titulo_reseña">Ingrese un título para su reseña:</label>
+            <label  for="titulo_resena">Ingrese un título para su reseña:</label>
             </br>
-            <input type="text" id="titulo_reseña" name="ftitulo" placeholder=" Ingrese un titulo">
+            <input type="text" id="titulo_resena" name="titulo_resena" placeholder=" Ingrese un titulo">
             </br>
             <label  for="contenido">Reseña:</label>
             </br>
             <textarea id="resena" name="resena" rows="4" cols="50" required placeholder=" Su reseña sobre Artemisa"></textarea><br><br>
+            <label> Indique su valoración general de Artemisa:</label>
+            </br>
+            <input type="text" id="satisfaccion" name="satisfaccion" placeholder=" Ingrese su nombre">
+            <!--<div class="star-rating">
+                <input type="radio" id="estrella5" name="satisfaccion" value="5"><label for="estrella5">★</label>
+                <input type="radio" id="estrella4" name="satisfaccion" value="4"><label for="estrella4">★</label>
+                <input type="radio" id="estrella3" name="satisfaccion" value="3"><label for="estrella3">★</label>
+                <input type="radio" id="estrella2" name="satisfaccion" value="2"><label for="estrella2">★</label>
+                <input type="radio" id="estrella1" name="satisfaccion" value="1"><label for="estrella1">★</label>
+            </div>-->
+
+            <button type="submit"> Enviar reseña</button>
         </form>
 
-        <label> Indique su valoración general de Artemisa:</label>
-        <div class="star-rating">
-            <input type="radio" id="estrella5" name="satisfaccion" value="5"><label for="estrella5">★</label>
-            <input type="radio" id="estrella4" name="satisfaccion" value="4"><label for="estrella4">★</label>
-            <input type="radio" id="estrella3" name="satisfaccion" value="3"><label for="estrella3">★</label>
-            <input type="radio" id="estrella2" name="satisfaccion" value="2"><label for="estrella2">★</label>
-            <input type="radio" id="estrella1" name="satisfaccion" value="1"><label for="estrella1">★</label>
-        </div>
-        <button id="boton_resenas"> Enviar reseña</button>
+        
     </div>
 
 </div>

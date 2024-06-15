@@ -5,9 +5,9 @@ PORT = 8080
 
 app = Flask(__name__)
 
-@app.route('/')
-def home():
-    return render_template('home.html')
+#@app.route('/')
+#def home():
+#    return render_template('home.html')
 
 @app.route('/habitaciones')
 def habitaciones():
@@ -66,19 +66,19 @@ def reservas():
 
 @app.route('/', methods=['GET', 'POST'])
 def home():
-    backend_url = 'http://127.0.0.1:5001/generar_resena'
+    backend_url = 'http://127.0.0.1:5001/generar_resenas'
 
     if request.method == 'POST':
-        resena_nombre = request.form['fnombre']
-        resena_titulo = request.form['ftitulo']
-        resena_contenido = request.form['resena']
-        resena_satisfaccion = request.form['satisfaccion']
+        nombre = request.form['nombre']
+        titulo_resena = request.form['titulo_resena']
+        resena = request.form['resena']
+        satisfaccion = request.form['satisfaccion']
 
         resena_info = {
-            'fnombre': resena_nombre,
-            'ftitulo': resena_titulo,
-            'resena': resena_contenido,
-            'satisfaccion': resena_satisfaccion
+            'nombre': nombre,
+            'titulo_resena': titulo_resena,
+            'resena': resena,
+            'satisfaccion': satisfaccion
         }
 
         headers = {'Content-Type': 'application/json', 'Accept': 'text/plain'}

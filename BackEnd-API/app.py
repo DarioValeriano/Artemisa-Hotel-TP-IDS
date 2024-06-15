@@ -90,20 +90,20 @@ def generar_reservas():
     finally:
         conn.close()
 
-app.route('/generar_resenas', methods=['GET', 'POST'])
+@app.route('/generar_resenas', methods=['GET', 'POST'])
 def generar_resenas():
 
     conn = set_connection()
     data = request.json
 
-    resena_nombre = data.get('fnombre')
-    resena_titulo = data.get('titulo')
-    resena_contenido = data.get('contenido')
-    resena_satisfaccion = data.get('satsisfaccion')
+    nombre = data.get('nombre')
+    titulo_resena = data.get('titulo_resena')
+    resena = data.get('resena')
+    satisfaccion = data.get('satsisfaccion')
 
     try:
         
-        id_resena = insertar_resena(conn, resena_nombre, resena_titulo, resena_contenido, resena_satisfaccion)
+        id_resena = insertar_resena(conn, nombre, titulo_resena, resena, satisfaccion)
 
         conn.commit()
         return jsonify({'message': 'Gracias por tu valoracion!'}), 201

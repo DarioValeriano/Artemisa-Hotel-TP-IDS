@@ -281,13 +281,13 @@ CREATE TABLE `ocupacion_hotel` (
 -- Table structure for table resenas
 --
 
-CREATE TABLE resenas (
-  id int(11) NOT NULL,
-  usuario varchar(50) NOT NULL,
-  titulo_resena varchar(100) NOT NULL,
-  resena longtext NOT NULL,
-  valoracion int(11) NOT NULL,
-  fecha timestamp NOT NULL DEFAULT current_timestamp()
+CREATE TABLE `resenas` (
+  `id` int(11) NOT NULL,
+  `usuario` varchar(50) NOT NULL,
+  `titulo_resena` varchar(100) NOT NULL,
+  `resena` longtext NOT NULL,
+  `valoracion` int(11) NOT NULL,
+  `fecha` timestamp NOT NULL DEFAULT current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
