@@ -117,6 +117,7 @@ def obtener_info_habitaciones():
         data.append(entity)
 
         return jsonify(data), 200
+    
 @app.route('/generar_resenas', methods=['GET', 'POST'])
 def generar_resenas():
 
