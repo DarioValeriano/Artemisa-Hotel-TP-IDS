@@ -100,5 +100,37 @@ def home():
 
     return render_template('home.html')
 
+@app.route('/users', methods=['GET', 'POST'])
+def crear_usuario():
+    backend_url = 'http://127.0.0.1:5001/contacto'
+    
+    if request.method == 'POST':
+        nombre = request.form['nombre']
+        contact = request.form['contact']
+        email = request.form['email']
+        message = request.form['message']
+
+        informacion = {
+            'nombre': nombre,
+            'contact': contact,
+            'email': email,
+            'message': message,
+        }
+
+        headers = {'Content-Type': 'application/json', 'Accept': 'text/plain'}
+
+        try:
+            response = requests.post(backend_url, json=informacion, headers=headers)
+            response.raise_for_status()
+            data = response.json()
+            return jsonify(data), 200  # Retornar datos del servidor de contacto si es necesario
+        except requests.exceptions.RequestException as e:
+            return jsonify({'message': f'Error en la solicitud al servidor de contacto: {str(e)}'}), 500
+
+    return render_template('contacto.html')
+
+
+
+
 if __name__ == '__main__':
     app.run(debug=True, port=PORT)

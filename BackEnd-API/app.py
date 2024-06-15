@@ -140,7 +140,33 @@ def generar_resenas():
         return jsonify({'message': f'Error en el servidor: {str(e)}'}), 500
     finally:
         conn.close()
-        
+
+def insertar_usuario(conn, nombre, contact, email, message):
+    query = f"""INSERT INTO usuarios (nombre, telefono, email, message)
+                VALUES ('{nombre}', '{contact}', '{email}', '{message}');"""
+    result = conn.execute(text(query))
+    return result.lastrowid  
+
+@app.route('/crear_users',methods=['GET', 'POST'])
+def crear_users():
+    conn = set_connection()
+
+    try:
+        data = request.get_json()
+        nombre = data.get('nombre')
+        contact = data.get('contact')
+        email = data.get('email')
+        message = data.get('message')
+
+        id_usuario = insertar_usuario(conn, nombre, contact, email, message)
+
+        conn.commit()
+        return jsonify({'message': 'Usuario creado exitosamente', 'id_usuario': id_usuario}), 201
+    except Exception as e:
+        return jsonify({'message': f'Error en el servidor: {str(e)}'}), 500
+    finally:
+        conn.close()
+
 #@app.route('/users', methods = ['GET'])
 #def users():
 #    conn = engine.connect()
