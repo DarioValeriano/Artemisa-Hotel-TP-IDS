@@ -11,7 +11,16 @@ def home():
 
 @app.route('/habitaciones')
 def habitaciones():
-    return render_template('habitaciones.html')
+    backend_url = 'http://127.0.0.1:5001/informacion_habitaciones'
+    try:
+        response = requests.get(backend_url)
+        response.raise_for_status()
+        habitaciones = response.json()
+
+    except requests.exceptions.RequestException as e:
+        print(e)
+
+    return render_template('habitaciones.html', habitaciones=habitaciones)
 
 @app.route('/servicios')
 def servicios():
