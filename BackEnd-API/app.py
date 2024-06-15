@@ -54,6 +54,11 @@ def insertar_reserva(conn, id_cliente, id_habitacion, roomtype, checkin, checkou
                             VALUES (:id_cliente, :id_habitacion, :roomtype, :checkin, :checkout, :persons, :bedtype)"""
     conn.execute(text(query_insertar_reserva), {'id_cliente': id_cliente, 'id_habitacion': id_habitacion, 'roomtype': roomtype, 'checkin': checkin, 'checkout': checkout, 'persons': persons, 'bedtype': bedtype})
 
+def insertar_resena(conn, nombre, titulo_resena, resena, satisfaccion):
+    query_instertar_resenas = """INSERT INTO resenas (nombre, titulo_resena, resena, satisfaccion)
+                                VALUES (:nombre, :titulo_resena, :resena, :satisfaccion)"""
+    conn.execute(text(query_instertar_resenas), {'nombre': nombre, 'titulo_resena': titulo_resena, 'resena': resena, 'satisfaccion': satisfaccion})
+
 @app.route('/generar_reservas', methods=['GET', 'POST'])
 def generar_reservas():
     conn = set_connection()
@@ -103,7 +108,7 @@ def generar_resenas():
 
     try:
         
-        id_resena = insertar_resena(conn, nombre, titulo_resena, resena, satisfaccion)
+        insertar_resena(conn, nombre, titulo_resena, resena, satisfaccion)
 
         conn.commit()
         return jsonify({'message': 'Gracias por tu valoracion!'}), 201

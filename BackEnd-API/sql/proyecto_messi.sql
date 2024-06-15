@@ -282,11 +282,11 @@ CREATE TABLE `ocupacion_hotel` (
 --
 
 CREATE TABLE `resenas` (
-  `id` int(11) NOT NULL,
-  `usuario` varchar(50) NOT NULL,
+  `id_resena` int(11) NOT NULL,
+  `nombre` varchar(50) NOT NULL,
   `titulo_resena` varchar(100) NOT NULL,
   `resena` longtext NOT NULL,
-  `valoracion` int(11) NOT NULL,
+  `satisfaccion` int(11) NOT NULL,
   `fecha` timestamp NOT NULL DEFAULT current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
@@ -394,7 +394,7 @@ ALTER TABLE `ocupacion_hotel`
 -- Indexes for table resenas
 --
 ALTER TABLE resenas
-  ADD PRIMARY KEY (id);
+  ADD PRIMARY KEY (`id_resena`);
 --
 -- Indices de la tabla `reserva`
 --
@@ -434,8 +434,8 @@ ALTER TABLE `ocupacion_hotel`
 --
 -- AUTO_INCREMENT for table resenas
 --
-ALTER TABLE resenas
-  MODIFY id int(11) NOT NULL AUTO_INCREMENT;
+ALTER TABLE `resenas`
+  MODIFY `id_resena` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT de la tabla `reserva`
