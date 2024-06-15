@@ -95,6 +95,28 @@ def generar_reservas():
     finally:
         conn.close()
 
+@app.route('/informacion_habitaciones', methods=['GET'])
+def obtener_info_habitaciones():
+    conn = set_connection()
+
+    query_obtener_info = "SELECT nombre, descripcion, amenities FROM tipos_habitaciones"
+    
+    try:
+        result = conn.execute(text(query_obtener_info))
+        conn.close()
+    except SQLAlchemyError as err:
+        return jsonify({'message': 'Se ha producido un error en la base de datos: ' + str(err.__cause__)}), 500
+
+    data = []
+    
+    for row in result:
+        entity = {}
+        entity['nombre']: row['nombre']
+        entity['descripcion']: row['descripcion']
+        entity['amenities']: json.loads(row['amenities']) if row['amenities'] else None
+        data.append(entity)
+
+        return jsonify(data), 200
 @app.route('/generar_resenas', methods=['GET', 'POST'])
 def generar_resenas():
 
