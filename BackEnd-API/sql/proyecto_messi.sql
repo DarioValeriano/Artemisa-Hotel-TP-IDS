@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: localhost
--- Tiempo de generación: 15-06-2024 a las 05:24:29
+-- Tiempo de generación: 15-06-2024 a las 08:17:06
 -- Versión del servidor: 10.4.32-MariaDB
 -- Versión de PHP: 8.2.12
 
@@ -352,19 +352,19 @@ INSERT INTO `servicios` (`nombre_servicio`, `descripcion_servicio`) VALUES
 
 CREATE TABLE `tipos_habitaciones` (
   `nombre` varchar(50) NOT NULL,
-  `especificaciones` longtext CHARACTER SET utf8mb4 COLLATE utf8mb4_bin NOT NULL CHECK (json_valid(`especificaciones`)),
-  `precio` decimal(10,2) NOT NULL
+  `descripcion` longtext NOT NULL,
+  `amenities` longtext CHARACTER SET utf8mb4 COLLATE utf8mb4_bin NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Volcado de datos para la tabla `tipos_habitaciones`
 --
 
-INSERT INTO `tipos_habitaciones` (`nombre`, `especificaciones`, `precio`) VALUES
-('Deluxe Suite', '[\"TV LCD\", \"Minibar\", \"Aire Acondicionado\", \"WIFI\", \"Cerradura Magnética\", \"Habitación Climatizada\", \"Bañera\", \"Caja fuerte\", \"Escritorio\", \"Artículos de Aseo\", \"Amenities\", \"Secador de Cabello\", \"Jacuzzi\", \"Teléfono\"]\r\n', 64000.00),
-('Executive Suite', '[\"TV LCD\", \"Minibar\", \"Caja Fuerte\", \"WIFI\", \"Cerradura Magnética\", \"Aire Acondicionado\", \"Habitación Climatizada\", \"Escritorio\", \"Microondas\", \"Artículos de Aseo\", \"Amenities\", \"Secador de Cabello\", \"Bañera\", \"Hidromasaje\", \"Teléfono\", \"Cafetera Nespresso\"]\r\n', 75000.00),
-('Junior Suite', '[\"TV LCD\",\"Microondas\", \"Caja fuerte\", \"Cerradura Magnética\", \"WIFI\", \"Aire Acondicionado\", \"Minibar\", \"Habitación Climatizada\", \"Escritorio\", \"Artículos de Aseo\",\"Amenities\", \"Secador de Cabello\", \"Bañera\", \"Teléfono\"]\r\n', 52000.00),
-('Twin', '[\"TV LCD\", \"Minibar\", \"Caja fuerte\", \"WIFI\", \"Cerradura Magnética\", \"Aire Acondicionado\", \"Habitación Climatizada\", \"Microondas\", \"Artículos de Aseo\", \"Amenities\", \"Secador de Cabello\", \"Bañera\", \"Teléfono\"]', 48000.00);
+INSERT INTO `tipos_habitaciones` (`nombre`, `descripcion`, `amenities`) VALUES
+('Deluxe Suite', 'Sumérgete en el lujo con nuestra Deluxe Suite, donde cada detalle ha sido cuidadosamente seleccionado para ofrecerte una experiencia inolvidable. Disfruta de vistas impresionantes de la ciudad desde la comodidad de tu habitación, mientras te relajas en una cama extragrande. El baño de lujo está equipado con una bañera de hidromasaje para momentos de relajación total. Además, encontrarás una amplia zona de estar separada y un servicio de conserjería personalizado para satisfacer todas tus necesidades durante tu estancia.', '[\"TV LCD\", \"Minibar\", \"Aire Acondicionado\", \"WIFI\", \"Cerradura Magnética\", \"Habitación Climatizada\", \"Bañera\", \"Caja fuerte\", \"Escritorio\", \"Artículos de Aseo\", \"Amenities\", \"Secador de Cabello\", \"Jacuzzi\", \"Teléfono\"]\r\n'),
+('Executive Suite', 'Experimenta el máximo confort y exclusividad en nuestra Executive Suite, diseñada para satisfacer las necesidades de los viajeros más exigentes. Disfruta de impresionantes vistas al mar desde tu habitación y descansa en una lujosa cama premium. La suite también cuenta con una amplia sala de estar independiente, perfecta para relajarte o para recibir a tus invitados. Además, tendrás acceso exclusivo al lounge ejecutivo, donde podrás disfrutar de servicios adicionales y atención personalizada. Y para empezar el día con energía, disfruta de un delicioso servicio de desayuno en la habitación.', '[\"TV LCD\", \"Minibar\", \"Caja Fuerte\", \"WIFI\", \"Cerradura Magnética\", \"Aire Acondicionado\", \"Habitación Climatizada\", \"Escritorio\", \"Microondas\", \"Artículos de Aseo\", \"Amenities\", \"Secador de Cabello\", \"Bañera\", \"Hidromasaje\", \"Teléfono\", \"Cafetera Nespresso\"]\r\n'),
+('Junior Suite', 'Sumérgete en la comodidad de nuestra Junior Suite, donde el espacio generoso se combina con un ambiente acogedor. Disfruta de una amplia área de estar perfecta para relajarte, una cama King Size para un descanso reparador y un baño privado equipado con ducha y bañera. Además, encontrarás un mini bar para satisfacer tus antojos y acceso a internet de alta velocidad para mantenerte conectado durante tu estancia.', '[\"TV LCD\",\"Microondas\", \"Caja fuerte\", \"Cerradura Magnética\", \"WIFI\", \"Aire Acondicionado\", \"Minibar\", \"Habitación Climatizada\", \"Escritorio\", \"Artículos de Aseo\",\"Amenities\", \"Secador de Cabello\", \"Bañera\", \"Teléfono\"]\r\n'),
+('Twin', 'Nuestra Twin Room ofrece una combinación perfecta de practicidad y confort. Con dos camas individuales, es ideal para amigos o familiares que prefieren tener su propio espacio para dormir. El baño privado cuenta con una maravillosa bañera apta para un relajante baño de inmersión, donde podrás liberar estrés y reponer energías, mientras que el escritorio de trabajo proporciona un espacio conveniente para trabajar o planificar tus actividades. También puedes disfrutar de entretenimiento con la televisión por cable y solicitar servicio de habitaciones las 24 horas para una experiencia aún más cómoda.', '[\"TV LCD\", \"Minibar\", \"Caja fuerte\", \"WIFI\", \"Cerradura Magnética\", \"Aire Acondicionado\", \"Habitación Climatizada\", \"Microondas\", \"Artículos de Aseo\", \"Amenities\", \"Secador de Cabello\", \"Bañera\", \"Teléfono\"]');
 
 -- --------------------------------------------------------
 
