@@ -111,12 +111,12 @@ def obtener_info_habitaciones():
     
     for row in result:
         entity = {}
-        entity['nombre']= row['nombre']
-        entity['descripcion']= row['descripcion']
-        entity['amenities']= json.loads(row['amenities']) if row['amenities'] else None
+        entity['nombre']= row[0]
+        entity['descripcion']= row[1]
+        entity['amenities']= json.loads(row[2]) if row[2] else None
         data.append(entity)
 
-        return jsonify(data), 200
+    return jsonify(data), 200
  
 
 @app.route('/contenido_resenas', methods=['GET'])
