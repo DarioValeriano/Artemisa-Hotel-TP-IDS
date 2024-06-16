@@ -174,13 +174,13 @@ def generar_resenas():
     finally:
         conn.close()
 
-def insertar_usuario(conn, name, contact, email, message):
-    query = """INSERT INTO users (name, contact, email, message)
+def insertar_consulta(conn, name, contact, email, message):
+    query = """INSERT INTO consultas (name, contact, email, message)
                     VALUES (:name, :contact, :email, :message)"""
     conn.execute(text(query), {'name': name, 'contact': contact, 'email': email, 'message': message}) 
 
-@app.route('/crear_users', methods=['GET', 'POST'])
-def crear_users():
+@app.route('/crear_consultas', methods=['GET', 'POST'])
+def crear_consulta():
     conn = set_connection()
     try:
         data = request.json
@@ -189,7 +189,7 @@ def crear_users():
         email = data.get('email')
         message = data.get('message')
 
-        id_usuario = insertar_usuario(conn, name, contact, email, message)
+        insertar_consulta(conn, name, contact, email, message)
 
         conn.commit()
         return jsonify({'message': 'Consulta enviada correctamente'}), 201
@@ -197,56 +197,6 @@ def crear_users():
         return jsonify({'message': f'Error en el servidor: {str(err)}'}), 500
     finally:
         conn.close()
-
-#@app.route('/users', methods = ['GET'])
-#def users():
-#    conn = engine.connect()
-#    query = "SELECT * FROM users;"
-#
-#    try:
-#
-#        result = conn.execute(text(query))
-#        conn.close() 
-#    except SQLAlchemyError as err:
-#        return jsonify(str(err.__cause__))
-#
-#   data = []
-#
-#   for row in result:
-
-#       entity = {}
-#       entity['id'] = row.id
-#       entity['name'] = row.name
-#       entity['email'] = row.email
-#       entity['message'] = row.message
-#       entity['contact'] = row.contact
-#       entity['created_at'] = row.created_at
-#       data.append(entity)
-#
-#
-#
-#   return jsonify(data), 200
-#
-#
-#
-#@app.route('/create_user', methods = ['POST'])
-#def create_user():
-#    conn = engine.connect()
-#    new_user = request.get_json()
-#    query = f"""INSERT INTO users (name, email, contact, message) VALUES ('{new_user["name"]}', '{new_user["email"]}', '{new_user["contact"]}', '{new_user["message"]}');"""
-#
-#   try:
-#
-#        result = conn.execute(text(query))
-#        conn.commit()
-#        conn.close()
-#
-#    except SQLAlchemyError as err:
-#
-#       return jsonify({'message': 'Se ha producido un error' + str(err.__cause__)})
-#
-#   
-#   return jsonify({'message': 'Nos contactaremos proximamente!'}), 201
 
 
 # Forma de acceder a los datos dentro de la tabla de "servicios"

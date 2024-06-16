@@ -25,7 +25,7 @@ def servicios():
 
 @app.route('/contacto', methods=['GET', 'POST'])
 def contacto():
-    backend_url = 'http://127.0.0.1:5001/crear_users'
+    backend_url = 'http://127.0.0.1:5001/crear_consulta'
     
     if request.method == 'POST':
         name = request.form['name']
@@ -46,9 +46,7 @@ def contacto():
             response = requests.post(backend_url, json=informacion, headers=headers)
             response.raise_for_status()
             data = response.json()
-            #return jsonify(data), 200  # Retornar datos del servidor de contacto si es necesario
         except requests.exceptions.RequestException as err:
-            #return jsonify({'message': f'Error en la solicitud al servidor de contacto: {str(err)}'}), 500
             print (err)
 
     return render_template('contacto.html')

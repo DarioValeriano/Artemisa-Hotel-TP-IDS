@@ -383,10 +383,10 @@ INSERT INTO `tipos_habitaciones` (`nombre`, `descripcion`, `amenities`) VALUES
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `users`
+-- Estructura de tabla para la tabla `consultas`
 --
 
-CREATE TABLE IF NOT EXISTS users (
+CREATE TABLE IF NOT EXISTS consultas (
   id INT AUTO_INCREMENT,
   name VARCHAR(50) NOT NULL,
   email VARCHAR(50) NOT NULL,
