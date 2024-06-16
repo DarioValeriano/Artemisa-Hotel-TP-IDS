@@ -167,6 +167,26 @@ def crear_users():
     finally:
         conn.close()
 
+
+@app.route('/informacion_servicios', methods=['GET'])
+def informacion_servicios():
+    conn = set_connection()
+    query = "SELECT * FROM servicios;"
+    try:
+        result = conn.execute(text(query))
+        conn.close() 
+    except SQLAlchemyError as err:
+        return jsonify(str(err.__cause__))
+    
+    data = []
+    for row in result:
+        entity = {}
+        entity['nombre_servicio'] = row.nombre_servicio
+        entity['descripcion_servicio'] = row.descripcion_servicio
+        data.append(entity)
+    
+    return jsonify(data)
+
 #@app.route('/users', methods = ['GET'])
 #def users():
 #    conn = engine.connect()
@@ -218,21 +238,7 @@ def crear_users():
 #   return jsonify({'message': 'Nos contactaremos proximamente!'}), 201
 
 
-# Forma de acceder a los datos dentro de la tabla de "servicios"
-#    conn = engine.connect()
-#        query = "SELECT * FROM servicios;"
-#        try:
-#            result = conn.execute(text(query))
-#            conn.close() 
-#        except SQLAlchemyError as err:
-#            return jsonify(str(err.__cause__))
-#        
-#        data = []
-#        for row in result:
-#            entity = {}
-#            entity['nombre_servicio'] = row.nombre_servicio
-#            entity['descripcion_servicio'] = row.descripcion_servicio
-#            data.append(entity)
+
 
 if __name__ == "__main__":
     app.run(debug=True, port=PORT)
