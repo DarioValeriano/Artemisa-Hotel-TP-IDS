@@ -134,8 +134,13 @@ def home():
         except requests.exceptions.RequestException as e:
             print(e)
         return redirect(url_for('home'))
+    
+    if promedio_satisfaccion is not None:
+        promedio_redondeado = round(float(promedio_satisfaccion))
+    else:
+        promedio_redondeado = 0
 
-    promedio_redondeado = round(float(promedio_satisfaccion))
+
     return render_template('home.html', resenas=resenas, promedio_satisfaccion= promedio_redondeado, cantidad_resenas=cantidad_resenas)
 
 
