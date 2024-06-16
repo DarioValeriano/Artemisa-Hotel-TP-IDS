@@ -386,13 +386,14 @@ INSERT INTO `tipos_habitaciones` (`nombre`, `descripcion`, `amenities`) VALUES
 -- Estructura de tabla para la tabla `users`
 --
 
-CREATE TABLE `users` (
-  `id` int(50) NOT NULL,
-  `name` varchar(50) NOT NULL,
-  `email` varchar(50) NOT NULL,
-  `contact` int(11) NOT NULL,
-  `message` varchar(300) NOT NULL,
-  `create_at` timestamp NOT NULL DEFAULT current_timestamp()
+CREATE TABLE IF NOT EXISTS users (
+  id INT AUTO_INCREMENT,
+  name VARCHAR(50) NOT NULL,
+  email VARCHAR(50) NOT NULL,
+  contact INT(11) NOT NULL,
+  message VARCHAR(300) NOT NULL,
+  created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+  PRIMARY KEY (id)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --

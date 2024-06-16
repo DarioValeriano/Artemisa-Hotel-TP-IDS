@@ -174,29 +174,27 @@ def generar_resenas():
     finally:
         conn.close()
 
-def insertar_usuario(conn, nombre, contact, email, message):
-    query = f"""INSERT INTO usuarios (nombre, telefono, email, message)
-                VALUES ('{nombre}', '{contact}', '{email}', '{message}');"""
-    result = conn.execute(text(query))
-    return result.lastrowid  
+def insertar_usuario(conn, name, contact, email, message):
+    query = """INSERT INTO users (name, contact, email, message)
+                    VALUES (:name, :contact, :email, :message)"""
+    conn.execute(text(query), {'name': name, 'contact': contact, 'email': email, 'message': message}) 
 
-@app.route('/crear_users',methods=['GET', 'POST'])
+@app.route('/crear_users', methods=['GET', 'POST'])
 def crear_users():
     conn = set_connection()
-
     try:
-        data = request.get_json()
-        nombre = data.get('nombre')
+        data = request.json
+        name = data.get('name')
         contact = data.get('contact')
         email = data.get('email')
         message = data.get('message')
 
-        id_usuario = insertar_usuario(conn, nombre, contact, email, message)
+        id_usuario = insertar_usuario(conn, name, contact, email, message)
 
         conn.commit()
-        return jsonify({'message': 'Usuario creado exitosamente', 'id_usuario': id_usuario}), 201
-    except Exception as e:
-        return jsonify({'message': f'Error en el servidor: {str(e)}'}), 500
+        return jsonify({'message': 'Consulta enviada correctamente'}), 201
+    except Exception as err:
+        return jsonify({'message': f'Error en el servidor: {str(err)}'}), 500
     finally:
         conn.close()
 
