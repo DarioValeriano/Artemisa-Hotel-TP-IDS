@@ -367,11 +367,11 @@ button:hover {
     text-align: center;
 }
 
-.star-rating input[type=radio] {
+.star-rating input[type=radio], .star-rating-template input[type=radio]{
     display: none;
 }
 
-.star-rating label {
+.star-rating label, .star-rating-template label{
     color: #bbb;
     font-size: 30px;
     padding: 0 5px;
@@ -766,14 +766,18 @@ prueba
 
 .modal-content {
     background-color: #fefefe;
-    margin: 5% auto;
+    margin: auto;
     padding: 0;
-    border: 1px solid #888;
     width: 80%;
+    border: 1px solid #888;
+    width: 80%; 
+    max-height: 80vh; 
+    overflow: auto;
 }
 
 .modal-header {
     display: flex;
+    width: 100%;
     justify-content: space-between;
     align-items: center;
     padding: 10px 20px;
@@ -806,4 +810,14 @@ prueba
 #titulo_ventana_modal{
     padding-top: 5px;
     color: #000000;
+}
+
+#disparador_modal{
+    cursor: pointer;
+}
+
+#disparador_modal:hover{
+    font-weight: bold;
+    color: black;
+    font-family: Arial, Helvetica, sans-serif;
 }

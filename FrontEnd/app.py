@@ -1,4 +1,4 @@
-from flask import Flask, render_template, jsonify, request, json
+from flask import Flask, render_template, jsonify, request, url_for, redirect
 import requests
 
 PORT = 8080
@@ -71,11 +71,27 @@ def reservas():
     return render_template('reservas.html')
 
 
+
 @app.route('/', methods=['GET', 'POST'])
 def home():
-    backend_url = 'http://127.0.0.1:5001/generar_resenas'
+    backend_url = 'http://127.0.0.1:5001/contenido_resenas'
+    resenas = []
+    promedio_satisfaccion = 0
+    cantidad_resenas = 0
+
+    try:
+        devolucion = requests.get(backend_url)
+        devolucion.raise_for_status()
+        datos_resena = devolucion.json()
+        resenas = datos_resena.get('resenas', [])
+        promedio_satisfaccion = datos_resena.get('promedio_satisfaccion', 0)
+        cantidad_resenas = datos_resena.get('cantidad_resenas', 0)
+    except requests.exceptions.RequestException as e:
+        print(e)
+
 
     if request.method == 'POST':
+        backend_url = 'http://127.0.0.1:5001/generar_resenas'
         nombre = request.form['nombre']
         titulo_resena = request.form['titulo_resena']
         resena = request.form['resena']
@@ -93,12 +109,12 @@ def home():
         try:
             response = requests.post(backend_url, json=resena_info, headers=headers)
             response.raise_for_status()
-            data = response.json()
-
         except requests.exceptions.RequestException as e:
             print(e)
+        return redirect(url_for('home'))
 
-    return render_template('home.html')
+    promedio_redondeado = round(float(promedio_satisfaccion))
+    return render_template('home.html', resenas=resenas, promedio_satisfaccion= promedio_redondeado, cantidad_resenas=cantidad_resenas)
 
 @app.route('/users', methods=['GET', 'POST'])
 def crear_usuario():
@@ -123,7 +139,7 @@ def crear_usuario():
             response = requests.post(backend_url, json=informacion, headers=headers)
             response.raise_for_status()
             data = response.json()
-            return jsonify(data), 200  # Retornar datos del servidor de contacto si es necesario
+            return jsonify(data), 200 
         except requests.exceptions.RequestException as e:
             return jsonify({'message': f'Error en la solicitud al servidor de contacto: {str(e)}'}), 500
 

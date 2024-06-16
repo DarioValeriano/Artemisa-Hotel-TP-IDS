@@ -3,8 +3,8 @@ from flask_sqlalchemy import SQLAlchemy
 from sqlalchemy import create_engine
 from sqlalchemy import text
 from sqlalchemy.exc import SQLAlchemyError
-import requests
 from flask_cors import CORS
+import json
 
 PORT = 5001
 
@@ -111,13 +111,46 @@ def obtener_info_habitaciones():
     
     for row in result:
         entity = {}
-        entity['nombre']: row['nombre']
-        entity['descripcion']: row['descripcion']
-        entity['amenities']: json.loads(row['amenities']) if row['amenities'] else None
+        entity['nombre']= row['nombre']
+        entity['descripcion']= row['descripcion']
+        entity['amenities']= json.loads(row['amenities']) if row['amenities'] else None
         data.append(entity)
 
         return jsonify(data), 200
+ 
+
+@app.route('/contenido_resenas', methods=['GET'])
+def obtener_contenido_resenas():
+    conn = set_connection()
+
+    query_obtener_info = "SELECT * FROM resenas"
+    query_promedio_satisfaccion = "SELECT AVG(satisfaccion) AS promedio_satisfaccion FROM resenas"
+    query_cantidad_resenas = "SELECT COUNT(*) AS cantidad_resenas FROM resenas"
     
+
+    try:
+        resenas = conn.execute(text(query_obtener_info)).fetchall()
+        promedio_satisfaccion_result = conn.execute(text(query_promedio_satisfaccion)).fetchone()[0] 
+        cantidad_resenas_result = conn.execute(text(query_cantidad_resenas)).fetchone()[0] 
+    
+        conn.close()
+    except SQLAlchemyError as err:
+        return jsonify({'message': 'Se ha producido un error en la base de datos: ' + str(err.__cause__)}), 500
+
+    data = []
+
+    for fila in resenas:
+        entity = {}
+        entity['id_resena'] = fila[0]
+        entity['nombre'] = fila[1]
+        entity['titulo_resena'] = fila[2]
+        entity['resena'] = fila[3]
+        entity['satisfaccion'] = fila[4]
+        data.append(entity)
+
+    return jsonify({'resenas': data, 'cantidad_resenas': cantidad_resenas_result, 'promedio_satisfaccion': promedio_satisfaccion_result}), 200
+
+
 @app.route('/generar_resenas', methods=['GET', 'POST'])
 def generar_resenas():
 
