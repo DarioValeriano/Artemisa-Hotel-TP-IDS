@@ -361,7 +361,10 @@ CREATE TABLE `reserva` (
 
 CREATE TABLE `servicios` (
   `nombre_servicio` varchar(50) NOT NULL,
-  `descripcion_servicio` text NOT NULL
+  `descripcion_servicio` text NOT NULL,
+  `ruta_imagen1` varchar(100) DEFAULT NULL,
+  `ruta_imagen2` varchar(50) DEFAULT NULL,
+  `ruta_imagen3` varchar(50) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
@@ -376,7 +379,6 @@ INSERT INTO `servicios` (`nombre_servicio`, `descripcion_servicio`, `ruta_imagen
 ('Servicio de spa', 'Tanto en el hotel como en la isla privada contamos con servicio de Spa, donde se ofrece una experiencia sensorial incomparable, desde tratamientos faciales rejuvenecedores hasta masajes relajantes realizados por expertos terapeutas. Sumérgete en nuestras piscinas climatizadas, sauna y jacuzzi, y déjate llevar por la armonía y el lujo en cada momento.', '/images/spa1.jpg', '/images/spa2.jpg', '/images/spa3.jpg'),
 ('Flamingo Island', 'Explore las playas cercanas Flamingo Beach y Wind Creek, solo para adultos. En minutos, el taxi acuático de nuestro hotel lo llevará a nuestra isla privada de 40 acres, donde los flamencos deambulan libremente y le esperan tratamientos relajantes en nuestro Spa. Y, con la gran variedad de restaurantes y bares que sirven de todo, desde cócteles artesanales hasta filetes auténticos, la experiencia gastronómica perfecta nunca está lejos.', '/images/flamingo1.jpg', '/images/flamingo2.jpg', NULL),
 ('Servicio pet-care', 'Con el servicio de guardería para mascotas puedes salir a explorar la ciudad teniendo la seguridad de que tu amigo peludo estará recibiendo los mejores cuidados en nuestro hotel. También puedes disfrutar con tu mascota en las áreas de juego designadas para su entretenimiento, las mismas se dividen en zona de gatitos y zona de perritos. ', '/images/petCare2.jpg', '/images/petCare1.jpg', '/images/petCare3.jpg');
-
 
 -- --------------------------------------------------------
 
