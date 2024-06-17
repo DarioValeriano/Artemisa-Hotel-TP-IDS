@@ -22,13 +22,3 @@ services:
       - ./BackEnd-API:/app
     environment:
       FLASK_ENV: development
-
-  mariadb:
-    image: mariadb:latest
-    ports:
-      - "3306:3306"
-    environment:
-      MARIADB_ROOT_PASSWORD: "a"
-      MYSQL_DATABASE: proyecto_messi
-    volumes:
-      - ./BackEnd-API/proyecto_messi.sql:/docker-entrypoint-initdb.d/proyecto_messi.sql
