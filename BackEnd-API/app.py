@@ -179,7 +179,7 @@ def insertar_consulta(conn, name, contact, email, message):
                     VALUES (:name, :contact, :email, :message)"""
     conn.execute(text(query), {'name': name, 'contact': contact, 'email': email, 'message': message}) 
 
-@app.route('/crear_consultas', methods=['GET', 'POST'])
+@app.route('/crear_consulta', methods=['POST'])
 def crear_consulta():
     conn = set_connection()
     try:
