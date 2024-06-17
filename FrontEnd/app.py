@@ -22,7 +22,15 @@ def habitaciones():
 
 @app.route('/servicios')
 def servicios():
-    return render_template('servicios.html')
+    backend_url = 'http://127.0.0.1:5001/informacion_servicios'
+    servicios= []
+    try:
+        response = requests.get(backend_url)
+        response.raise_for_status()
+        servicios = response.json()
+    except requests.exceptions.RequestException as e:
+        print(e)
+    return render_template('servicios.html', servicios=servicios)
 
 @app.route('/contacto', methods=['GET','POST'])
 def contacto():
