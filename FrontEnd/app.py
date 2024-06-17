@@ -137,7 +137,7 @@ def home():
         nombre = request.form['nombre']
         titulo_resena = request.form['titulo_resena']
         resena = request.form['resena']
-        satisfaccion = request.form['satisfaccion']
+        satisfaccion = request.form.get('satisfaccion',1)
 
         resena_info = {
             'nombre': nombre,

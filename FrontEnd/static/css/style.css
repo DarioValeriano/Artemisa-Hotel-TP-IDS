@@ -47,26 +47,6 @@ header img {
 #enlaces a:hover{
     color:#8d7140;
 }
-#nav_secundario {
-    display:flex;
-    align-items: center;
-    padding: 10px 10%;
-    font-family: "Cinzel", serif;
-    font-weight: bold;
-    font-size: large;
-    color:#8d7140;
-    justify-content: space-between;
-}
-
-#nav_secundario button,#nav_secundario p{
-    margin: 0px;
-}
-#nav_secundario a{
-    font-family: "Noto Sans", sans-serif;
-    font-weight: 400;
-    padding: 0px 20px;
-    font-size: medium;
-}
 
 /*Preguntas Frecuentes*/
 
@@ -113,10 +93,6 @@ header img {
 
 #preguntas_frecuentes button{
     margin: 20px auto;
-}
-
-#preguntas_frecuentes a{
-    margin-left: 15%;
 }
 
 /*Contacto*/
@@ -378,9 +354,10 @@ button:hover {
 .star-rating label, .star-rating-template label{
     color: #bbb;
     font-size: 30px;
-    padding: 0 5px;
+    padding: 0 0px;
     cursor: pointer;
     transition: color 0.3s;
+    margin-bottom: 0px;
 }
 
 .star-rating input[type=radio]:checked ~ label,
@@ -410,6 +387,47 @@ button:hover {
 
 #formulario_resena input, textarea{
     width: 400px;
+}
+
+#nav_secundario {
+    display:flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px 10%;
+    font-family: "Cinzel", serif;
+    font-weight: bold;
+    font-size: large;
+    color:#8d7140;
+}
+#nav_valoraciones{
+    display: flex;
+    align-items: center;
+}
+
+#nav_valoraciones p{
+    margin-bottom:0px;
+}
+
+#valoracion_promedio{
+    margin-left: 20px;
+    margin-right: 7px;
+}
+
+#valoracion_total{
+    font-size: small;
+}
+#separador{
+    margin: 0px 15px;
+}
+
+#nav_secundario button{
+    margin: 0px;
+}
+#nav_secundario a{
+    font-family: "Noto Sans", sans-serif;
+    font-weight: 400;
+    padding: 0px 20px;
+    font-size: medium;
 }
 
 /* Habitaciones */
@@ -736,9 +754,7 @@ footer p{
 
 /*
 prueba
-*/body {
-    font-family: Arial, sans-serif;
-}
+*/
 
 .hidden {
     display: none;
@@ -754,27 +770,25 @@ prueba
     font-size: 16px;
 }
 
-.modal {
-    display: none;
-    position: fixed;
-    z-index: 1;
-    left: 0;
-    top: 0;
-    width: 100%;
-    height: 100%;
-    overflow: auto;
-    background-color: rgb(0,0,0);
-    background-color: rgba(0,0,0,0.4);
-    padding-top: 60px;
+.modal{
+    top:0;
+    bottom: 0;
+    left:0;
+    right: 0;
+}
+    
+#modal_formulario{
+    width: fit-content;
+    height: fit-content;
+    margin: auto;
 }
 
-.modal-content {
-    background-color: #fefefe;
+#modal .modal-content {
+    background: #fdf2d4;
     margin: auto;
     padding: 0;
-    width: 80%;
+    width: 60%;
     border: 1px solid #888;
-    width: 80%; 
     max-height: 80vh; 
     overflow: auto;
 }
@@ -789,8 +803,11 @@ prueba
     border-bottom: 1px solid #e5e5e5;
 }
 
-.modal-header h2 {
+#modal .modal-header h2 {
     margin: 0;
+}
+.modal-header{
+    background-color:#8d7140;
 }
 
 .close {
@@ -806,22 +823,50 @@ prueba
     text-decoration: none;
 }
 
-.modal-body {
+#modal .modal-body {
     padding: 20px;
 }
 
 
 #titulo_ventana_modal{
     padding-top: 5px;
-    color: #000000;
+    font-family: "Cinzel", serif;
+    font-weight: 700;
+    font-size:large;
+    color:#fdf2d4;
 }
 
-#disparador_modal{
+#disparador_modal,#disparador_formulario{
     cursor: pointer;
+    text-decoration: underline;
+    font-size:medium;
 }
 
-#disparador_modal:hover{
+#disparador_modal:hover,#disparador_formulario:hover{
     font-weight: bold;
     color: black;
-    font-family: Arial, Helvetica, sans-serif;
+}
+.valoracion_resena{
+   justify-content: space-between;
+}
+
+.bloque_resena {
+    width: 100%; 
+    text-align: start; 
+    display: flex;
+    align-items: center; 
+    padding: 2% 5%;
+    color:#8d7140;
+}
+
+.contenedor_general_datos{
+    width:50%;
+}
+.contenedor_nombre{
+    width: 40%; 
+}
+.contenedor_titulo_resena{
+    font-family: "Cinzel", serif;
+    font-weight: 700;
+    font-size:large;
 }
