@@ -198,6 +198,28 @@ def crear_consulta():
     finally:
         conn.close()
 
+@app.route('/informacion_faq', methods=['GET'])
+def obtener_info_faq():
+    conn = set_connection()
+
+    query_obtener_info = "SELECT * FROM FAQ"
+    
+    try:
+        faq = conn.execute(text(query_obtener_info)).fetchall()
+        conn.close()
+    except SQLAlchemyError as err:
+        return jsonify({'message': 'Se ha producido un error en la base de datos: ' + str(err._cause_)}), 500
+
+    data = []
+    
+    for row in faq:
+        entity = {}
+        entity['ID'] = row[0]
+        entity['Pregunta'] = row[1]
+        entity['Respuesta'] = row[2]
+        data.append(entity)
+
+    return jsonify({'faq':data}), 200
 
 # Forma de acceder a los datos dentro de la tabla de "servicios"
 #    conn = engine.connect()
