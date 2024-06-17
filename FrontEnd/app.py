@@ -24,7 +24,7 @@ def habitaciones():
 def servicios():
     return render_template('servicios.html')
 
-@app.route('/contacto', methods=['POST'])
+@app.route('/contacto', methods=['GET','POST'])
 def contacto():
     backend_url = f"{HOST_BACK}/crear_consulta"
     
