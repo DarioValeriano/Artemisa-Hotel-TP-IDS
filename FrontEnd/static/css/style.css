@@ -115,6 +115,10 @@ header img {
     margin: 20px auto;
 }
 
+#preguntas_frecuentes a{
+    margin-left: 15%;
+}
+
 /*Contacto*/
 
 #contacto_imagen{

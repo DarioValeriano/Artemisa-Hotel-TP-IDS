@@ -51,9 +51,22 @@ def contacto():
 
     return render_template('contacto.html')
 
-@app.route('/preguntas_frecuentes')
+@app.route('/preguntas_frecuentes', methods=['GET'])
 def preguntas_frecuentes():
-    return render_template('preguntas_frecuentes.html')
+    backend_url = 'http://127.0.0.1:5001/informacion_faq'
+    faq=[]
+    try:
+        response = requests.get(backend_url)
+        response.raise_for_status()
+        datos_faq = response.json()
+        faq = datos_faq.get('faq')
+
+    except requests.exceptions.RequestException as e:
+        print(e)
+
+
+    return render_template('preguntas_frecuentes.html', faq=faq)
+
 
 @app.route('/reservas', methods=['GET', 'POST'])
 def reservas():    
