@@ -870,3 +870,18 @@ prueba
     font-weight: 700;
     font-size:large;
 }
+
+#boton_error{
+    
+    margin-left:530px;
+    padding: 10px;
+    text-align: center;
+    background-color: #0a4b2b;
+    color: #ffffff;
+    font-family: "Cinzel", serif;
+    font-size: medium;
+    border-radius: 10px;
+    font-weight: 600;
+    margin-top: 50px;
+    margin-bottom: 50px;
+}
