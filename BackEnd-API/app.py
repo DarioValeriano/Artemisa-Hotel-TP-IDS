@@ -218,6 +218,9 @@ def informacion_servicios():
         entity = {}
         entity['nombre_servicio'] = row.nombre_servicio
         entity['descripcion_servicio'] = row.descripcion_servicio
+        entity['ruta_imagen1'] = row.ruta_imagen1
+        entity['ruta_imagen2'] = row.ruta_imagen2
+        entity['ruta_imagen3'] = row.ruta_imagen3
         data.append(entity)
     
     return jsonify(data)
