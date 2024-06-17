@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: localhost
--- Tiempo de generación: 15-06-2024 a las 08:17:06
+-- Tiempo de generación: 17-06-2024 a las 04:32:06
 -- Versión del servidor: 10.4.32-MariaDB
 -- Versión de PHP: 8.2.12
 
@@ -33,6 +33,21 @@ CREATE TABLE `cliente` (
   `apellido` varchar(50) NOT NULL,
   `identificacion` int(8) NOT NULL,
   `telefono` int(14) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+
+
+--
+-- Estructura de tabla para la tabla `consultas`
+--
+
+CREATE TABLE `consultas` (
+  `id` int(11) NOT NULL,
+  `name` varchar(50) NOT NULL,
+  `email` varchar(50) NOT NULL,
+  `contact` int(11) NOT NULL,
+  `message` varchar(300) NOT NULL,
+  `created_at` timestamp NOT NULL DEFAULT current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
@@ -303,10 +318,11 @@ CREATE TABLE `ocupacion_hotel` (
   `fecha_checkout` date NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
+
 -- --------------------------------------------------------
 
 --
--- Table structure for table resenas
+-- Estructura de tabla para la tabla `resenas`
 --
 
 CREATE TABLE `resenas` (
@@ -318,8 +334,10 @@ CREATE TABLE `resenas` (
   `fecha` timestamp NOT NULL DEFAULT current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
+
 -- --------------------------------------------------------
 
+--
 -- Estructura de tabla para la tabla `reserva`
 --
 
@@ -333,6 +351,7 @@ CREATE TABLE `reserva` (
   `cantidad_huespedes` int(11) NOT NULL,
   `tipo_cama` varchar(7) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
 
 -- --------------------------------------------------------
 
@@ -367,33 +386,21 @@ INSERT INTO `servicios` (`nombre_servicio`, `descripcion_servicio`) VALUES
 CREATE TABLE `tipos_habitaciones` (
   `nombre` varchar(50) NOT NULL,
   `descripcion` longtext NOT NULL,
-  `amenities` longtext CHARACTER SET utf8mb4 COLLATE utf8mb4_bin NOT NULL
+  `amenities` longtext CHARACTER SET utf8mb4 COLLATE utf8mb4_bin NOT NULL,
+  `ruta_imagen1` varchar(30) NOT NULL,
+  `ruta_imagen2` varchar(30) NOT NULL,
+  `ruta_imagen3` varchar(30) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Volcado de datos para la tabla `tipos_habitaciones`
 --
 
-INSERT INTO `tipos_habitaciones` (`nombre`, `descripcion`, `amenities`) VALUES
-('Deluxe Suite', 'Sumérgete en el lujo con nuestra Deluxe Suite, donde cada detalle ha sido cuidadosamente seleccionado para ofrecerte una experiencia inolvidable. Disfruta de vistas impresionantes de la ciudad desde la comodidad de tu habitación, mientras te relajas en una cama extragrande. El baño de lujo está equipado con una bañera de hidromasaje para momentos de relajación total. Además, encontrarás una amplia zona de estar separada y un servicio de conserjería personalizado para satisfacer todas tus necesidades durante tu estancia.', '[\"TV LCD\", \"Minibar\", \"Aire Acondicionado\", \"WIFI\", \"Cerradura Magnética\", \"Habitación Climatizada\", \"Bañera\", \"Caja fuerte\", \"Escritorio\", \"Artículos de Aseo\", \"Amenities\", \"Secador de Cabello\", \"Jacuzzi\", \"Teléfono\"]\r\n'),
-('Executive Suite', 'Experimenta el máximo confort y exclusividad en nuestra Executive Suite, diseñada para satisfacer las necesidades de los viajeros más exigentes. Disfruta de impresionantes vistas al mar desde tu habitación y descansa en una lujosa cama premium. La suite también cuenta con una amplia sala de estar independiente, perfecta para relajarte o para recibir a tus invitados. Además, tendrás acceso exclusivo al lounge ejecutivo, donde podrás disfrutar de servicios adicionales y atención personalizada. Y para empezar el día con energía, disfruta de un delicioso servicio de desayuno en la habitación.', '[\"TV LCD\", \"Minibar\", \"Caja Fuerte\", \"WIFI\", \"Cerradura Magnética\", \"Aire Acondicionado\", \"Habitación Climatizada\", \"Escritorio\", \"Microondas\", \"Artículos de Aseo\", \"Amenities\", \"Secador de Cabello\", \"Bañera\", \"Hidromasaje\", \"Teléfono\", \"Cafetera Nespresso\"]\r\n'),
-('Junior Suite', 'Sumérgete en la comodidad de nuestra Junior Suite, donde el espacio generoso se combina con un ambiente acogedor. Disfruta de una amplia área de estar perfecta para relajarte, una cama King Size para un descanso reparador y un baño privado equipado con ducha y bañera. Además, encontrarás un mini bar para satisfacer tus antojos y acceso a internet de alta velocidad para mantenerte conectado durante tu estancia.', '[\"TV LCD\",\"Microondas\", \"Caja fuerte\", \"Cerradura Magnética\", \"WIFI\", \"Aire Acondicionado\", \"Minibar\", \"Habitación Climatizada\", \"Escritorio\", \"Artículos de Aseo\",\"Amenities\", \"Secador de Cabello\", \"Bañera\", \"Teléfono\"]\r\n'),
-('Twin', 'Nuestra Twin Room ofrece una combinación perfecta de practicidad y confort. Con dos camas individuales, es ideal para amigos o familiares que prefieren tener su propio espacio para dormir. El baño privado cuenta con una maravillosa bañera apta para un relajante baño de inmersión, donde podrás liberar estrés y reponer energías, mientras que el escritorio de trabajo proporciona un espacio conveniente para trabajar o planificar tus actividades. También puedes disfrutar de entretenimiento con la televisión por cable y solicitar servicio de habitaciones las 24 horas para una experiencia aún más cómoda.', '[\"TV LCD\", \"Minibar\", \"Caja fuerte\", \"WIFI\", \"Cerradura Magnética\", \"Aire Acondicionado\", \"Habitación Climatizada\", \"Microondas\", \"Artículos de Aseo\", \"Amenities\", \"Secador de Cabello\", \"Bañera\", \"Teléfono\"]');
-
--- --------------------------------------------------------
-
---
--- Estructura de tabla para la tabla `users`
---
-
-CREATE TABLE `users` (
-  `id` int(50) NOT NULL,
-  `name` varchar(50) NOT NULL,
-  `email` varchar(50) NOT NULL,
-  `contact` int(11) NOT NULL,
-  `message` varchar(300) NOT NULL,
-  `create_at` timestamp NOT NULL DEFAULT current_timestamp()
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+INSERT INTO `tipos_habitaciones` (`nombre`, `descripcion`, `amenities`, `ruta_imagen1`, `ruta_imagen2`, `ruta_imagen3`) VALUES
+('Deluxe Suite', 'Sumérgete en el lujo con nuestra Deluxe Suite, donde cada detalle ha sido cuidadosamente seleccionado para ofrecerte una experiencia inolvidable. Disfruta de vistas impresionantes de la ciudad desde la comodidad de tu habitación, mientras te relajas en una cama extragrande. El baño de lujo está equipado con una bañera de hidromasaje para momentos de relajación total. Además, encontrarás una amplia zona de estar separada y un servicio de conserjería personalizado para satisfacer todas tus necesidades durante tu estancia.', '[\"TV LCD\", \"Minibar\", \"Aire Acondicionado\", \"WIFI\", \"Cerradura Magnética\", \"Habitación Climatizada\", \"Bañera\", \"Caja fuerte\", \"Escritorio\", \"Artículos de Aseo\", \"Amenities\", \"Secador de Cabello\", \"Jacuzzi\", \"Teléfono\"]\r\n', 'images/SuiteLujo1.jpg', 'images/SuiteLujo2.jpg', NULL),
+('Executive Suite', 'Experimenta el máximo confort y exclusividad en nuestra Executive Suite, diseñada para satisfacer las necesidades de los viajeros más exigentes. Disfruta de impresionantes vistas al mar desde tu habitación y descansa en una lujosa cama premium. La suite también cuenta con una amplia sala de estar independiente, perfecta para relajarte o para recibir a tus invitados. Además, tendrás acceso exclusivo al lounge ejecutivo, donde podrás disfrutar de servicios adicionales y atención personalizada. Y para empezar el día con energía, disfruta de un delicioso servicio de desayuno en la habitación.', '[\"TV LCD\", \"Minibar\", \"Caja Fuerte\", \"WIFI\", \"Cerradura Magnética\", \"Aire Acondicionado\", \"Habitación Climatizada\", \"Escritorio\", \"Microondas\", \"Artículos de Aseo\", \"Amenities\", \"Secador de Cabello\", \"Bañera\", \"Hidromasaje\", \"Teléfono\", \"Cafetera Nespresso\"]\r\n', 'images/Ejecutiva1.jpg', 'images/Ejecutiva2.jpg', 'images/Ejecutiva3.jpg'),
+('Junior Suite', 'Sumérgete en la comodidad de nuestra Junior Suite, donde el espacio generoso se combina con un ambiente acogedor. Disfruta de una amplia área de estar perfecta para relajarte, una cama King Size para un descanso reparador y un baño privado equipado con ducha y bañera. Además, encontrarás un mini bar para satisfacer tus antojos y acceso a internet de alta velocidad para mantenerte conectado durante tu estancia.', '[\"TV LCD\",\"Microondas\", \"Caja fuerte\", \"Cerradura Magnética\", \"WIFI\", \"Aire Acondicionado\", \"Minibar\", \"Habitación Climatizada\", \"Escritorio\", \"Artículos de Aseo\",\"Amenities\", \"Secador de Cabello\", \"Bañera\", \"Teléfono\"]\r\n', 'images/SuiteJunior1.jpg', 'images/SuiteJunior2.jpg', NULL),
+('Twin', 'Nuestra Twin Room ofrece una combinación perfecta de practicidad y confort. Con dos camas individuales, es ideal para amigos o familiares que prefieren tener su propio espacio para dormir. El baño privado cuenta con una maravillosa bañera apta para un relajante baño de inmersión, donde podrás liberar estrés y reponer energías, mientras que el escritorio de trabajo proporciona un espacio conveniente para trabajar o planificar tus actividades. También puedes disfrutar de entretenimiento con la televisión por cable y solicitar servicio de habitaciones las 24 horas para una experiencia aún más cómoda.', '[\"TV LCD\", \"Minibar\", \"Caja fuerte\", \"WIFI\", \"Cerradura Magnética\", \"Aire Acondicionado\", \"Habitación Climatizada\", \"Microondas\", \"Artículos de Aseo\", \"Amenities\", \"Secador de Cabello\", \"Bañera\", \"Teléfono\"]', 'images/Twin1.jpg', 'images/Twin2.jpg', NULL);
 
 --
 -- Índices para tablas volcadas
@@ -406,10 +413,17 @@ ALTER TABLE `cliente`
   ADD PRIMARY KEY (`id_cliente`);
 
 --
+-- Indices de la tabla `consultas`
+--
+ALTER TABLE `consultas`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indices de la tabla `habitaciones_disponibles`
 --
 ALTER TABLE `habitaciones_disponibles`
-  ADD PRIMARY KEY (`id_habitacion`);
+  ADD PRIMARY KEY (`id_habitacion`),
+  ADD KEY `habitaciones_disponibles_ibfk_1` (`nombre_habitacion`);
 
 --
 -- Indices de la tabla `ocupacion_hotel`
@@ -419,10 +433,11 @@ ALTER TABLE `ocupacion_hotel`
   ADD KEY `id_habitacion` (`id_habitacion`);
 
 --
--- Indexes for table resenas
+-- Indices de la tabla `resenas`
 --
-ALTER TABLE resenas
+ALTER TABLE `resenas`
   ADD PRIMARY KEY (`id_resena`);
+
 --
 -- Indices de la tabla `reserva`
 --
@@ -445,7 +460,13 @@ ALTER TABLE `tipos_habitaciones`
 -- AUTO_INCREMENT de la tabla `cliente`
 --
 ALTER TABLE `cliente`
-  MODIFY `id_cliente` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id_cliente` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
+--
+-- AUTO_INCREMENT de la tabla `consultas`
+--
+ALTER TABLE `consultas`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT de la tabla `habitaciones_disponibles`
@@ -457,19 +478,19 @@ ALTER TABLE `habitaciones_disponibles`
 -- AUTO_INCREMENT de la tabla `ocupacion_hotel`
 --
 ALTER TABLE `ocupacion_hotel`
-  MODIFY `id_ocupacion` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id_ocupacion` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
--- AUTO_INCREMENT for table resenas
+-- AUTO_INCREMENT de la tabla `resenas`
 --
 ALTER TABLE `resenas`
-  MODIFY `id_resena` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id_resena` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT de la tabla `reserva`
 --
 ALTER TABLE `reserva`
-  MODIFY `id_reserva` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id_reserva` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- Restricciones para tablas volcadas

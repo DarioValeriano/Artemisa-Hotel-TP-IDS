@@ -43,7 +43,7 @@ El propósito de este proyecto es proporcionar la lógica y las funciones necesa
 
 6. Configura la base de datos:
     - Abre PhpMyAdmin (o tu herramienta de gestión de MySQL preferida).
-    - Crea una nueva base de datos.
+    - Crea una nueva base de datos. La misma se tiene que llamar `proyecto_messi`.
     - Importa el archivo SQL desde la carpeta `sql` del proyecto. El archivo se llama `proyecto_messi.sql`
    
       # Instrucciones para importar la base de datos en PhpMyAdmin:

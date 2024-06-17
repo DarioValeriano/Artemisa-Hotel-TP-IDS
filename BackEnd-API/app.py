@@ -3,8 +3,8 @@ from flask_sqlalchemy import SQLAlchemy
 from sqlalchemy import create_engine
 from sqlalchemy import text
 from sqlalchemy.exc import SQLAlchemyError
-import requests
 from flask_cors import CORS
+import json
 
 PORT = 5001
 
@@ -99,7 +99,7 @@ def generar_reservas():
 def obtener_info_habitaciones():
     conn = set_connection()
 
-    query_obtener_info = "SELECT nombre, descripcion, amenities FROM tipos_habitaciones"
+    query_obtener_info = "SELECT * FROM tipos_habitaciones"
     
     try:
         result = conn.execute(text(query_obtener_info))
@@ -111,13 +111,49 @@ def obtener_info_habitaciones():
     
     for row in result:
         entity = {}
-        entity['nombre']: row['nombre']
-        entity['descripcion']: row['descripcion']
-        entity['amenities']: json.loads(row['amenities']) if row['amenities'] else None
+        entity['nombre']= row[0]
+        entity['descripcion']= row[1]
+        entity['amenities']= json.loads(row[2]) if row[2] else None
+        entity['ruta_imagen1']= row[3]
+        entity['ruta_imagen2']= row[4]
+        entity['ruta_imagen3']= row[5]
         data.append(entity)
 
-        return jsonify(data), 200
+    return jsonify(data), 200
+ 
+
+@app.route('/contenido_resenas', methods=['GET'])
+def obtener_contenido_resenas():
+    conn = set_connection()
+
+    query_obtener_info = "SELECT * FROM resenas"
+    query_promedio_satisfaccion = "SELECT AVG(satisfaccion) AS promedio_satisfaccion FROM resenas"
+    query_cantidad_resenas = "SELECT COUNT(*) AS cantidad_resenas FROM resenas"
     
+
+    try:
+        resenas = conn.execute(text(query_obtener_info)).fetchall()
+        promedio_satisfaccion_result = conn.execute(text(query_promedio_satisfaccion)).fetchone()[0] 
+        cantidad_resenas_result = conn.execute(text(query_cantidad_resenas)).fetchone()[0] 
+    
+        conn.close()
+    except SQLAlchemyError as err:
+        return jsonify({'message': 'Se ha producido un error en la base de datos: ' + str(err.__cause__)}), 500
+
+    data = []
+
+    for fila in resenas:
+        entity = {}
+        entity['id_resena'] = fila[0]
+        entity['nombre'] = fila[1]
+        entity['titulo_resena'] = fila[2]
+        entity['resena'] = fila[3]
+        entity['satisfaccion'] = fila[4]
+        data.append(entity)
+
+    return jsonify({'resenas': data, 'cantidad_resenas': cantidad_resenas_result, 'promedio_satisfaccion': promedio_satisfaccion_result}), 200
+
+
 @app.route('/generar_resenas', methods=['GET', 'POST'])
 def generar_resenas():
 
@@ -141,31 +177,30 @@ def generar_resenas():
     finally:
         conn.close()
 
-def insertar_usuario(conn, nombre, contact, email, message):
-    query = f"""INSERT INTO usuarios (nombre, telefono, email, message)
-                VALUES ('{nombre}', '{contact}', '{email}', '{message}');"""
-    result = conn.execute(text(query))
-    return result.lastrowid  
+def insertar_consulta(conn, name, contact, email, message):
+    query = """INSERT INTO consultas (name, contact, email, message)
+                    VALUES (:name, :contact, :email, :message)"""
+    conn.execute(text(query), {'name': name, 'contact': contact, 'email': email, 'message': message}) 
 
-@app.route('/crear_users',methods=['GET', 'POST'])
-def crear_users():
+@app.route('/crear_consulta')
+def crear_consulta():
     conn = set_connection()
-
     try:
-        data = request.get_json()
-        nombre = data.get('nombre')
+        data = request.json
+        name = data.get('name')
         contact = data.get('contact')
         email = data.get('email')
         message = data.get('message')
 
-        id_usuario = insertar_usuario(conn, nombre, contact, email, message)
+        insertar_consulta(conn, name, contact, email, message)
 
         conn.commit()
-        return jsonify({'message': 'Usuario creado exitosamente', 'id_usuario': id_usuario}), 201
-    except Exception as e:
-        return jsonify({'message': f'Error en el servidor: {str(e)}'}), 500
+        return jsonify({'message': 'Consulta enviada correctamente'}), 201
+    except Exception as err:
+        return jsonify({'message': f'Error en el servidor: {str(err)}'}), 500
     finally:
         conn.close()
+
 
 
 @app.route('/informacion_servicios', methods=['GET'])
@@ -187,56 +222,30 @@ def informacion_servicios():
     
     return jsonify(data)
 
-#@app.route('/users', methods = ['GET'])
-#def users():
-#    conn = engine.connect()
-#    query = "SELECT * FROM users;"
-#
-#    try:
-#
-#        result = conn.execute(text(query))
-#        conn.close() 
-#    except SQLAlchemyError as err:
-#        return jsonify(str(err.__cause__))
-#
-#   data = []
-#
-#   for row in result:
 
-#       entity = {}
-#       entity['id'] = row.id
-#       entity['name'] = row.name
-#       entity['email'] = row.email
-#       entity['message'] = row.message
-#       entity['contact'] = row.contact
-#       entity['created_at'] = row.created_at
-#       data.append(entity)
-#
-#
-#
-#   return jsonify(data), 200
-#
-#
-#
-#@app.route('/create_user', methods = ['POST'])
-#def create_user():
-#    conn = engine.connect()
-#    new_user = request.get_json()
-#    query = f"""INSERT INTO users (name, email, contact, message) VALUES ('{new_user["name"]}', '{new_user["email"]}', '{new_user["contact"]}', '{new_user["message"]}');"""
-#
-#   try:
-#
-#        result = conn.execute(text(query))
-#        conn.commit()
-#        conn.close()
-#
-#    except SQLAlchemyError as err:
-#
-#       return jsonify({'message': 'Se ha producido un error' + str(err.__cause__)})
-#
-#   
-#   return jsonify({'message': 'Nos contactaremos proximamente!'}), 201
 
+@app.route('/informacion_faq', methods=['GET'])
+def obtener_info_faq():
+    conn = set_connection()
+
+    query_obtener_info = "SELECT * FROM FAQ"
+    
+    try:
+        faq = conn.execute(text(query_obtener_info)).fetchall()
+        conn.close()
+    except SQLAlchemyError as err:
+        return jsonify({'message': 'Se ha producido un error en la base de datos: ' + str(err._cause_)}), 500
+
+    data = []
+    
+    for row in faq:
+        entity = {}
+        entity['ID'] = row[0]
+        entity['Pregunta'] = row[1]
+        entity['Respuesta'] = row[2]
+        data.append(entity)
+
+    return jsonify({'faq':data}), 200
 
 
 
