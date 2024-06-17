@@ -1,6 +1,7 @@
 from flask import Flask, render_template, jsonify, request, url_for, redirect
 import requests
 
+HOST_BACK = "http://127.0.0.1:5001"
 PORT = 8080
 
 app = Flask(__name__)
@@ -8,7 +9,7 @@ app = Flask(__name__)
 
 @app.route('/habitaciones')
 def habitaciones():
-    backend_url = 'http://127.0.0.1:5001/informacion_habitaciones'
+    backend_url = f"{HOST_BACK}/informacion_habitaciones"
     try:
         response = requests.get(backend_url)
         response.raise_for_status()
@@ -23,9 +24,9 @@ def habitaciones():
 def servicios():
     return render_template('servicios.html')
 
-@app.route('/contacto', methods=['GET', 'POST'])
+@app.route('/contacto', methods=['POST'])
 def contacto():
-    backend_url = 'http://127.0.0.1:5001/crear_consulta'
+    backend_url = f"{HOST_BACK}/crear_consulta"
     
     if request.method == 'POST':
         name = request.form['name']
@@ -52,7 +53,7 @@ def contacto():
 
 @app.route('/preguntas_frecuentes', methods=['GET'])
 def preguntas_frecuentes():
-    backend_url = 'http://127.0.0.1:5001/informacion_faq'
+    backend_url = f"{HOST_BACK}/informacion_faq"
     faq=[]
     try:
         response = requests.get(backend_url)
@@ -66,10 +67,9 @@ def preguntas_frecuentes():
 
     return render_template('preguntas_frecuentes.html', faq=faq)
 
-
 @app.route('/reservas', methods=['GET', 'POST'])
 def reservas():    
-    backend_url = 'http://127.0.0.1:5001/generar_reservas'  
+    backend_url = f"{HOST_BACK}/generar_reservas"
     
     if request.method == 'POST':
         nombre = request.form['nombre']
@@ -108,7 +108,7 @@ def reservas():
 
 @app.route('/', methods=['GET', 'POST'])
 def home():
-    backend_url = 'http://127.0.0.1:5001/contenido_resenas'
+    backend_url = f"{HOST_BACK}/contenido_resenas"
     resenas = []
     promedio_satisfaccion = 0
     cantidad_resenas = 0
@@ -125,7 +125,7 @@ def home():
 
 
     if request.method == 'POST':
-        backend_url = 'http://127.0.0.1:5001/generar_resenas'
+        backend_url = f"{HOST_BACK}/generar_resenas"
         nombre = request.form['nombre']
         titulo_resena = request.form['titulo_resena']
         resena = request.form['resena']
