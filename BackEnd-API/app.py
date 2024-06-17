@@ -99,7 +99,7 @@ def generar_reservas():
 def obtener_info_habitaciones():
     conn = set_connection()
 
-    query_obtener_info = "SELECT nombre, descripcion, amenities FROM tipos_habitaciones"
+    query_obtener_info = "SELECT * FROM tipos_habitaciones"
     
     try:
         result = conn.execute(text(query_obtener_info))
@@ -114,6 +114,9 @@ def obtener_info_habitaciones():
         entity['nombre']= row[0]
         entity['descripcion']= row[1]
         entity['amenities']= json.loads(row[2]) if row[2] else None
+        entity['ruta_imagen1']= row[3]
+        entity['ruta_imagen2']= row[4]
+        entity['ruta_imagen3']= row[5]
         data.append(entity)
 
     return jsonify(data), 200
