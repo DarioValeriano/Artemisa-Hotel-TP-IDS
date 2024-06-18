@@ -1,56 +1,42 @@
-let habitaciones = document.getElementsByClassName('habitacion')
-const largoMaximo = 150
+const LARGO_MAXIMO = 150
 
-
-function agregarClasePorElemento(lista, clase){
-    for (let i = 0; i < lista.length; i++) {
-        let elemento = lista[i];
-        elemento.classList.add(clase) 
+function asignarResumenDeDescripcion(resumen, descripcion){
+    if( descripcion.innerHTML.length > LARGO_MAXIMO){
+        resumen.innerHTML = descripcion.innerHTML.substring(0, LARGO_MAXIMO) + '...'
+    } else {
+        resumen.innerHTML = descripcion.innerHTML
     }
 }
 
-function eliminarClasePorElemento(lista, clase){
-    for (let i = 0; i < lista.length; i++) {
-        let elemento = lista[i];
-        elemento.classList.remove(clase) 
-    }
-}
+function main(){
+    let habitaciones = document.getElementsByClassName('habitacion')
 
-for (let i = 0; i < habitaciones.length; i++) {
-    let habitacion = habitaciones[i]
-    let botonLeerMas = habitacion.querySelector('.leer-mas')
-    let botonCerrarInfo = habitacion.querySelector('.cerrar-info-boton')
-    let bloqueInfoH = habitacion.querySelector('.bloque-informacion-h')
-    let descripciones = habitacion.getElementsByClassName('texto-descripcion')
-    let resumenes = habitacion.getElementsByClassName('mini-descripcion')
-    let imagenes = habitacion.querySelectorAll('#imagenes_carrusel_galeria')
+    for (let i = 0; i < habitaciones.length; i++) {
+        let habitacion = habitaciones[i]
+        let botonLeerMas = habitacion.querySelector('.leer-mas')
+        let botonCerrarInfo = habitacion.querySelector('.cerrar-info-boton')
+        let bloqueInfoH = habitacion.querySelector('.bloque-informacion-h')
+        let descripcion = habitacion.querySelector('.texto-descripcion')
+        let resumen = habitacion.querySelector('.mini-descripcion')
 
-    agregarClasePorElemento(imagenes, 'ajuste-height')
-
-    for (let k = 0; k < descripciones.length; k++) {
-        let descripcion = descripciones[k];
-        let resumen = resumenes[k]
-        if( descripcion.innerHTML.length > largoMaximo){
-            resumen.innerHTML = descripcion.innerHTML.substring(0, largoMaximo) + '...'
-        } else {
-            resumen.innerHTML = descripcion.innerHTML
-        }
+        asignarResumenDeDescripcion(resumen, descripcion)
         
-    }
-
-    botonLeerMas.addEventListener('click', () => {
-        eliminarClasePorElemento(imagenes, 'ajuste-height')
-        bloqueInfoH.style.display = 'flex'
-
-        setTimeout(()=>{
-            bloqueInfoH.classList.add('mostrar')
-        }, 5)
-    })
+        botonLeerMas.addEventListener('click', () => {
+            bloqueInfoH.style.display = 'flex'
+            setTimeout(()=>{
+                bloqueInfoH.classList.add('mostrar')
+            }, 5)
+        })
+        
+        botonCerrarInfo.addEventListener('click', () => {
+            bloqueInfoH.style.display = 'none'
+        })
     
-    botonCerrarInfo.addEventListener('click', () => {
-        bloqueInfoH.style.display = 'none'
-        agregarClasePorElemento(imagenes, 'ajuste-height')
-    })
-
+    }
 }
+
+main();
+
+
+
 
