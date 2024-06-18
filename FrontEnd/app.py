@@ -29,7 +29,7 @@ def habitaciones():
 
 @app.route('/servicios')
 def servicios():
-    backend_url = 'http://127.0.0.1:5001/informacion_servicios'
+    backend_url = f"{HOST_BACK}/informacion_servicios"
     servicios= []
     try:
         response = requests.get(backend_url)
