@@ -1,10 +1,10 @@
 document.addEventListener('DOMContentLoaded', function () {
-    var modal = document.getElementById('modal');
-    var modal_formulario = document.getElementById('modal_formulario');
-    var disparador_modal = document.getElementById('disparador_modal');
-    var disparador_formulario = document.getElementById('disparador_formulario');
-    var cerrar_modal = document.getElementById('cerrar_modal');
-    var cerrar_modal_formulario = document.getElementById('cerrar_modal_formulario');
+    let modal = document.getElementById('modal');
+    let modal_formulario = document.getElementById('modal_formulario');
+    let disparador_modal = document.getElementById('disparador_modal');
+    let disparador_formulario = document.getElementById('disparador_formulario');
+    let cerrar_modal = document.getElementById('cerrar_modal');
+    let cerrar_modal_formulario = document.getElementById('cerrar_modal_formulario');
 
     disparador_modal.addEventListener('click', function () {
         modal.style.display = 'block';
@@ -19,17 +19,6 @@ document.addEventListener('DOMContentLoaded', function () {
     cerrar_modal_formulario.addEventListener('click', function () {
         modal_formulario.style.display = 'none';
         
-    });
-
-    window.addEventListener('click', function (event) {
-        if (event.target == modal) {
-            modal.style.display = 'none';
-        }
-    });
-    window.addEventListener('click', function (event) {
-        if (event.target == modal_formulario) {
-            modal_formulario.style.display = 'none';
-        }
     });
 
     let contenedor_valoracion_total = document.getElementById('valoracion_promedio');
