@@ -715,7 +715,7 @@ button:hover {
     text-align: justify;
 }
 
-#carrusel_piscina, #carrusel_cafeteria, #carrusel_flamingo, #carrusel_restaurant_noche, #carrusel_spa, #carrusel_petcare {
+#carrusel_servicios_0, #carrusel_servicios_1, #carrusel_servicios_2, #carrusel_servicios_3, #carrusel_servicios_4, #carrusel_servicios_5 {
     max-height: auto;
     width: 550px;
 }

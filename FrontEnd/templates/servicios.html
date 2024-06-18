@@ -20,98 +20,53 @@
 
 <h2 class="titulo_presentacion"> Servicios y Amenities</h2>
 
+{% for servicio in servicios %}
+{% if loop.index0 % 2 == 0 %}
 <div class="contenedor_servicios">
     <div class="caja_servicio_izquierda">
-        <h3 class="nombre_servicio_izquierda">{{servicios[0].nombre_servicio}}</h3>
-        <p class="texto_servicio_izquierda">{{servicios[0].descripcion_servicio}}
+        <h3 class="nombre_servicio_izquierda">{{servicio.nombre_servicio}}</h3>
+        <p class="texto_servicio_izquierda">{{servicio.descripcion_servicio}} 
         </p>
     </div>
     <div class="caja_servicio_derecha">
-        {% with nombre_carrusel='carrusel_piscina', 
-        imagenes=['/images/pileta3.webp', '/images/pileta1.jpg','/images/pileta2.jpg'], cantidad_diapositivas=3 , tipo_imagen='imagenes_carruseles_servicio', pasadores=True %}
-        {% include 'carrusel.html' %}
+        {% with nombre_carrusel='carrusel_servicios_' ~ loop.index0,
+                            imagenes=[], cantidad_diapositivas=0, tipo_imagen='imagenes_carruseles_servicio', pasadores=True %}
+                            {% for i in range(1, 4) %}
+                                {% set ruta_imagen = 'ruta_imagen' ~ i %}
+                                {% if servicio[ruta_imagen] is not none %}
+                                    {% set _ = imagenes.append(servicio[ruta_imagen]) %}
+                                {% endif %}
+                            {% endfor %}
+                            {% set cantidad_diapositivas = imagenes|length %}
+                    {% include 'carrusel.html' %}
         {% endwith %}
     </div>
 </div>
-
-<hr class="divider">
-
+{% else %}
 <div class="contenedor_servicios">
     <div class="caja_servicio_izquierda ">
-        {% with nombre_carrusel='carrusel_restaurant_noche', 
-        imagenes=['/images/restaurante2.jpg', '/images/restaurante3.jpg'], cantidad_diapositivas=2 , tipo_imagen='imagenes_carruseles_servicio', pasadores=True %} 
-        {% include 'carrusel.html' %}
+        {% with nombre_carrusel='carrusel_servicios_' ~ loop.index0,
+                            imagenes=[], cantidad_diapositivas=0, tipo_imagen='imagenes_carruseles_servicio', pasadores=True %}
+                            {% for i in range(1, 4) %}
+                                {% set ruta_imagen = 'ruta_imagen' ~ i %}
+                                {% if servicio[ruta_imagen] is not none %}
+                                    {% set _ = imagenes.append(servicio[ruta_imagen]) %}
+                                {% endif %}
+                            {% endfor %}
+                            {% set cantidad_diapositivas = imagenes|length %}
+                    {% include 'carrusel.html' %}
         {% endwith %}
     </div>
     <div class="caja_servicio_derecha">
-        <h3 class="nombre_servicio_derecha">{{servicios[1].nombre_servicio}}</h3>
-        <p class="texto_servicio_derecha">{{servicios[1].descripcion_servicio}}
+        <h3 class="nombre_servicio_derecha">{{servicio.nombre_servicio}}</h3>
+        <p class="texto_servicio_derecha"> {{servicio.descripcion_servicio}}
         </p>
     </div>
-</div>
+</div>  
+{% endif %}
 
 <hr class="divider">
 
-<div class="contenedor_servicios">
-    <div class="caja_servicio_izquierda ">
-        <h3 class="nombre_servicio_izquierda">{{servicios[2].nombre_servicio}}</h3>
-        <p class= "texto_servicio_izquierda">{{servicios[2].descripcion_servicio}}
-        </p>
-    </div>
-    <div class="caja_servicio_derecha">
-        {% with nombre_carrusel='carrusel_cafeteria', 
-        imagenes=['/images/restaurante1.jpg', '/images/restaurante4.jpeg'], cantidad_diapositivas=2 , tipo_imagen='imagenes_carruseles_servicio', pasadores=True %} 
-        {% include 'carrusel.html' %}
-        {% endwith %}
-    </div>
-</div>
-
-<hr class="divider">
-
-<div class="contenedor_servicios">
-    <div class="caja_servicio_izquierda ">
-        {% with nombre_carrusel='carrusel_spa', 
-        imagenes=['/images/spa1.jpg', '/images/spa2.jpg', '/images/spa3.jpg'], cantidad_diapositivas=3 , tipo_imagen='imagenes_carruseles_servicio', pasadores=True %}
-        {% include 'carrusel.html' %}
-        {% endwith %}
-    </div>
-    <div class="caja_servicio_derecha">
-        <h3 class="nombre_servicio_derecha">{{servicios[3].nombre_servicio}}</h3>
-        <p class="texto_servicio_derecha" > {{servicios[3].descripcion_servicio}}
-        </p>
-    </div>
-</div>
-
-<hr class="divider">
-
-<div class="contenedor_servicios">
-    <div class="caja_servicio_izquierda ">
-        <h3 class="nombre_servicio_izquierda">{{servicios[4].nombre_servicio}}</h3>
-        <p class= "texto_servicio_izquierda"> {{servicios[4].descripcion_servicio}}
-        </p>
-    </div>
-    <div class="caja_servicio_derecha">
-        {% with nombre_carrusel='carrusel_flamingo', 
-                imagenes=['/images/flamingo1.jpg', '/images/flamingo2.jpg'], cantidad_diapositivas=2 , tipo_imagen='imagenes_carruseles_servicio', pasadores=True %}
-            {% include 'carrusel.html' %}
-        {% endwith %}
-    </div>
-</div> 
-
-<hr class="divider">
-
-<div class="contenedor_servicios">
-    <div class="caja_servicio_izquierda ">
-        {% with nombre_carrusel='carrusel_petcare', 
-        imagenes=['images/petCare2.jpg','images/petCare1.jpg', 'images/petCare3.jpg'], cantidad_diapositivas=3 , tipo_imagen='imagenes_carruseles_servicio', pasadores=True %}
-        {% include 'carrusel.html' %}
-        {% endwith %}
-    </div>
-    <div class="caja_servicio_derecha">
-        <h3 class="nombre_servicio_derecha">{{servicios[5].nombre_servicio}}</h3>
-        <p class="texto_servicio_derecha"> {{servicios[5].descripcion_servicio}}
-        </p>
-    </div>
-</div> 
+{% endfor %}
 
 {% endblock %}
