@@ -1,6 +1,19 @@
 version: '3'
 
+
+
 services:
+
+  db:
+    image: mysql:latest
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: proyecto_messi
+    ports:
+      - "3306:3306"
+    volumes:
+      - ./BackEnd-API/proyecto_messi.sql:/docker-entrypoint-initdb.d/proyecto_messi.sql
+
   frontend:
     build:
       context: ./FrontEnd
