@@ -8,11 +8,11 @@ app = Flask(__name__)
 
 @app.errorhandler(404)
 def page_not_found(e):
-    return render_template('error.html'),404
+    return render_template('error404.html'),404
 
 @app.errorhandler(500)
 def page_not_found(e):
-    return render_template('error.html'),500
+    return render_template('error500.html'),500
     
 @app.route('/habitaciones')
 def habitaciones():
