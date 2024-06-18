@@ -23,7 +23,7 @@
                         tipo_imagen='imagenes_carrusel_galeria', 
                         pasadores=True 
                     %}
-                        {% for i in range(1, 3) %}
+                        {% for i in range(0, 3) %}
                             {% set ruta_imagen = 'ruta_imagen' ~ loop.index %}
                             {% if habitacion[ruta_imagen]  is not none %}
                                 {% set _ = imagenes.append(habitacion[ruta_imagen]) %}
@@ -50,7 +50,7 @@
                                 tipo_imagen='imagenes_carrusel_galeria', 
                                 pasadores=True 
                             %}
-                                {% for i in range(1, 3) %}
+                                {% for i in range(0, 3) %}
                                     {% set ruta_imagen = 'ruta_imagen' ~ loop.index %}
                                     {% if habitacion[ruta_imagen]  is not none %}
                                         {% set _ = imagenes.append(habitacion[ruta_imagen]) %}
