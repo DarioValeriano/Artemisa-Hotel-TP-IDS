@@ -48,8 +48,7 @@ header img {
     color:#8d7140;
 }
 
-/*Preguntas Frecuentes*/
-
+/*Contenedores de imagenes generales*/
 #contenedor_imagen,#reservas_imagen,#contacto_imagen{
     width: 100%;
     height: 300px;
@@ -57,6 +56,9 @@ header img {
     background-size: 100%;
     background-position: center;
 }
+
+/*Preguntas Frecuentes*/
+
 #contenedor_imagen{
     background-image: url("/static/images/PlazaComún.jpg");
 }
@@ -93,6 +95,9 @@ header img {
 
 #preguntas_frecuentes button{
     margin: 20px auto;
+}
+#preguntas_frecuentes a{
+    margin: 0% 15%;
 }
 
 /*Contacto*/
@@ -144,13 +149,14 @@ header img {
 
 #boton_enviar button[type="submit"] {
     width: 30%;
-    background-color:#0a4b2b; 
-    color:#fdf2d4;
+    background-color: #ffffff;
+    color: #8d7140;
     font-family:"Cinzel", serif ;
     cursor: pointer;
     border-radius: 10px; 
     padding:15px 15px; 
     margin: 0px 35%;
+    font-weight: bold;
 }
     
 .mapa {
@@ -162,8 +168,7 @@ header img {
 }
 
 .informacion-contacto {
-    margin-top: 50px;
-    margin-bottom: 50px;
+    margin: 50px auto;
     display: flex;
     justify-content: space-around;
     align-items: center;
@@ -177,7 +182,6 @@ header img {
 
 .info{
     width: fit-content; 
-    font-size:medium;
     font-family:"Cinzel", serif;
     color: #fdf2d4;
     background-color:#8d7140; 
@@ -290,14 +294,12 @@ header img {
     padding-right: 50px;
 }
 
-.imagen_servicio_home_derecha { 
+.imagen_servicio_home_derecha,.texto_complementario_derecha { 
     padding-left: 50px; 
     padding-right: 80px;
 }
 
 .texto_complementario_derecha{ 
-    padding-left: 50px; 
-    padding-right: 80px;
     padding-top: 20px;
     text-align: justify;
 }
@@ -336,7 +338,7 @@ header img {
     margin: 0px 30%;
 }
 
-button:hover {
+button:hover, #boton_resenas:hover,#boton_enviar button[type="submit"]:hover,#boton_error:hover{
     background-color: #05a542; 
     color: #ffffff;
 }
@@ -423,6 +425,7 @@ button:hover {
 #nav_secundario button{
     margin: 0px;
 }
+
 #nav_secundario a{
     font-family: "Noto Sans", sans-serif;
     font-weight: 400;
@@ -430,6 +433,134 @@ button:hover {
     font-size: medium;
 }
 
+.hidden {
+    display: none;
+}
+
+.content {
+    margin: 20px;
+}
+
+#open-modal {
+    margin-top: 10px;
+    padding: 10px;
+    font-size: 16px;
+}
+
+.modal{
+    top:0;
+    bottom: 0;
+    left:0;
+    right: 0;
+}
+    
+#modal_formulario{
+    width: fit-content;
+    height: fit-content;
+    margin: auto;
+}
+
+#modal .modal-content {
+    background: #fdf2d4;
+    margin: auto;
+    padding: 0;
+    width: 60%;
+    border: 1px solid #888;
+    max-height: 80vh; 
+    overflow: auto;
+}
+
+.modal-header {
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+    background-color: #f1f1f1;
+    border-bottom: 1px solid #e5e5e5;
+}
+
+#modal .modal-header h2 {
+    margin: 0;
+}
+.modal-header{
+    background-color:#8d7140;
+}
+
+.close {
+    color: #aaa;
+    font-size: 28px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.close:hover,
+.close:focus {
+    color: black;
+    text-decoration: none;
+}
+
+#modal .modal-body {
+    padding: 20px;
+}
+
+
+#titulo_ventana_modal{
+    padding-top: 5px;
+    font-family: "Cinzel", serif;
+    font-weight: 700;
+    font-size:large;
+    color:#fdf2d4;
+}
+
+#disparador_modal,#disparador_formulario{
+    cursor: pointer;
+    text-decoration: underline;
+    font-size:medium;
+}
+
+#disparador_modal:hover,#disparador_formulario:hover{
+    font-weight: bold;
+    color: black;
+}
+.valoracion_resena{
+   justify-content: space-between;
+}
+
+.bloque_resena {
+    width: 100%; 
+    text-align: start; 
+    display: flex;
+    align-items: center; 
+    padding: 2% 5%;
+    color:#8d7140;
+}
+
+.contenedor_general_datos{
+    width:50%;
+}
+.contenedor_nombre{
+    width: 40%; 
+}
+.contenedor_titulo_resena{
+    font-family: "Cinzel", serif;
+    font-weight: 700;
+    font-size:large;
+}
+
+/*Error*/
+
+#boton_error{
+    width: 20%;
+    margin:50px 40%;
+    padding: 10px;
+    text-align: center;
+    background-color: #0a4b2b;
+    color: #ffffff;
+    font-family: "Cinzel", serif;
+    border-radius: 10px;
+    font-weight: 600;
+}
 /* Habitaciones */
 
 .portada-habitaciones{
@@ -625,7 +756,6 @@ button:hover {
     flex-wrap: wrap;
     justify-content: space-between;
     margin-bottom: 0;
-    font-family: "Cinzel", serif
 }
 
 .amenities-h ul li{
@@ -743,139 +873,4 @@ footer{
 }
 footer p{
     margin-bottom: 0px;
-}
-
-
-/*
-prueba
-*/
-
-.hidden {
-    display: none;
-}
-
-.content {
-    margin: 20px;
-}
-
-#open-modal {
-    margin-top: 10px;
-    padding: 10px;
-    font-size: 16px;
-}
-
-.modal{
-    top:0;
-    bottom: 0;
-    left:0;
-    right: 0;
-}
-    
-#modal_formulario{
-    width: fit-content;
-    height: fit-content;
-    margin: auto;
-}
-
-#modal .modal-content {
-    background: #fdf2d4;
-    margin: auto;
-    padding: 0;
-    width: 60%;
-    border: 1px solid #888;
-    max-height: 80vh; 
-    overflow: auto;
-}
-
-.modal-header {
-    display: flex;
-    width: 100%;
-    justify-content: space-between;
-    align-items: center;
-    padding: 10px 20px;
-    background-color: #f1f1f1;
-    border-bottom: 1px solid #e5e5e5;
-}
-
-#modal .modal-header h2 {
-    margin: 0;
-}
-.modal-header{
-    background-color:#8d7140;
-}
-
-.close {
-    color: #aaa;
-    font-size: 28px;
-    font-weight: bold;
-    cursor: pointer;
-}
-
-.close:hover,
-.close:focus {
-    color: black;
-    text-decoration: none;
-}
-
-#modal .modal-body {
-    padding: 20px;
-}
-
-
-#titulo_ventana_modal{
-    padding-top: 5px;
-    font-family: "Cinzel", serif;
-    font-weight: 700;
-    font-size:large;
-    color:#fdf2d4;
-}
-
-#disparador_modal,#disparador_formulario{
-    cursor: pointer;
-    text-decoration: underline;
-    font-size:medium;
-}
-
-#disparador_modal:hover,#disparador_formulario:hover{
-    font-weight: bold;
-    color: black;
-}
-.valoracion_resena{
-   justify-content: space-between;
-}
-
-.bloque_resena {
-    width: 100%; 
-    text-align: start; 
-    display: flex;
-    align-items: center; 
-    padding: 2% 5%;
-    color:#8d7140;
-}
-
-.contenedor_general_datos{
-    width:50%;
-}
-.contenedor_nombre{
-    width: 40%; 
-}
-.contenedor_titulo_resena{
-    font-family: "Cinzel", serif;
-    font-weight: 700;
-    font-size:large;
-}
-
-#boton_error{
-    
-    margin-left:530px;
-    padding: 10px;
-    text-align: center;
-    background-color: #0a4b2b;
-    color: #ffffff;
-    font-family: "Cinzel", serif;
-    font-size: medium;
-    border-radius: 10px;
-    font-weight: 600;
-    margin-top: 50px;
-    margin-bottom: 50px;
 }
