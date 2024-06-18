@@ -547,7 +547,11 @@ button:hover, #boton_resenas:hover,#boton_enviar button[type="submit"]:hover,#bo
     font-weight: 700;
     font-size:large;
 }
-
+form input, form textarea{
+    border-radius: 20px;
+    border: 2px solid #678677;
+    background-color: #fdf2d4;
+}
 /*Error*/
 
 #boton_error{

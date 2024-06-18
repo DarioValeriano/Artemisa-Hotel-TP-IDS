@@ -30,7 +30,6 @@ def habitaciones():
 @app.route('/servicios')
 def servicios():
     backend_url = f"{HOST_BACK}/informacion_servicios"
-    servicios= []
     try:
         response = requests.get(backend_url)
         response.raise_for_status()
@@ -69,7 +68,6 @@ def contacto():
 @app.route('/preguntas_frecuentes', methods=['GET'])
 def preguntas_frecuentes():
     backend_url = f"{HOST_BACK}/informacion_faq"
-    faq=[]
     try:
         response = requests.get(backend_url)
         response.raise_for_status()
