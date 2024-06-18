@@ -201,6 +201,37 @@ header img {
     margin-top: 0px;
 }
 
+/* Reserva Exitosa */
+.container {
+    text-align: center;
+    background: white;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    width: 50%;
+    margin: 50px auto;
+}
+
+.message {
+    margin-bottom: 20px;
+}
+
+.button {
+    display: inline-block;
+    padding: 10px 20px;
+    font-size: 16px;
+    text-decoration: none;
+    color: white;
+    background-color: #8d7140;
+    border-radius: 5px;
+    font-family: "Cinzel", serif;
+}
+
+.button:hover {
+    background-color: #05a542;
+    color: white;
+}
+
 /*Home*/
 
 #carrusel_principal{
