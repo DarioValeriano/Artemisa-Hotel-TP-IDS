@@ -1,10 +1,8 @@
 {% extends "base.html" %}
 {% block body %}
-   <div id="preguntas_frecuentes">
-      <div id="contenedor_imagen">
-         
-      </div>
-
+   
+<div id="preguntas_frecuentes">
+   <div id="contenedor_imagen"></div>
       <div id="contenedor_secundario">
          <h2>Nuestro objetivo es hacer que su estandía con nosotros sea lo más agradable posible.</h2>
          <p>
@@ -30,6 +28,7 @@
             </div>
          </div>      
       {% endfor %}
+      
       <a href="{{ url_for('contacto')}}">
          <button type="button" class="boton">Hacer otra consulta</button>
       </a>

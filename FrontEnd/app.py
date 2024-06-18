@@ -17,6 +17,7 @@ def page_not_found(e):
 @app.route('/habitaciones')
 def habitaciones():
     backend_url = f"{HOST_BACK}/informacion_habitaciones"
+
     try:
         response = requests.get(backend_url)
         response.raise_for_status()
@@ -30,12 +31,15 @@ def habitaciones():
 @app.route('/servicios')
 def servicios():
     backend_url = f"{HOST_BACK}/informacion_servicios"
+
     try:
         response = requests.get(backend_url)
         response.raise_for_status()
         servicios = response.json()
+
     except requests.exceptions.RequestException as e:
         print(e)
+
     return render_template('servicios.html', servicios=servicios)
 
 @app.route('/contacto', methods=['GET','POST'])
@@ -60,6 +64,7 @@ def contacto():
         try:
             response = requests.post(backend_url, json=informacion, headers=headers)
             response.raise_for_status()
+
         except requests.exceptions.RequestException as err:
             print (err)
 
@@ -68,6 +73,7 @@ def contacto():
 @app.route('/preguntas_frecuentes', methods=['GET'])
 def preguntas_frecuentes():
     backend_url = f"{HOST_BACK}/informacion_faq"
+
     try:
         response = requests.get(backend_url)
         response.raise_for_status()
@@ -76,7 +82,6 @@ def preguntas_frecuentes():
 
     except requests.exceptions.RequestException as e:
         print(e)
-
 
     return render_template('preguntas_frecuentes.html', faq=faq)
 
@@ -134,9 +139,9 @@ def home():
         resenas = datos_resena.get('resenas', [])
         promedio_satisfaccion = datos_resena.get('promedio_satisfaccion', 0)
         cantidad_resenas = datos_resena.get('cantidad_resenas', 0)
+
     except requests.exceptions.RequestException as e:
         print(e)
-
 
     if request.method == 'POST':
         backend_url = f"{HOST_BACK}/generar_resenas"
@@ -157,8 +162,10 @@ def home():
         try:
             response = requests.post(backend_url, json=resena_info, headers=headers)
             response.raise_for_status()
+
         except requests.exceptions.RequestException as e:
             print(e)
+
         return redirect(url_for('home'))
     
     if promedio_satisfaccion is not None:
@@ -166,9 +173,7 @@ def home():
     else:
         promedio_redondeado = 0
 
-
     return render_template('home.html', resenas=resenas, promedio_satisfaccion= promedio_redondeado, cantidad_resenas=cantidad_resenas)
-
 
 if __name__ == '__main__':
     app.run(debug=True, port=PORT)
