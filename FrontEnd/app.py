@@ -113,7 +113,8 @@ def reservas():
             response = requests.post(backend_url, json=informacion, headers=headers)
             response.raise_for_status()
             data = response.json()
-
+            return render_template('reserva_exitosa.html')
+        
         except requests.exceptions.RequestException as e:
             print(e)
 
